@@ -10,7 +10,6 @@ from gateway.api.auth.jwt_handler import verify_token
 
 router = APIRouter(prefix="/admin")
 
-
 @router.post("/upload")
 async def upload_pdf(
     file: UploadFile = File(...),
