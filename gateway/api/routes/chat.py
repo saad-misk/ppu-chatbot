@@ -1,31 +1,20 @@
 import httpx
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Body
 from sqlalchemy.orm import Session as DBSession
 
+from shared.config.settings import settings
+from shared.schemas.message import ProcessRequest, ProcessResponse, FeedbackRequest
 from gateway.storage.db import get_db
 from gateway.storage import chat_repo
+from gateway.api.auth.jwt_handler import verify_token
+from gateway.api.middleware.rate_limiter import check_rate_limit
+from gateway.api.middleware.session import get_valid_session
+from gateway.api.middleware.validator import validate_message
 
 router = APIRouter()
 
 
-def get_settings():
-    from shared.config.settings import settings
-    return settings
-
-
-def get_schemas():
-    from shared.schemas.message import (
-        ProcessRequest,
-        ProcessResponse,
-        FeedbackRequest,
-    )
-    return ProcessRequest, ProcessResponse, FeedbackRequest
-
-
-async def call_nlp_engine(request):
-    ProcessRequest, ProcessResponse, _ = get_schemas()
-    settings = get_settings()
-
+async def call_nlp_engine(request: ProcessRequest) -> ProcessResponse:
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
             response = await client.post(
@@ -34,7 +23,6 @@ async def call_nlp_engine(request):
             )
             response.raise_for_status()
             return ProcessResponse(**response.json())
-
     except Exception:
         return ProcessResponse(
             reply="This is a mock reply. NLP engine is not connected yet.",
@@ -42,6 +30,7 @@ async def call_nlp_engine(request):
             confidence=0.99,
             sources=[],
         )
+
 
 @router.post("/sessions/new")
 def new_session(channel: str = "web", db: DBSession = Depends(get_db)):
@@ -54,7 +43,6 @@ def delete_session(session_id: str, db: DBSession = Depends(get_db)):
     session = chat_repo.get_session(db, session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
-
     chat_repo.delete_session(db, session_id)
     return {"message": "Session deleted"}
 
@@ -64,10 +52,11 @@ async def send_message(
     session_id: str,
     message: str,
     db: DBSession = Depends(get_db),
+    _rate: None = Depends(check_rate_limit),
+    _session = Depends(get_valid_session),
+    _token: dict = Depends(verify_token),
 ):
-    ProcessRequest, _, _ = get_schemas()
-    settings = get_settings()
-
+    message = validate_message(message)
     session = chat_repo.get_session(db, session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -101,9 +90,9 @@ async def send_message(
         "intent": nlp_response.intent,
         "confidence": nlp_response.confidence,
         "sources": nlp_response.sources,
-        "low_confidence": nlp_response.confidence
-        < settings.CONFIDENCE_THRESHOLD,
+        "low_confidence": nlp_response.confidence < settings.CONFIDENCE_THRESHOLD,
     }
+
 
 @router.get("/chat/history/{session_id}")
 def get_history(session_id: str, db: DBSession = Depends(get_db)):
@@ -112,7 +101,6 @@ def get_history(session_id: str, db: DBSession = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Session not found")
 
     turns = chat_repo.get_history(db, session_id)
-
     return {
         "session_id": session_id,
         "turns": [
@@ -130,14 +118,11 @@ def get_history(session_id: str, db: DBSession = Depends(get_db)):
 
 
 @router.post("/chat/feedback")
-def submit_feedback(payload, db: DBSession = Depends(get_db)):
-    _, _, FeedbackRequest = get_schemas()
-
+def submit_feedback(payload: FeedbackRequest = Body(...), db: DBSession = Depends(get_db)):
     fb = chat_repo.save_feedback(
         db,
         turn_id=payload.message_id,
         rating=payload.rating,
         comment=payload.comment,
     )
-
     return {"feedback_id": fb.id, "status": "saved"}
