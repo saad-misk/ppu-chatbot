@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPU Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo-area">
+            <img
+              src="static/images/ppu-logo.png"
+              alt="PPU Logo"
+              style="
+                width: 70px;
+                height: 60px;
+                object-fit: contain;
+                background: white;
+                border-radius: 8px;
+                padding: 4px;
+              "
+            />
+            <div class="logo-text">
+              <span class="brand">PPU Assistant</span>
+              <span class="sub">Palestine Polytechnic University</span>
+            </div>
+          </div>
+          <button id="new-chat-btn">+ New Chat</button>
+        </div>
+
+        <div class="sidebar-sessions">
+          <div class="sessions-label" id="sessions-label">Recent Chats</div>
+          <div id="sessions-list"></div>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="lang-toggle">
+            <button
+              class="lang-btn active"
+              data-lang="en"
+              onclick="setLang('en')"
+            >
+              EN
+            </button>
+            <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">
+              ع
+            </button>
+          </div>
+          <span class="ppu-badge" id="ppu-badge">PPU © 2026</span>
+        </div>
+      </aside>
+
+      <div id="main">
+        <div id="topbar">
+          <div class="topbar-left">
+            <div class="bot-avatar">🤖</div>
+            <div class="topbar-title">
+              <span class="name">PPU Smart Assistant</span>
+              <span class="status">
+                <span class="status-dot"></span>
+                <span id="bot-status">Online</span>
+              </span>
+            </div>
+          </div>
+          <div class="topbar-right">
+            <button
+              class="icon-btn"
+              title="Clear chat"
+              onclick="startNewSession()"
+            >
+              🗑️
+            </button>
+          </div>
+        </div>
+
+        <div id="messages"></div>
+
+        <div id="input-area">
+          <div class="input-box">
+            <textarea
+              id="msg-input"
+              rows="1"
+              placeholder="Ask about fees, schedules, registration…"
+            ></textarea>
+            <button id="send-btn" disabled>➤</button>
+          </div>
+          <div class="input-footer">
+            <span class="input-hint" id="input-hint"
+              >Press Enter to send · Shift+Enter for new line</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="chat.js"></script>
+  </body>
+</html>
