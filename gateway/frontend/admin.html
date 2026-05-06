@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPU Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --navy: #1b3a6b;
+        --navy-mid: #22457e;
+        --navy-light: #2d5899;
+        --maroon: #7b1e3b;
+        --surface: #f4f5f7;
+        --surface-2: #eceef2;
+        --border: rgba(27, 58, 107, 0.1);
+        --border-strong: rgba(27, 58, 107, 0.18);
+        --text: #1a202c;
+        --text-muted: #64748b;
+        --white: #ffffff;
+        --green: #16a34a;
+        --green-bg: #dcfce7;
+        --green-border: #bbf7d0;
+        --red: #dc2626;
+        --red-bg: #fee2e2;
+        --red-border: #fecaca;
+        --sidebar-width: 216px;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--surface);
+        color: var(--text);
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+      }
+
+      /* ── SIDEBAR ── */
+      #sidebar {
+        width: var(--sidebar-width);
+        background: var(--navy);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        height: 100vh;
+        position: relative;
+        z-index: 10;
+      }
+
+      .sb-logo {
+        padding: 22px 18px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+
+      .sb-logo img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        background: white;
+        border-radius: 7px;
+        padding: 3px;
+        flex-shrink: 0;
+      }
+
+      .sb-logo-text .name {
+        font-family: "Playfair Display", serif;
+        font-size: 14px;
+        color: white;
+        display: block;
+        line-height: 1.2;
+      }
+
+      .sb-logo-text .sub {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.38);
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        display: block;
+        margin-top: 2px;
+      }
+
+      .sb-nav {
+        flex: 1;
+        padding: 14px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        overflow-y: auto;
+      }
+
+      .sb-section-label {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.28);
+        padding: 10px 10px 6px;
+        margin-top: 4px;
+      }
+
+      .sb-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 11px;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        transition: background 0.15s, color 0.15s;
+        position: relative;
+      }
+
+      .sb-item i {
+        font-size: 17px;
+        flex-shrink: 0;
+        width: 20px;
+        text-align: center;
+      }
+
+      .sb-item:hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .sb-item.active {
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+
+      .sb-item.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        bottom: 6px;
+        width: 3px;
+        background: #e0a84c;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .sb-badge {
+        margin-left: auto;
+        background: var(--maroon);
+        color: white;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 1px 6px;
+        border-radius: 99px;
+        min-width: 18px;
+        text-align: center;
+      }
+
+      .sb-footer {
+        padding: 12px 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .sb-back {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 8px 11px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: transparent;
+        width: 100%;
+        text-decoration: none;
+        transition: all 0.15s;
+      }
+
+      .sb-back:hover {
+        color: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .sb-back i {
+        font-size: 14px;
+      }
+
+      /* ── MAIN ── */
+      #main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        min-width: 0;
+      }
+
+      #topbar {
+        background: white;
+        border-bottom: 1px solid var(--border);
+        padding: 16px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+      }
+
+      .topbar-left .page-title {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        color: var(--navy);
+      }
+
+      .topbar-left .page-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .pill-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--green);
+        background: var(--green-bg);
+        border: 1px solid var(--green-border);
+        border-radius: 99px;
+        padding: 4px 10px;
+      }
+
+      .pill-badge i {
+        font-size: 12px;
+      }
+
+      .icon-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid var(--border-strong);
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--text-muted);
+        transition: all 0.15s;
+        font-size: 17px;
+      }
+
+      .icon-btn:hover {
+        background: var(--surface);
+        color: var(--navy);
+      }
+
+      #content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 28px;
+      }
+
+      /* ── PANELS ── */
+      .tab-panel {
+        display: none;
+      }
+      .tab-panel.active {
+        display: block;
+        animation: fadeIn 0.2s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── STATS GRID ── */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .stat-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .stat-icon-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .stat-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      .stat-icon.blue {
+        background: #e6f1fb;
+        color: #185fa5;
+      }
+      .stat-icon.green {
+        background: #eaf3de;
+        color: #3b6d11;
+      }
+      .stat-icon.red {
+        background: #fcebeb;
+        color: #a32d2d;
+      }
+      .stat-icon.purple {
+        background: #eeedfe;
+        color: #534ab7;
+      }
+
+      .stat-trend {
+        font-size: 11px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        padding: 3px 7px;
+        border-radius: 99px;
+      }
+
+      .stat-trend.up {
+        color: #3b6d11;
+        background: #eaf3de;
+      }
+      .stat-trend.down {
+        color: #a32d2d;
+        background: #fcebeb;
+      }
+      .stat-trend.neutral {
+        color: #534ab7;
+        background: #eeedfe;
+      }
+      .stat-trend i {
+        font-size: 12px;
+      }
+
+      .stat-value {
+        font-family: "Playfair Display", serif;
+        font-size: 30px;
+        color: var(--navy);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .stat-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* ── INTENT TABLE ── */
+      .panel {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .panel-header {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .panel-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--navy);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .panel-title i {
+        font-size: 16px;
+        color: var(--text-muted);
+      }
+
+      .panel-tag {
+        font-size: 11px;
+        color: var(--text-muted);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 3px 8px;
+      }
+
+      .intent-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 11px 20px;
+        border-bottom: 1px solid var(--border);
+        transition: background 0.12s;
+      }
+
+      .intent-row:last-child {
+        border-bottom: none;
+      }
+      .intent-row:hover {
+        background: var(--surface);
+      }
+
+      .intent-rank {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-muted);
+        width: 18px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      .intent-name {
+        flex: 1;
+        font-size: 13px;
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .intent-bar-wrap {
+        width: 150px;
+        height: 5px;
+        background: var(--surface-2);
+        border-radius: 99px;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .intent-bar {
+        height: 100%;
+        background: var(--navy);
+        border-radius: 99px;
+        transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .intent-count {
+        font-size: 12px;
+        color: var(--text-muted);
+        font-weight: 500;
+        min-width: 36px;
+        text-align: right;
+        flex-shrink: 0;
+      }
+
+      .no-data {
+        padding: 48px 24px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      .no-data i {
+        font-size: 32px;
+        display: block;
+        margin-bottom: 10px;
+        opacity: 0.35;
+      }
+
+      /* ── UPLOAD ── */
+      .upload-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: start;
+      }
+
+      .upload-drop {
+        background: white;
+        border: 1.5px dashed var(--border-strong);
+        border-radius: 12px;
+        padding: 48px 28px;
+        text-align: center;
+        cursor: pointer;
+        transition: border-color 0.2s, background 0.2s;
+      }
+
+      .upload-drop:hover,
+      .upload-drop.drag-over {
+        border-color: var(--navy);
+        background: rgba(27, 58, 107, 0.02);
+      }
+
+      .upload-drop-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: rgba(27, 58, 107, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        font-size: 26px;
+        color: var(--navy);
+        transition: background 0.2s;
+      }
+
+      .upload-drop:hover .upload-drop-icon {
+        background: rgba(27, 58, 107, 0.1);
+      }
+
+      .upload-drop-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+
+      .upload-drop-hint {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+
+      #pdf-file-input {
+        display: none;
+      }
+
+      .upload-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 22px;
+        background: var(--navy);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.15s, opacity 0.15s;
+      }
+
+      .upload-btn:hover:not(:disabled) {
+        background: var(--navy-light);
+      }
+      .upload-btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .upload-btn i {
+        font-size: 16px;
+      }
+
+      .upload-info-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+      }
+
+      .upload-info-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .upload-info-title i {
+        font-size: 16px;
+        color: var(--text-muted);
+      }
+
+      .upload-rules {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .upload-rule {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        font-size: 12px;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .upload-rule i {
+        font-size: 14px;
+        color: var(--green);
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+
+      .selected-file-bar {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        margin-top: 16px;
+        padding: 11px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 13px;
+        color: var(--navy);
+        font-weight: 500;
+      }
+
+      .selected-file-bar i {
+        font-size: 18px;
+        color: var(--maroon);
+      }
+
+      .selected-file-bar .remove-file {
+        margin-left: auto;
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        border-radius: 4px;
+        transition: color 0.15s;
+      }
+
+      .selected-file-bar .remove-file:hover {
+        color: var(--red);
+      }
+
+      .upload-action-row {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .upload-status {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        padding: 9px 14px;
+        border-radius: 8px;
+        flex: 1;
+      }
+
+      .upload-status.success {
+        background: var(--green-bg);
+        color: var(--green);
+        border: 1px solid var(--green-border);
+        display: flex;
+      }
+
+      .upload-status.error {
+        background: var(--red-bg);
+        color: var(--red);
+        border: 1px solid var(--red-border);
+        display: flex;
+      }
+
+      /* ── DOCUMENTS ── */
+      .docs-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+
+      .docs-count {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .refresh-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        border: 1px solid var(--border-strong);
+        border-radius: 7px;
+        background: white;
+        color: var(--navy);
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+
+      .refresh-btn:hover {
+        background: var(--surface);
+      }
+      .refresh-btn i {
+        font-size: 14px;
+      }
+
+      .docs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 12px;
+      }
+
+      .doc-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        transition: box-shadow 0.15s, border-color 0.15s;
+      }
+
+      .doc-card:hover {
+        border-color: var(--border-strong);
+        box-shadow: 0 4px 16px rgba(27, 58, 107, 0.08);
+      }
+
+      .doc-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(123, 30, 59, 0.08);
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--maroon);
+        flex-shrink: 0;
+      }
+
+      .doc-info {
+        min-width: 0;
+      }
+
+      .doc-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--navy);
+        word-break: break-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .doc-meta {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 3px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .doc-meta i {
+        font-size: 12px;
+      }
+
+      /* ── SPINNER ── */
+      .spinner {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--border);
+        border-top-color: var(--navy);
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+      <div class="sb-logo">
+        <img src="static/images/ppu-logo.png" alt="PPU Logo" />
+        <div class="sb-logo-text">
+          <span class="name">PPU Admin</span>
+          <span class="sub">Control Center</span>
+        </div>
+      </div>
+
+      <nav class="sb-nav">
+        <div class="sb-section-label">Analytics</div>
+        <button class="sb-item active" onclick="switchTab('stats')">
+          <i class="ti ti-chart-bar" aria-hidden="true"></i>
+          Statistics
+        </button>
+
+        <div class="sb-section-label">Knowledge Base</div>
+        <button class="sb-item" onclick="switchTab('upload')">
+          <i class="ti ti-upload" aria-hidden="true"></i>
+          Upload PDF
+        </button>
+        <button class="sb-item" onclick="switchTab('documents')">
+          <i class="ti ti-files" aria-hidden="true"></i>
+          Documents
+        </button>
+      </nav>
+
+      <div class="sb-footer">
+        <a href="/" class="sb-back">
+          <i class="ti ti-arrow-left" aria-hidden="true"></i>
+          Back to Chat
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div id="main">
+      <div id="topbar">
+        <div class="topbar-left">
+          <div class="page-title" id="page-title">Statistics</div>
+          <div class="page-sub" id="page-sub">
+            Overview of chatbot usage and feedback
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <span class="pill-badge" id="status-pill">
+            <i class="ti ti-circle-check" aria-hidden="true"></i>
+            System Online
+          </span>
+          <button class="icon-btn" onclick="refreshCurrent()" title="Refresh">
+            <i class="ti ti-refresh" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="content">
+        <!-- STATS -->
+        <div class="tab-panel active" id="tab-stats">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon-row">
+                <div class="stat-icon blue">
+                  <i class="ti ti-message-circle" aria-hidden="true"></i>
+                </div>
+                <span class="stat-trend up" id="trend-queries"
+                  ><i class="ti ti-trending-up" aria-hidden="true"></i
+                  >+12%</span
+                >
+              </div>
+              <div class="stat-value" id="stat-queries">—</div>
+              <div class="stat-label">Total Queries</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-row">
+                <div class="stat-icon green">
+                  <i class="ti ti-thumb-up" aria-hidden="true"></i>
+                </div>
+                <span class="stat-trend up"
+                  ><i class="ti ti-trending-up" aria-hidden="true"></i>+5%</span
+                >
+              </div>
+              <div class="stat-value" id="stat-positive">—</div>
+              <div class="stat-label">Positive Feedback</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-row">
+                <div class="stat-icon red">
+                  <i class="ti ti-thumb-down" aria-hidden="true"></i>
+                </div>
+                <span class="stat-trend down"
+                  ><i class="ti ti-trending-down" aria-hidden="true"></i
+                  >-3%</span
+                >
+              </div>
+              <div class="stat-value" id="stat-negative">—</div>
+              <div class="stat-label">Negative Feedback</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-row">
+                <div class="stat-icon purple">
+                  <i class="ti ti-rosette" aria-hidden="true"></i>
+                </div>
+                <span class="stat-trend neutral"
+                  ><i class="ti ti-minus" aria-hidden="true"></i>Steady</span
+                >
+              </div>
+              <div class="stat-value" id="stat-ratio">—</div>
+              <div class="stat-label">Satisfaction Rate</div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <i class="ti ti-list-details" aria-hidden="true"></i>
+                Intent Breakdown
+              </div>
+              <span class="panel-tag" id="intent-tag">Loading…</span>
+            </div>
+            <div id="intent-list">
+              <div class="no-data">
+                <i class="ti ti-loader" aria-hidden="true"></i>
+                Loading intent data…
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UPLOAD -->
+        <div class="tab-panel" id="tab-upload">
+          <div class="upload-section">
+            <div>
+              <div
+                class="upload-drop"
+                id="upload-area"
+                onclick="document.getElementById('pdf-file-input').click()"
+              >
+                <div class="upload-drop-icon">
+                  <i class="ti ti-file-type-pdf" aria-hidden="true"></i>
+                </div>
+                <div class="upload-drop-title">Drop a PDF here</div>
+                <div class="upload-drop-hint">
+                  or click to browse your files.<br />Only PDF format is
+                  supported.
+                </div>
+                <input type="file" id="pdf-file-input" accept=".pdf" />
+              </div>
+
+              <div class="selected-file-bar" id="selected-file">
+                <i class="ti ti-file-type-pdf" aria-hidden="true"></i>
+                <span id="selected-file-name"></span>
+                <button
+                  class="remove-file"
+                  onclick="clearFile()"
+                  aria-label="Remove file"
+                >
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <div class="upload-action-row">
+                <button
+                  class="upload-btn"
+                  id="upload-btn"
+                  disabled
+                  onclick="uploadPDF()"
+                >
+                  <i class="ti ti-cloud-upload" aria-hidden="true"></i>
+                  Upload & Index
+                </button>
+                <div class="upload-status" id="upload-status"></div>
+              </div>
+            </div>
+
+            <div class="upload-info-card">
+              <div class="upload-info-title">
+                <i class="ti ti-info-circle" aria-hidden="true"></i>
+                Guidelines
+              </div>
+              <div class="upload-rules">
+                <div class="upload-rule">
+                  <i class="ti ti-circle-check" aria-hidden="true"></i>
+                  Only PDF files are accepted (.pdf extension required)
+                </div>
+                <div class="upload-rule">
+                  <i class="ti ti-circle-check" aria-hidden="true"></i>
+                  The document will be chunked and indexed automatically
+                </div>
+                <div class="upload-rule">
+                  <i class="ti ti-circle-check" aria-hidden="true"></i>
+                  Indexed content becomes available to the chatbot immediately
+                </div>
+                <div class="upload-rule">
+                  <i class="ti ti-circle-check" aria-hidden="true"></i>
+                  Ensure the PDF is text-based, not scanned images
+                </div>
+                <div class="upload-rule">
+                  <i class="ti ti-circle-check" aria-hidden="true"></i>
+                  Recommended size: under 20 MB for best performance
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOCUMENTS -->
+        <div class="tab-panel" id="tab-documents">
+          <div class="docs-toolbar">
+            <div class="docs-count" id="docs-count">Loading…</div>
+            <button class="refresh-btn" onclick="loadDocuments()">
+              <i class="ti ti-refresh" aria-hidden="true"></i>
+              Refresh
+            </button>
+          </div>
+          <div id="docs-container">
+            <div class="no-data">
+              <i class="ti ti-loader" aria-hidden="true"></i>
+              Loading documents…
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
