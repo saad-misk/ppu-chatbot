@@ -1,0 +1,78 @@
+[
+  {"text": "What are the tuition fees for Computer Science?", "intent": "faq_fees", "entities": [{"type": "DEPARTMENT", "value": "Computer Science"}]},
+  {"text": "ما هي رسوم التسجيل في قسم هندسة الحاسوب؟", "intent": "faq_fees", "entities": [{"type": "DEPARTMENT", "value": "هندسة الحاسوب"}]},
+  {"text": "What is the credit hour price for the CS401 course?", "intent": "faq_fees", "entities": [{"type": "COURSE_CODE", "value": "CS401"}]},
+  {"text": "كم سعر الساعة لمادة CS401؟", "intent": "faq_fees", "entities": [{"type": "COURSE_CODE", "value": "CS401"}]},
+  {"text": "طريقة دفع الرسوم الجامعية إلكتروني", "intent": "faq_fees", "entities": []},
+  {"text": "How much do I pay per semester?", "intent": "faq_fees", "entities": []},
+
+  {"text": "When does the spring 2025 semester registration start?", "intent": "faq_registration", "entities": [{"type": "SEMESTER", "value": "spring 2025"}]},
+  {"text": "متى يبدأ تسجيل الفصل الثاني؟", "intent": "faq_registration", "entities": [{"type": "SEMESTER", "value": "الفصل الثاني"}]},
+  {"text": "كيف أسجل مواد عبر البوابة الإلكترونية؟", "intent": "faq_registration", "entities": []},
+  {"text": "Can I still register late?", "intent": "faq_registration", "entities": []},
+
+  {"text": "What are the admission requirements for international students?", "intent": "faq_admission", "entities": []},
+  {"text": "شو شروط القبول لتخصص الطب البشري؟", "intent": "faq_admission", "entities": []},
+  {"text": "كيف أقدم طلب التحاق بالجامعة؟", "intent": "faq_admission", "entities": []},
+
+  {"text": "What are the graduation requirements for CS students?", "intent": "faq_graduation", "entities": [{"type": "DEPARTMENT", "value": "Computer Science"}]},
+  {"text": "كم ساعة لازم أتخرج؟", "intent": "faq_graduation", "entities": []},
+  {"text": "Graduation ceremony date?", "intent": "faq_graduation", "entities": []},
+
+  {"text": "Are there any scholarships available for engineering students?", "intent": "faq_scholarships", "entities": [{"type": "DEPARTMENT", "value": "electrical engineering"}]},
+  {"text": "هل في منح دراسية للطلاب المتفوقين؟", "intent": "faq_scholarships", "entities": []},
+  {"text": "Scholarship application deadline", "intent": "faq_scholarships", "entities": []},
+
+  {"text": "What is the exam schedule for the second semester?", "intent": "schedule_exams", "entities": [{"type": "SEMESTER", "value": "second semester"}]},
+  {"text": "متى امتحانات الميدتيرم؟", "intent": "schedule_exams", "entities": []},
+  {"text": "Final exam schedule for engineering", "intent": "schedule_exams", "entities": [{"type": "DEPARTMENT", "value": "electrical engineering"}]},
+
+  {"text": "جدول محاضراتي الفصل الأول", "intent": "schedule_classes", "entities": [{"type": "SEMESTER", "value": "الفصل الاول"}]},
+  {"text": "Class schedule for this semester", "intent": "schedule_classes", "entities": []},
+  {"text": "شو عندي محاضرات اليوم؟", "intent": "schedule_classes", "entities": []},
+
+  {"text": "When does the academic year start?", "intent": "schedule_academic_calendar", "entities": []},
+  {"text": "التقويم الأكاديمي للفصل؟", "intent": "schedule_academic_calendar", "entities": []},
+  {"text": "University holidays 2026", "intent": "schedule_academic_calendar", "entities": [{"type": "DATE", "value": "2026"}]},
+
+  {"text": "Who is the head of the Computer Engineering department?", "intent": "staff_info", "entities": [{"type": "DEPARTMENT", "value": "computer engineering"}]},
+  {"text": "مكتب الدكتور أحمد الرجوب وين؟", "intent": "staff_info", "entities": []},
+  {"text": "staff directory", "intent": "staff_info", "entities": []},
+
+  {"text": "What courses are offered in the civil engineering department?", "intent": "department_info", "entities": [{"type": "DEPARTMENT", "value": "civil engineering"}]},
+  {"text": "شو تخصصات كلية الهندسة؟", "intent": "department_info", "entities": []},
+  {"text": "departments in PPU", "intent": "department_info", "entities": []},
+
+  {"text": "Tell me about the NLP course", "intent": "course_info", "entities": [{"type": "COURSE_NAME", "value": "natural language processing"}]},
+  {"text": "شو متطلبات مساق الالكترونيات؟", "intent": "course_info", "entities": []},
+  {"text": "course syllabus link", "intent": "course_info", "entities": []},
+  {"text": "كم ساعة مادة الرياضيات؟", "intent": "course_info", "entities": []},
+
+  {"text": "ما هي أوقات عمل المكتبة؟", "intent": "library_info", "entities": []},
+  {"text": "Library opening hours", "intent": "library_info", "entities": []},
+  {"text": "بقدر أستعير كتاب من المكتبة؟", "intent": "library_info", "entities": []},
+
+  {"text": "شو الخدمات الطلابية في الحرم؟", "intent": "campus_services", "entities": []},
+  {"text": "Is there a gym for students?", "intent": "campus_services", "entities": []},
+  {"text": "wifi availability?", "intent": "campus_services", "entities": []},
+
+  {"text": "كيف أطلع هوية طالب؟", "intent": "student_id_query", "entities": []},
+  {"text": "lost my student ID card", "intent": "student_id_query", "entities": []},
+  {"text": "ضاعت بطاقتي الجامعية شو أعمل؟", "intent": "student_id_query", "entities": []},
+
+  {"text": "مرحبا، أحتاج إلى مساعدة", "intent": "greeting", "entities": []},
+  {"text": "Hello!", "intent": "greeting", "entities": []},
+  {"text": "السلام عليكم", "intent": "greeting", "entities": []},
+
+  {"text": "مع السلامة!", "intent": "goodbye", "entities": []},
+  {"text": "Goodbye, thanks!", "intent": "goodbye", "entities": []},
+  {"text": "يلا باي", "intent": "goodbye", "entities": []},
+
+  {"text": "Thank you so much!", "intent": "thanks", "entities": []},
+  {"text": "شكراً جزيلاً لك!", "intent": "thanks", "entities": []},
+  {"text": "يعطيك العافية", "intent": "thanks", "entities": []},
+
+  {"text": "How is the weather today?", "intent": "unknown", "entities": []},
+  {"text": "كيف الطقس اليوم في الخليل؟", "intent": "unknown", "entities": []},
+  {"text": "tell me a joke", "intent": "unknown", "entities": []}
+]

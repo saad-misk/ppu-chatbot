@@ -1,0 +1,1784 @@
+{"text": "What are the tuition fees for Computer Science?", "label": "faq_fees"}
+{"text": "ما هي رسوم التسجيل في قسم هندسة الحاسوب؟", "label": "faq_fees"}
+{"text": "When does the spring 2025 semester registration start?", "label": "faq_registration"}
+{"text": "متى يبدأ تسجيل الفصل الثاني؟", "label": "faq_registration"}
+{"text": "Who is the head of the Computer Engineering department?", "label": "staff_info"}
+{"text": "What are the graduation requirements for CS students?", "label": "faq_graduation"}
+{"text": "What is the exam schedule for the second semester?", "label": "schedule_exams"}
+{"text": "Tell me about the NLP course", "label": "course_info"}
+{"text": "مرحبا، أحتاج إلى مساعدة", "label": "greeting"}
+{"text": "Thank you so much!", "label": "thanks"}
+{"text": "شكراً جزيلاً لك!", "label": "thanks"}
+{"text": "Are there any scholarships available for engineering students?", "label": "faq_scholarships"}
+{"text": "ما هي أوقات عمل المكتبة؟", "label": "library_info"}
+{"text": "What is the credit hour price for the CS401 course?", "label": "faq_fees"}
+{"text": "كم سعر الساعة لمادة CS401؟", "label": "faq_fees"}
+{"text": "What courses are offered in the civil engineering department?", "label": "department_info"}
+{"text": "كم رسوم دراسة تخصص الهندسة؟", "label": "faq_fees"}
+{"text": "قديش القسط للفصل الواحد؟", "label": "faq_fees"}
+{"text": "Tuition fees for IT major?", "label": "faq_fees"}
+{"text": "هل في رسوم إضافية للتسجيل؟", "label": "faq_fees"}
+{"text": "كم تكلفة الساعة المعتمدة؟", "label": "faq_fees"}
+{"text": "fees?", "label": "faq_fees"}
+{"text": "How much do I pay per semester?", "label": "faq_fees"}
+{"text": "رسوم الجامعة غالية ولا معقولة؟", "label": "faq_fees"}
+{"text": "تفاصيل الاقساط الدراسية لو سمحت", "label": "faq_fees"}
+{"text": "في خصم على الرسوم؟", "label": "faq_fees"}
+{"text": "total fees for business program", "label": "faq_fees"}
+{"text": "متى يبدأ التسجيل للفصل القادم؟", "label": "faq_registration"}
+{"text": "كيف أسجل مواد؟", "label": "faq_registration"}
+{"text": "registration dates?", "label": "faq_registration"}
+{"text": "بدي اعرف طريقة تسجيل المساقات", "label": "faq_registration"}
+{"text": "هل التسجيل أونلاين؟", "label": "faq_registration"}
+{"text": "موعد التسجيل الجديد امتى؟", "label": "faq_registration"}
+{"text": "Can I still register late?", "label": "faq_registration"}
+{"text": "طريقة سحب وإضافة مواد؟", "label": "faq_registration"}
+{"text": "التسجيل مغلق ولا لسا؟", "label": "faq_registration"}
+{"text": "add/drop period info", "label": "faq_registration"}
+{"text": "شو خطوات التسجيل؟", "label": "faq_registration"}
+{"text": "ما شروط القبول في الجامعة؟", "label": "faq_admission"}
+{"text": "كيف أقدم طلب التحاق؟", "label": "faq_admission"}
+{"text": "admission requirements?", "label": "faq_admission"}
+{"text": "هل في معدل معين للقبول؟", "label": "faq_admission"}
+{"text": "بقدر أقدم أونلاين؟", "label": "faq_admission"}
+{"text": "documents needed for admission", "label": "faq_admission"}
+{"text": "متى يفتح باب القبول؟", "label": "faq_admission"}
+{"text": "هل في قبول فوري؟", "label": "faq_admission"}
+{"text": "application deadline?", "label": "faq_admission"}
+{"text": "شو المطلوب عشان انقبل؟", "label": "faq_admission"}
+{"text": "قبول الطلاب الدوليين كيف بصير؟", "label": "faq_admission"}
+{"text": "شو شروط التخرج؟", "label": "faq_graduation"}
+{"text": "كم عدد الساعات للتخرج؟", "label": "faq_graduation"}
+{"text": "graduation requirements?", "label": "faq_graduation"}
+{"text": "متى حفلة التخرج؟", "label": "faq_graduation"}
+{"text": "هل لازم مشروع تخرج؟", "label": "faq_graduation"}
+{"text": "بدي أعرف إذا جاهز أتخرج", "label": "faq_graduation"}
+{"text": "minimum GPA to graduate?", "label": "faq_graduation"}
+{"text": "تأجيل التخرج ممكن؟", "label": "faq_graduation"}
+{"text": "كيف أقدم طلب تخرج؟", "label": "faq_graduation"}
+{"text": "graduation ceremony date", "label": "faq_graduation"}
+{"text": "شو متطلبات إنهاء الدراسة؟", "label": "faq_graduation"}
+{"text": "هل في منح دراسية؟", "label": "faq_scholarships"}
+{"text": "كيف أقدم على منحة؟", "label": "faq_scholarships"}
+{"text": "scholarships available?", "label": "faq_scholarships"}
+{"text": "منح للمتفوقين في الجامعة؟", "label": "faq_scholarships"}
+{"text": "في دعم مالي للطلاب؟", "label": "faq_scholarships"}
+{"text": "partial scholarship info", "label": "faq_scholarships"}
+{"text": "شو شروط الحصول على منحة؟", "label": "faq_scholarships"}
+{"text": "منح للطلاب الجدد؟", "label": "faq_scholarships"}
+{"text": "financial aid options?", "label": "faq_scholarships"}
+{"text": "بقدر أقدم منحة وأنا مسجل؟", "label": "faq_scholarships"}
+{"text": "scholarship deadline?", "label": "faq_scholarships"}
+{"text": "متى جدول الامتحانات؟", "label": "schedule_exams"}
+{"text": "exam schedule please", "label": "schedule_exams"}
+{"text": "شو مواعيد الفاينل؟", "label": "schedule_exams"}
+{"text": "جدول امتحانات نص الفصل؟", "label": "schedule_exams"}
+{"text": "when are finals?", "label": "schedule_exams"}
+{"text": "امتحاني متى بالضبط؟", "label": "schedule_exams"}
+{"text": "midterm dates?", "label": "schedule_exams"}
+{"text": "وين ألاقي جدول الامتحانات؟", "label": "schedule_exams"}
+{"text": "فاينل الاسبوع الجاي؟", "label": "schedule_exams"}
+{"text": "exam timing info", "label": "schedule_exams"}
+{"text": "هل تغير موعد الامتحان؟", "label": "schedule_exams"}
+{"text": "جدولي الدراسي وين؟", "label": "schedule_classes"}
+{"text": "class schedule?", "label": "schedule_classes"}
+{"text": "شو عندي محاضرات اليوم؟", "label": "schedule_classes"}
+{"text": "كيف أشوف الجدول؟", "label": "schedule_classes"}
+{"text": "my classes timing", "label": "schedule_classes"}
+{"text": "متى محاضرة البرمجة؟", "label": "schedule_classes"}
+{"text": "schedule for this semester", "label": "schedule_classes"}
+{"text": "في تغيير على الجدول؟", "label": "schedule_classes"}
+{"text": "جدول المواد تبعي", "label": "schedule_classes"}
+{"text": "class times pls", "label": "schedule_classes"}
+{"text": "وين القاعة تبع المحاضرة؟", "label": "schedule_classes"}
+{"text": "التقويم الأكاديمي للفصل؟", "label": "schedule_academic_calendar"}
+{"text": "academic calendar?", "label": "schedule_academic_calendar"}
+{"text": "متى بداية ونهاية الفصل؟", "label": "schedule_academic_calendar"}
+{"text": "تواريخ العطل الرسمية؟", "label": "schedule_academic_calendar"}
+{"text": "semester dates", "label": "schedule_academic_calendar"}
+{"text": "شو مواعيد الدوام؟", "label": "schedule_academic_calendar"}
+{"text": "calendar for university year", "label": "schedule_academic_calendar"}
+{"text": "متى الإجازة الصيفية؟", "label": "schedule_academic_calendar"}
+{"text": "schedule of holidays?", "label": "schedule_academic_calendar"}
+{"text": "التقويم الدراسي كامل", "label": "schedule_academic_calendar"}
+{"text": "بداية التسجيل حسب التقويم؟", "label": "schedule_academic_calendar"}
+{"text": "مين دكتور مادة الرياضيات؟", "label": "staff_info"}
+{"text": "staff contacts?", "label": "staff_info"}
+{"text": "رقم الدكتور أحمد؟", "label": "staff_info"}
+{"text": "كيف أتواصل مع المدرس؟", "label": "staff_info"}
+{"text": "teacher email pls", "label": "staff_info"}
+{"text": "مكتب الدكتور وين؟", "label": "staff_info"}
+{"text": "faculty list", "label": "staff_info"}
+{"text": "مين رئيس القسم؟", "label": "staff_info"}
+{"text": "office hours for prof?", "label": "staff_info"}
+{"text": "شو اسم مدرس المادة؟", "label": "staff_info"}
+{"text": "contact instructor", "label": "staff_info"}
+{"text": "معلومات عن قسم الهندسة؟", "label": "department_info"}
+{"text": "computer science department details", "label": "department_info"}
+{"text": "شو تخصصات الكلية؟", "label": "department_info"}
+{"text": "وين قسم التمريض؟", "label": "department_info"}
+{"text": "department info pls", "label": "department_info"}
+{"text": "عدد أقسام الجامعة؟", "label": "department_info"}
+{"text": "about business department", "label": "department_info"}
+{"text": "شو أفضل قسم؟", "label": "department_info"}
+{"text": "تفاصيل كلية الآداب", "label": "department_info"}
+{"text": "engineering dept info", "label": "department_info"}
+{"text": "مين مسؤول القسم؟", "label": "department_info"}
+{"text": "تفاصيل مساق البرمجة", "label": "course_info"}
+{"text": "course description?", "label": "course_info"}
+{"text": "كم ساعة مادة الرياضيات؟", "label": "course_info"}
+{"text": "شو محتوى المساق؟", "label": "course_info"}
+{"text": "course syllabus pls", "label": "course_info"}
+{"text": "هل المادة صعبة؟", "label": "course_info"}
+{"text": "prerequisites for course?", "label": "course_info"}
+{"text": "شو متطلبات المادة؟", "label": "course_info"}
+{"text": "عدد الساعات المعتمدة", "label": "course_info"}
+{"text": "course outline", "label": "course_info"}
+{"text": "مين بدرس المساق؟", "label": "course_info"}
+{"text": "متى تفتح المكتبة؟", "label": "library_info"}
+{"text": "library hours?", "label": "library_info"}
+{"text": "وين المكتبة بالجامعة؟", "label": "library_info"}
+{"text": "هل في كتب إلكترونية؟", "label": "library_info"}
+{"text": "borrow books how?", "label": "library_info"}
+{"text": "بقدر أستعير كتاب؟", "label": "library_info"}
+{"text": "library services", "label": "library_info"}
+{"text": "شو نظام الإعارة؟", "label": "library_info"}
+{"text": "هل المكتبة مفتوحة اليوم؟", "label": "library_info"}
+{"text": "study rooms available?", "label": "library_info"}
+{"text": "أوقات الدوام للمكتبة", "label": "library_info"}
+{"text": "شو الخدمات الطلابية؟", "label": "campus_services"}
+{"text": "campus facilities?", "label": "campus_services"}
+{"text": "هل في سكن طلابي؟", "label": "campus_services"}
+{"text": "وين الكافتيريا؟", "label": "campus_services"}
+{"text": "student services office", "label": "campus_services"}
+{"text": "في نادي رياضي؟", "label": "campus_services"}
+{"text": "wifi availability?", "label": "campus_services"}
+{"text": "شو في خدمات داخل الحرم؟", "label": "campus_services"}
+{"text": "health services?", "label": "campus_services"}
+{"text": "مكتب شؤون الطلبة وين؟", "label": "campus_services"}
+{"text": "printing services?", "label": "campus_services"}
+{"text": "وين بطاقتي الجامعية؟", "label": "student_id_query"}
+{"text": "student ID issue", "label": "student_id_query"}
+{"text": "كيف أطلع هوية طالب؟", "label": "student_id_query"}
+{"text": "ضاع الكرت تبعي شو أعمل؟", "label": "student_id_query"}
+{"text": "ID replacement?", "label": "student_id_query"}
+{"text": "استلام البطاقة متى؟", "label": "student_id_query"}
+{"text": "بطاقتي مش شغالة", "label": "student_id_query"}
+{"text": "activate student card", "label": "student_id_query"}
+{"text": "كيف أستخدم الهوية؟", "label": "student_id_query"}
+{"text": "student card lost", "label": "student_id_query"}
+{"text": "وين أراجع بخصوص الهوية؟", "label": "student_id_query"}
+{"text": "مرحبا", "label": "greeting"}
+{"text": "السلام عليكم", "label": "greeting"}
+{"text": "hello", "label": "greeting"}
+{"text": "هاي", "label": "greeting"}
+{"text": "good morning", "label": "greeting"}
+{"text": "مساء الخير", "label": "greeting"}
+{"text": "hey there", "label": "greeting"}
+{"text": "اهلا", "label": "greeting"}
+{"text": "hi bot", "label": "greeting"}
+{"text": "كيفك؟", "label": "greeting"}
+{"text": "yo", "label": "greeting"}
+{"text": "مع السلامة", "label": "goodbye"}
+{"text": "bye", "label": "goodbye"}
+{"text": "نشوفك", "label": "goodbye"}
+{"text": "goodbye", "label": "goodbye"}
+{"text": "سلام", "label": "goodbye"}
+{"text": "see you later", "label": "goodbye"}
+{"text": "باي", "label": "goodbye"}
+{"text": "خلص شكرا مع السلامة", "label": "goodbye"}
+{"text": "later", "label": "goodbye"}
+{"text": "إلى اللقاء", "label": "goodbye"}
+{"text": "cya", "label": "goodbye"}
+{"text": "شكرا", "label": "thanks"}
+{"text": "thank you", "label": "thanks"}
+{"text": "يسلمو", "label": "thanks"}
+{"text": "thx", "label": "thanks"}
+{"text": "مشكور", "label": "thanks"}
+{"text": "thanks a lot", "label": "thanks"}
+{"text": "يعطيك العافية", "label": "thanks"}
+{"text": "appreciate it", "label": "thanks"}
+{"text": "شكراً جزيلاً", "label": "thanks"}
+{"text": "tnx", "label": "thanks"}
+{"text": "دمت بخير شكرا", "label": "thanks"}
+{"text": "كيف الطقس اليوم؟", "label": "unknown"}
+{"text": "tell me a joke", "label": "unknown"}
+{"text": "مين فاز بالمباراة؟", "label": "unknown"}
+{"text": "weather tomorrow?", "label": "unknown"}
+{"text": "شو أخبار السياسة؟", "label": "unknown"}
+{"text": "best phone 2026?", "label": "unknown"}
+{"text": "نكتة سريعة", "label": "unknown"}
+{"text": "how to cook pasta?", "label": "unknown"}
+{"text": "وين أقرب مطعم؟", "label": "unknown"}
+{"text": "crypto prices today", "label": "unknown"}
+{"text": "مين أحلى لاعب كرة؟", "label": "unknown"}
+{"text": "كم سعر ساعة الهندسة في البوليتكنيك؟", "label": "faq_fees"}
+{"text": "وين بقدر أدفع القسط الدراسي؟", "label": "faq_fees"}
+{"text": "How much are the tuition fees for the IT department?", "label": "faq_fees"}
+{"text": "بدي أسأل عن رسوم حجز المقعد للطلاب الجدد", "label": "faq_fees"}
+{"text": "fees", "label": "faq_fees"}
+{"text": "علي ذمم مالية مش عارف كيف أسددها", "label": "faq_fees"}
+{"text": "قديش بكلف تخصص الميكاترونيكس؟", "label": "faq_fees"}
+{"text": "Is there an online payment method for fees?", "label": "faq_fees"}
+{"text": "غرامة التأخير في دفع الأقساط كم؟", "label": "faq_fees"}
+{"text": "سعر الساعة المعتمدة", "label": "faq_fees"}
+{"text": "طريقة استرداد رسوم الانسحاب من المساق", "label": "faq_fees"}
+{"text": "متى بفتح التسجيل للفصل الجاي؟", "label": "faq_registration"}
+{"text": "كيف بقدر أضيف مادة بعد ما خلص الوقت؟", "label": "faq_registration"}
+{"text": "I can't add this course to my schedule, help!", "label": "faq_registration"}
+{"text": "خطوات سحب مادة من البورتال", "label": "faq_registration"}
+{"text": "موعد التسجيل المتأخر", "label": "faq_registration"}
+{"text": "registration dates", "label": "faq_registration"}
+{"text": "بقدر أسجل أكثر من 18 ساعة؟", "label": "faq_registration"}
+{"text": "متى بخلص السحب والإضافة؟", "label": "faq_registration"}
+{"text": "شو الأوراق المطلوبة لتثبيت التسجيل؟", "label": "faq_registration"}
+{"text": "مشكلة في البوابة الأكاديمية مش راضي يفتح التسجيل", "label": "faq_registration"}
+{"text": "تحويل من تخصص لتخصص ثاني كيف الإجراءات؟", "label": "faq_registration"}
+{"text": "شروط القبول لتخصص الطب البشري", "label": "faq_admission"}
+{"text": "وين أقدم طلب التحاق بالجامعة؟", "label": "faq_admission"}
+{"text": "Admission requirements for international students", "label": "faq_admission"}
+{"text": "قديش أقل معدل بقبلوا في الهندسة المدنية؟", "label": "faq_admission"}
+{"text": "فتحتوا طلبات التجسير؟", "label": "faq_admission"}
+{"text": "أنا طالب توجيهي وبدي أسجل عندكم", "label": "faq_admission"}
+{"text": "رابط تقديم طلبات القبول", "label": "faq_admission"}
+{"text": "Can I transfer from another university?", "label": "faq_admission"}
+{"text": "شو الوثائق اللازمة للقبول؟", "label": "faq_admission"}
+{"text": "Admission office location", "label": "faq_admission"}
+{"text": "متى بتطلع نتائج القبول؟", "label": "faq_admission"}
+{"text": "إجراءات التخرج لطلاب سنة رابعة", "label": "faq_graduation"}
+{"text": "متى موعد حفلة التخرج 2026؟", "label": "faq_graduation"}
+{"text": "كيف بطلع براءة ذمة عشان أتخرج؟", "label": "faq_graduation"}
+{"text": "Graduation requirements list", "label": "faq_graduation"}
+{"text": "بدي أسجل اسمي في قائمة الخريجين", "label": "faq_graduation"}
+{"text": "طلب إصدار شهادة كرتونية", "label": "faq_graduation"}
+{"text": "كم ساعة لازم أكون مخلص عشان أتخرج؟", "label": "faq_graduation"}
+{"text": "graduation party date", "label": "faq_graduation"}
+{"text": "متى بستلم الروب والقبعة؟", "label": "faq_graduation"}
+{"text": "تجهيزات يوم الخريجين", "label": "faq_graduation"}
+{"text": "فحص سجل التخرج", "label": "faq_graduation"}
+{"text": "في منح مقدمة من وزارة التعليم العالي؟", "label": "faq_scholarships"}
+{"text": "كيف أقدم على منحة التفوق؟", "label": "faq_scholarships"}
+{"text": "scholarship opportunities", "label": "faq_scholarships"}
+{"text": "شروط الحصول على منحة أبناء العاملين", "label": "faq_scholarships"}
+{"text": "القروض الطلابية وصندوق الطالب", "label": "faq_scholarships"}
+{"text": "مين الجهات اللي بتدعم منح في البوليتكنيك؟", "label": "faq_scholarships"}
+{"text": "بدي منحة لإعفاء الأخوة", "label": "faq_scholarships"}
+{"text": "Is there a full scholarship for high GPA?", "label": "faq_scholarships"}
+{"text": "رابط طلبات المنح الداخلية", "label": "faq_scholarships"}
+{"text": "المنح التركية والمنح الخارجية", "label": "faq_scholarships"}
+{"text": "تجديد المنحة شو شروطه؟", "label": "faq_scholarships"}
+{"text": "برنامج الامتحانات النهائية نزل؟", "label": "schedule_exams"}
+{"text": "وين قاعة امتحان الثقافة الإسلامية؟", "label": "schedule_exams"}
+{"text": "Final exam schedule 2026", "label": "schedule_exams"}
+{"text": "متى موعد امتحانات الميد؟", "label": "schedule_exams"}
+{"text": "exams timing", "label": "schedule_exams"}
+{"text": "جدول امتحانات غير المكتمل", "label": "schedule_exams"}
+{"text": "عندي تعارض في الامتحانات شو أعمل؟", "label": "schedule_exams"}
+{"text": "شو المواد اللي امتحانها محوسب؟", "label": "schedule_exams"}
+{"text": "Exam venues and seat numbers", "label": "schedule_exams"}
+{"text": "متى بتبلش امتحانات العملي؟", "label": "schedule_exams"}
+{"text": "توزيع القاعات للاختبارات", "label": "schedule_exams"}
+{"text": "بدي برنامجي الدراسي لهذا الفصل", "label": "schedule_classes"}
+{"text": "وين بقدر أشوف توزيع المحاضرات؟", "label": "schedule_classes"}
+{"text": "Class schedule for mechanical engineering", "label": "schedule_classes"}
+{"text": "متى بتبدأ أول محاضرة الصبح؟", "label": "schedule_classes"}
+{"text": "جدول محاضراتي", "label": "schedule_classes"}
+{"text": "شو الأوقات المتاحة لمساق الفيزياء؟", "label": "schedule_classes"}
+{"text": "My timetable is empty", "label": "schedule_classes"}
+{"text": "بدي جدول قاعات مبنى واد الهرية", "label": "schedule_classes"}
+{"text": "أوقات المختبرات", "label": "schedule_classes"}
+{"text": "في محاضرات يوم السبت؟", "label": "schedule_classes"}
+{"text": "موعد المحاضرات الوجاهية", "label": "schedule_classes"}
+{"text": "متى عطلة الفصل؟", "label": "schedule_academic_calendar"}
+{"text": "التقويم الأكاديمي للعام الحالي", "label": "schedule_academic_calendar"}
+{"text": "Academic calendar for spring semester", "label": "schedule_academic_calendar"}
+{"text": "متى آخر يوم دوام قبل العيد؟", "label": "schedule_academic_calendar"}
+{"text": "calendar", "label": "schedule_academic_calendar"}
+{"text": "بداية الفصل الصيفي ايمتى؟", "label": "schedule_academic_calendar"}
+{"text": "مواعيد الإجازات الرسمية بالجامعة", "label": "schedule_academic_calendar"}
+{"text": "When is the deadline to withdraw from a course?", "label": "schedule_academic_calendar"}
+{"text": "فترة الامتحانات النهائية بالتقويم", "label": "schedule_academic_calendar"}
+{"text": "موعد بدء الدراسة للطلاب الجدد", "label": "schedule_academic_calendar"}
+{"text": "متى الحفل السنوي؟", "label": "schedule_academic_calendar"}
+{"text": "مكتب الدكتور أحمد الرجوب وين؟", "label": "staff_info"}
+{"text": "كيف أتواصل مع رئيس قسم الحاسوب؟", "label": "staff_info"}
+{"text": "Contact info for Dr. Sarah", "label": "staff_info"}
+{"text": "ايميل عميد كلية الهندسة", "label": "staff_info"}
+{"text": "staff directory", "label": "staff_info"}
+{"text": "ساعات الاستقبال للمدرسين", "label": "staff_info"}
+{"text": "مين هو رئيس دائرة القبول والتسجيل؟", "label": "staff_info"}
+{"text": "بدي رقم تليفون سكرتارية الكلية", "label": "staff_info"}
+{"text": "أستاذ مساق الجبر الخطي مين هو؟", "label": "staff_info"}
+{"text": "Is Dr. Mohammad available today?", "label": "staff_info"}
+{"text": "أسماء الهيئة التدريسية في قسم العمارة", "label": "staff_info"}
+{"text": "وين قسم تكنولوجيا المعلومات؟", "label": "department_info"}
+{"text": "شو التخصصات الموجودة في كلية المهن التطبيقية؟", "label": "department_info"}
+{"text": "List of engineering departments", "label": "department_info"}
+{"text": "أقسام كلية العلوم الإدارية", "label": "department_info"}
+{"text": "department office location", "label": "department_info"}
+{"text": "بدي معلومات عن تخصص الجرافيك ديزاين", "label": "department_info"}
+{"text": "شو الفرق بين هندسة البرمجيات وعلم الحاسوب؟", "label": "department_info"}
+{"text": "أفضل تخصص في البوليتكنيك؟", "label": "department_info"}
+{"text": "وين مبنى كلية الطب؟", "label": "department_info"}
+{"text": "departments in PPU", "label": "department_info"}
+{"text": "نشاطات قسم الرياضة بالجامعة", "label": "department_info"}
+{"text": "شو المتطلب السابق لمادة التفاضل 2؟", "label": "course_info"}
+{"text": "توصيف مساق تحليل النظم", "label": "course_info"}
+{"text": "course description for database", "label": "course_info"}
+{"text": "المادة هاي إجبارية ولا اختيارية؟", "label": "course_info"}
+{"text": "ساعات مساق اللغة الإنجليزية 1", "label": "course_info"}
+{"text": "pre-requisites for OS course", "label": "course_info"}
+{"text": "بدي خطة تخصص هندسة الطاقة", "label": "course_info"}
+{"text": "شو بدرسوا في مادة أخلاقيات المهنة؟", "label": "course_info"}
+{"text": "المساقات المطروحة للفصل الصيفي", "label": "course_info"}
+{"text": "خطة دراسية", "label": "course_info"}
+{"text": "شو الكتب المطلوبة لمادة الفيزياء؟", "label": "course_info"}
+{"text": "متى بتسكر المكتبة؟", "label": "library_info"}
+{"text": "كيف بقدر أستعير كتاب؟", "label": "library_info"}
+{"text": "Library opening hours", "label": "library_info"}
+{"text": "في كتب عن البرمجة في المكتبة؟", "label": "library_info"}
+{"text": "library online catalog", "label": "library_info"}
+{"text": "بقدر أدرس بالمكتبة هسا؟", "label": "library_info"}
+{"text": "موقع المكتبة المركزية بالجامعة", "label": "library_info"}
+{"text": "كيف أجدد استعارة كتاب أونلاين؟", "label": "library_info"}
+{"text": "غرامة تأخير الكتب كم؟", "label": "library_info"}
+{"text": "Is the library open on Saturday?", "label": "library_info"}
+{"text": "بدي أعمل بحث علمي بالمكتبة", "label": "library_info"}
+{"text": "وين الكافتيريا؟", "label": "campus_services"}
+{"text": "في انترنت واي فاي للطلاب؟", "label": "campus_services"}
+{"text": "Campus facilities list", "label": "campus_services"}
+{"text": "كيف أشحن رصيد طابعات؟", "label": "campus_services"}
+{"text": "وين العيادة الطبية بالجامعة؟", "label": "campus_services"}
+{"text": "student parking areas", "label": "campus_services"}
+{"text": "بدي أقدم شكوى عن المواصلات", "label": "campus_services"}
+{"text": "خدمات المركز الصحي بالبوليتكنيك", "label": "campus_services"}
+{"text": "وين المصلى في مبنى ج؟", "label": "campus_services"}
+{"text": "Is there a gym for students?", "label": "campus_services"}
+{"text": "مراكز التصوير والطباعة بالجامعة", "label": "campus_services"}
+{"text": "ضاعت بطاقتي الجامعية شو أعمل؟", "label": "student_id_query"}
+{"text": "كيف بجدد الهوية الجامعية؟", "label": "student_id_query"}
+{"text": "lost my student ID card", "label": "student_id_query"}
+{"text": "رسوم إصدار بطاقة بدل فاقد", "label": "student_id_query"}
+{"text": "وين مكتب الهويات؟", "label": "student_id_query"}
+{"text": "بدي بطاقة جامعية جديدة", "label": "student_id_query"}
+{"text": "student ID activation", "label": "student_id_query"}
+{"text": "ليش البطاقة مش راضية تفتح الباب؟", "label": "student_id_query"}
+{"text": "متى بستلم هويتي وأنا طالب جديد؟", "label": "student_id_query"}
+{"text": "ID card renewal price", "label": "student_id_query"}
+{"text": "تغيير الصورة في الهوية الجامعية", "label": "student_id_query"}
+{"text": "مرحبا", "label": "greeting"}
+{"text": "السلام عليكم", "label": "greeting"}
+{"text": "Hello", "label": "greeting"}
+{"text": "Hi", "label": "greeting"}
+{"text": "يعطيك العافية", "label": "greeting"}
+{"text": "صباح الخير", "label": "greeting"}
+{"text": "Good morning bot", "label": "greeting"}
+{"text": "يا هلا", "label": "greeting"}
+{"text": "مسا الخير", "label": "greeting"}
+{"text": "Hey there", "label": "greeting"}
+{"text": "كيفك يا بوت؟", "label": "greeting"}
+{"text": "شكراً جزيلاً", "label": "thanks"}
+{"text": "تسلم ايدك", "label": "thanks"}
+{"text": "Thank you very much", "label": "thanks"}
+{"text": "Thanks", "label": "thanks"}
+{"text": "غلبتك معي", "label": "thanks"}
+{"text": "مشكور يا طيب", "label": "thanks"}
+{"text": "جزاك الله خيراً", "label": "thanks"}
+{"text": "Appreciate the help", "label": "thanks"}
+{"text": "خلص تمام شكراً", "label": "thanks"}
+{"text": "Thnx", "label": "thanks"}
+{"text": "شكراً للمساعدة", "label": "thanks"}
+{"text": "مع السلامة", "label": "goodbye"}
+{"text": "باي", "label": "goodbye"}
+{"text": "Goodbye", "label": "goodbye"}
+{"text": "See you later", "label": "goodbye"}
+{"text": "بنشوفك على خير", "label": "goodbye"}
+{"text": "يلا باي", "label": "goodbye"}
+{"text": "في أمان الله", "label": "goodbye"}
+{"text": "I'm leaving now", "label": "goodbye"}
+{"text": "باي باي", "label": "goodbye"}
+{"text": "تصبح على خير", "label": "goodbye"}
+{"text": "خلصت أسئلتي مع السلامة", "label": "goodbye"}
+{"text": "شو الجو اليوم في الخليل؟", "label": "unknown"}
+{"text": "نكتة حلوة", "label": "unknown"}
+{"text": "What is the capital of France?", "label": "unknown"}
+{"text": "مين فاز في مباراة مدريد مبارح؟", "label": "unknown"}
+{"text": "Tell me a joke", "label": "unknown"}
+{"text": "أخبار السياسة اليوم", "label": "unknown"}
+{"text": "كيف أطبخ مقلوبة؟", "label": "unknown"}
+{"text": "weather today", "label": "unknown"}
+{"text": "شو رأيك بالذكاء الاصطناعي؟", "label": "unknown"}
+{"text": "بدي اشتري تلفون جديد شو بتنصحني؟", "label": "unknown"}
+{"text": "عندي مشكلة في اللابتوب", "label": "unknown"}
+{"text": "كم الساعة هسا؟", "label": "unknown"}
+{"text": "politics", "label": "unknown"}
+{"text": "وين أحسن مطعم في الخليل؟", "label": "unknown"}
+{"text": "I want to watch a movie", "label": "unknown"}
+{"text": "تعبان وبدي أنام", "label": "unknown"}
+{"text": "الأهلي والزمالك", "label": "unknown"}
+{"text": "قصيدة شعر", "label": "unknown"}
+{"text": "How to make coffee?", "label": "unknown"}
+{"text": "أنا زهقان", "label": "unknown"}
+{"text": "رسوم السكن الداخلي وموعد التسجيل", "label": "faq_fees"}
+{"text": "fees and registration", "label": "faq_registration"}
+{"text": "admission and scholarships", "label": "faq_scholarships"}
+{"text": "كيف أسجل مواد؟", "label": "faq_registration"}
+{"text": "library books", "label": "library_info"}
+{"text": "staff email", "label": "staff_info"}
+{"text": "academic calendar 2025", "label": "schedule_academic_calendar"}
+{"text": "where is engineering building?", "label": "department_info"}
+{"text": "my student id card is broken", "label": "student_id_query"}
+{"text": "thanks for info", "label": "thanks"}
+{"text": "كم رسوم الساعة المعتمدة لتخصص علوم الحاسوب؟", "label": "faq_fees"}
+{"text": "بدي أعرف رسوم الفصل الدراسي كامل", "label": "faq_fees"}
+{"text": "شو تكلفة دراسة الماجستير بالجامعة؟", "label": "faq_fees"}
+{"text": "القسط الجامعي كم بقسط؟", "label": "faq_fees"}
+{"text": "هل في خصم على الرسوم للطلاب المتفوقين؟", "label": "faq_fees"}
+{"text": "fees for engineering department?", "label": "faq_fees"}
+{"text": "رسوم التسجيل المبكر كم؟", "label": "faq_fees"}
+{"text": "كم بدي ادفع عشان أسجل مواد هاد الفصل؟", "label": "faq_fees"}
+{"text": "طريقة دفع الرسوم الجامعية إلكتروني", "label": "faq_fees"}
+{"text": "اخر موعد لدفع الاقساط", "label": "faq_fees"}
+{"text": "رسوم المختبرات والفصل الصيفي", "label": "faq_fees"}
+{"text": "What's the tuition per credit hour?", "label": "faq_fees"}
+{"text": "متى بفتح التسجيل للفصل القادم؟", "label": "faq_registration"}
+{"text": "كيف أسجل مواد عبر البوابة الإلكترونية؟", "label": "faq_registration"}
+{"text": "طريقة التسجيل للطلاب المستجدين", "label": "faq_registration"}
+{"text": "registration deadline for next semester", "label": "faq_registration"}
+{"text": "أنا طالب سنة أولى كيف أسجل؟", "label": "faq_registration"}
+{"text": "شو الاوراق المطلوبة للتسجيل؟", "label": "faq_registration"}
+{"text": "متى يخلص التسجيل؟", "label": "faq_registration"}
+{"text": "ساعدني أسجل مادتين", "label": "faq_registration"}
+{"text": "المساقات مفتوحة ع البوابة؟", "label": "faq_registration"}
+{"text": "عندي مشكلة بتسجيل المواد", "label": "faq_registration"}
+{"text": "I can't register for courses, system error", "label": "faq_registration"}
+{"text": "التسجيل للفصل الصيفي متى؟", "label": "faq_registration"}
+{"text": "شروط القبول في تخصص الطب", "label": "faq_admission"}
+{"text": "متى تعلن نتائج القبول؟", "label": "faq_admission"}
+{"text": "شو الحد الأدنى لمعدل التوجيهي للقبول؟", "label": "faq_admission"}
+{"text": "كيف أقدم طلب التحاق بالجامعة؟", "label": "faq_admission"}
+{"text": "الأوراق المطلوبة للقبول", "label": "faq_admission"}
+{"text": "admission requirements for international students", "label": "faq_admission"}
+{"text": "هل تم قبولي بالجامعة؟", "label": "faq_admission"}
+{"text": "وين ألاقي نتائج القبول؟", "label": "faq_admission"}
+{"text": "بعدنيش طلعت نتيجة القبول", "label": "faq_admission"}
+{"text": "معدلي 85 بقدر ادخل هندسة؟", "label": "faq_admission"}
+{"text": "موعد المقابلات الشخصية للقبول", "label": "faq_admission"}
+{"text": "كم معدل قبول تخصص نظم المعلومات؟", "label": "faq_admission"}
+{"text": "شروط التخرج من الجامعة", "label": "faq_graduation"}
+{"text": "كم ساعة لازم أتخرج؟", "label": "faq_graduation"}
+{"text": "متى حفل التخرج هالسنة؟", "label": "faq_graduation"}
+{"text": "متطلبات التخرج من قسم الهندسة", "label": "faq_graduation"}
+{"text": "graduation ceremony date?", "label": "faq_graduation"}
+{"text": "شو إجراءات التخرج؟", "label": "faq_graduation"}
+{"text": "كيف أطلب وثيقة تخرج؟", "label": "faq_graduation"}
+{"text": "خلصت كل المواد، شو الخطوة الجاي؟", "label": "faq_graduation"}
+{"text": "متى تنزل شهادات التخرج؟", "label": "faq_graduation"}
+{"text": "تصديق الشهادة من وزارة التعليم", "label": "faq_graduation"}
+{"text": "المنح المتاحة هالفصل", "label": "faq_scholarships"}
+{"text": "شروط منحة التفوق الرياضي", "label": "faq_scholarships"}
+{"text": "كيف أقدم طلب منحة دراسية؟", "label": "faq_scholarships"}
+{"text": "هل في منح للطلاب المحتاجين", "label": "faq_scholarships"}
+{"text": "scholarship for master degree?", "label": "faq_scholarships"}
+{"text": "بدي منحة، معدلي عالي", "label": "faq_scholarships"}
+{"text": "منحة صندوق الطالب متى التقديم؟", "label": "faq_scholarships"}
+{"text": "شو أنواع المساعدات المالية؟", "label": "faq_scholarships"}
+{"text": "القروض الجامعية متوفرة؟", "label": "faq_scholarships"}
+{"text": "طلبت منحة وما ردوا علي", "label": "faq_scholarships"}
+{"text": "مواعيد الامتحانات النهائية", "label": "schedule_exams"}
+{"text": "جدول امتحانات الفصل الحالي", "label": "schedule_exams"}
+{"text": "متى امتحان مادة calculus؟", "label": "schedule_exams"}
+{"text": "امتحان الرياضيات بأي قاعة؟", "label": "schedule_exams"}
+{"text": "final exam schedule for engineering", "label": "schedule_exams"}
+{"text": "وين القى جدول الامتحانات؟", "label": "schedule_exams"}
+{"text": "موعد امتحان المنتصف", "label": "schedule_exams"}
+{"text": "بكرة عندي امتحان ساعة كم؟", "label": "schedule_exams"}
+{"text": "تغيير موعد امتحان تعارض", "label": "schedule_exams"}
+{"text": "امتحانات الميدتيرم متى بتبلش؟", "label": "schedule_exams"}
+{"text": "الامتحان بكون حضوري ولا أونلاين؟", "label": "schedule_exams"}
+{"text": "جدول محاضراتي وين ألاقيه؟", "label": "schedule_classes"}
+{"text": "مواعيد المحاضرات تخصص حاسوب", "label": "schedule_classes"}
+{"text": "class schedule for this semester", "label": "schedule_classes"}
+{"text": "محاضرة البرمجة بأي يوم؟", "label": "schedule_classes"}
+{"text": "في تغيير ع جدول المحاضرات؟", "label": "schedule_classes"}
+{"text": "شو رقم شعبة مختبر الفيزياء؟", "label": "schedule_classes"}
+{"text": "وين بتعطى محاضرات الشبكات؟", "label": "schedule_classes"}
+{"text": "ساعات دوام المختبرات", "label": "schedule_classes"}
+{"text": "محاضرتي الساعة 8 متواجدة؟", "label": "schedule_classes"}
+{"text": "شو المواد يلي عندي اليوم؟", "label": "schedule_classes"}
+{"text": "بدي أغير شعبة المحاضرة", "label": "schedule_classes"}
+{"text": "التقويم الجامعي للعام الحالي", "label": "schedule_academic_calendar"}
+{"text": "متى بتبلش العطلة بين الفصول؟", "label": "schedule_academic_calendar"}
+{"text": "عطلة نهاية الفصل متى؟", "label": "schedule_academic_calendar"}
+{"text": "academic calendar 2026", "label": "schedule_academic_calendar"}
+{"text": "موعد بداية الفصل الثاني", "label": "schedule_academic_calendar"}
+{"text": "العطل الرسمية للجامعة", "label": "schedule_academic_calendar"}
+{"text": "إجازة عيد الأضحى كم يوم؟", "label": "schedule_academic_calendar"}
+{"text": "متى نرجع بعد العطلة الصيفية؟", "label": "schedule_academic_calendar"}
+{"text": "فصل صيفي متى يبدأ وينتهي", "label": "schedule_academic_calendar"}
+{"text": "اخر يوم دوام هاد الفصل", "label": "schedule_academic_calendar"}
+{"text": "من هو عميد كلية الهندسة؟", "label": "staff_info"}
+{"text": "رقم الدكتور محمد شاهين", "label": "staff_info"}
+{"text": "وين مكتب دكتورة فاتن؟", "label": "staff_info"}
+{"text": "بريد دكتور رياض الإلكتروني", "label": "staff_info"}
+{"text": "ساعات مكتب الدكتور حازم", "label": "staff_info"}
+{"text": "مين أستاذ مادة قواعد البيانات؟", "label": "staff_info"}
+{"text": "prof. Ahmad contact info?", "label": "staff_info"}
+{"text": "باحث عن أستاذ يشرح خوارزميات", "label": "staff_info"}
+{"text": "وين بلاقي المرشدة الأكاديمية؟", "label": "staff_info"}
+{"text": "موظف القبول والتسجيل اسمه؟", "label": "staff_info"}
+{"text": "أريد مساعدة من المشرف الأكاديمي", "label": "staff_info"}
+{"text": "معلومات عن قسم هندسة الحاسوب", "label": "department_info"}
+{"text": "شو أقسام كلية تكنولوجيا المعلومات؟", "label": "department_info"}
+{"text": "تخصصات كلية العلوم الإدارية", "label": "department_info"}
+{"text": "وين موقع قسم الهندسة المدنية", "label": "department_info"}
+{"text": "chairman of IT department?", "label": "department_info"}
+{"text": "شو التخصصات المتاحة بالجامعة", "label": "department_info"}
+{"text": "كلية الهندسة شو فروعها", "label": "department_info"}
+{"text": "برامج الدراسات العليا المتوفرة", "label": "department_info"}
+{"text": "تخصص التصميم الجرافيكي تحت أي كلية", "label": "department_info"}
+{"text": "مواصفات خريج قسم الميكاترونكس", "label": "department_info"}
+{"text": "وصف مادة تعلم الآلة", "label": "course_info"}
+{"text": "شو متطلبات مساق الالكترونيات؟", "label": "course_info"}
+{"text": "محتوى مادة تحليل النظم", "label": "course_info"}
+{"text": "كم ساعة معتمدة مادة الإحصاء", "label": "course_info"}
+{"text": "متطلب سابق لمادة الذكاء الاصطناعي", "label": "course_info"}
+{"text": "course outline for data structures", "label": "course_info"}
+{"text": "مواد الخطة الدراسية سنة تانية", "label": "course_info"}
+{"text": "أستاذ المادة مين رح يعطيها؟", "label": "course_info"}
+{"text": "شو كتاب مادة أخلاقيات المهنة؟", "label": "course_info"}
+{"text": "المساق نظري ولا عملي؟", "label": "course_info"}
+{"text": "متى بتفتح المكتبة؟", "label": "library_info"}
+{"text": "ساعات دوام المكتبة بالعطلة", "label": "library_info"}
+{"text": "كيف أستعير كتب من المكتبة؟", "label": "library_info"}
+{"text": "رقم المكتبة للاستفسار", "label": "library_info"}
+{"text": "هل المكتبة بتوفر كتب إلكترونية؟", "label": "library_info"}
+{"text": "library database access", "label": "library_info"}
+{"text": "غرف الدراسة بالمكتبة كيف أحجزها؟", "label": "library_info"}
+{"text": "المكتبة فيها انترنت؟", "label": "library_info"}
+{"text": "طريقة تجديد استعارة الكتب", "label": "library_info"}
+{"text": "الغرامات ع الكتب المتأخرة كم؟", "label": "library_info"}
+{"text": "وين الكافيتريا الرئيسية؟", "label": "campus_services"}
+{"text": "كيف أوصل لمبنى B؟", "label": "campus_services"}
+{"text": "مواعيد باصات الجامعة", "label": "campus_services"}
+{"text": "خدمات العيادة الطبية", "label": "campus_services"}
+{"text": "هل في مواقف سيارات للطلاب؟", "label": "campus_services"}
+{"text": "شبكة الواي فاي بالجامعة كيف أوصلها", "label": "campus_services"}
+{"text": "خريطة الحرم الجامعي", "label": "campus_services"}
+{"text": "في مكان للصلاة بالجامعة؟", "label": "campus_services"}
+{"text": "خدمات الطلاب ذوي الإعاقة", "label": "campus_services"}
+{"text": "أماكن الطباعة والتصوير وين", "label": "campus_services"}
+{"text": "lost and found office?", "label": "campus_services"}
+{"text": "نادي الطلاب كيف أسجل فيه", "label": "campus_services"}
+{"text": "بدي بطاقتي الجامعية", "label": "student_id_query"}
+{"text": "كيف أستخرج بطاقة طالب جديدة؟", "label": "student_id_query"}
+{"text": "ضاعت بطاقتي الجامعية شو أعمل", "label": "student_id_query"}
+{"text": "رقمي الجامعي نسيته", "label": "student_id_query"}
+{"text": "أين استلام البطاقة الجامعية", "label": "student_id_query"}
+{"text": "student ID card renewal", "label": "student_id_query"}
+{"text": "صورتي ع البطاقة مش واضحة", "label": "student_id_query"}
+{"text": "تفعيل البطاقة الجامعية", "label": "student_id_query"}
+{"text": "طبع البطاقة كم يوم بياخد؟", "label": "student_id_query"}
+{"text": "متى أستلم بطاقة الطالب؟", "label": "student_id_query"}
+{"text": "أهلا", "label": "greeting"}
+{"text": "مرحبا", "label": "greeting"}
+{"text": "السلام عليكم", "label": "greeting"}
+{"text": "هلا", "label": "greeting"}
+{"text": "Hi there", "label": "greeting"}
+{"text": "صباح الخير", "label": "greeting"}
+{"text": "مسا الخير", "label": "greeting"}
+{"text": "hello bot", "label": "greeting"}
+{"text": "هاي", "label": "greeting"}
+{"text": "عليكم السلام", "label": "greeting"}
+{"text": "كيف حالك", "label": "greeting"}
+{"text": "مع السلامة", "label": "goodbye"}
+{"text": "يلا باي", "label": "goodbye"}
+{"text": "bye bye", "label": "goodbye"}
+{"text": "شكرا مع السلامة", "label": "goodbye"}
+{"text": "سلام", "label": "goodbye"}
+{"text": "أراك لاحقا", "label": "goodbye"}
+{"text": "إلى اللقاء", "label": "goodbye"}
+{"text": "see you later", "label": "goodbye"}
+{"text": "تصبح على خير", "label": "goodbye"}
+{"text": "الله معك", "label": "goodbye"}
+{"text": "شكرا جزيلا", "label": "thanks"}
+{"text": "مشكور كتير", "label": "thanks"}
+{"text": "تسلم", "label": "thanks"}
+{"text": "thanks a lot", "label": "thanks"}
+{"text": "يعطيك العافية", "label": "thanks"}
+{"text": "جزاك الله خير", "label": "thanks"}
+{"text": "شكرا ع المساعدة", "label": "thanks"}
+{"text": "thank you so much", "label": "thanks"}
+{"text": "ممنونك", "label": "thanks"}
+{"text": "كيف الجو اليوم؟", "label": "unknown"}
+{"text": "طرشي recipe", "label": "unknown"}
+{"text": "ايش رأيك بالسياسة؟", "label": "unknown"}
+{"text": "مباراة الليلة بين مين؟", "label": "unknown"}
+{"text": "كيف أصلح جوالي", "label": "unknown"}
+{"text": "شو آخر أخبار البورصة؟", "label": "unknown"}
+{"text": "صار معي غلط بالبوت", "label": "unknown"}
+{"text": "بدي أطلب بيتزا", "label": "unknown"}
+{"text": "what's the meaning of life?", "label": "unknown"}
+{"text": "بتحب الأكل الفلسطيني؟", "label": "unknown"}
+{"text": "المسلسل الجديد ع نتفلكس", "label": "unknown"}
+{"text": "عندي مقابلة شغل وين أروح", "label": "unknown"}
+{"text": "الطقس حار اليوم", "label": "unknown"}
+{"text": "weather tomorrow in hebron?", "label": "unknown"}
+{"text": "كم لازم أدفع عشان أثبت قبولي بالجامعة؟", "label": "faq_fees"}
+{"text": "طريقة تقسيط الرسوم الدراسية", "label": "faq_fees"}
+{"text": "How can I pay my tuition from outside Palestine?", "label": "faq_fees"}
+{"text": "سعر ساعة تخصص الذكاء الاصطناعي", "label": "faq_fees"}
+{"text": "fees for summer semester", "label": "faq_fees"}
+{"text": "بقدر أسجل مواد وأنا مش دافع القسط؟", "label": "faq_fees"}
+{"text": "تفاصيل غرامات التأخير", "label": "faq_fees"}
+{"text": "Refund policy for dropped courses", "label": "faq_fees"}
+{"text": "كم وصل حسابي المالي في البورتال؟", "label": "faq_fees"}
+{"text": "تخفيض الأخوة كم نسبته؟", "label": "faq_fees"}
+{"text": "سحبت مادة متى برجعوا الفلوس؟", "label": "faq_fees"}
+{"text": "متى موعد السحب والإضافة؟", "label": "faq_registration"}
+{"text": "بدي أسجل مادة بديلة شو الإجراءات؟", "label": "faq_registration"}
+{"text": "I need to register for more than 18 credit hours", "label": "faq_registration"}
+{"text": "المادة مغلقة شو أعمل؟", "label": "faq_registration"}
+{"text": "كيف بضيف مادة من برا الخطة؟", "label": "faq_registration"}
+{"text": "Registration link for PPU portal", "label": "faq_registration"}
+{"text": "بقدر أسجل بمواد إذا معدلي نازل؟", "label": "faq_registration"}
+{"text": "حذف وإضافة مواد", "label": "faq_registration"}
+{"text": "مشكلة في تسجيل مواد الفصل الصيفي", "label": "faq_registration"}
+{"text": "كيف بغير الشعبة؟", "label": "faq_registration"}
+{"text": "شروط القبول في تخصص الهندسة المعمارية", "label": "faq_admission"}
+{"text": "معدلات القبول لهذا العام 2026", "label": "faq_admission"}
+{"text": "Admission for master's degree", "label": "faq_admission"}
+{"text": "وين أقدم طلب التحاق يدوي؟", "label": "faq_admission"}
+{"text": "أوراق التجسير من الكلية للجامعة", "label": "faq_admission"}
+{"text": "Admission fee for new students", "label": "faq_admission"}
+{"text": "متى ببلش قبول الطلاب الجدد؟", "label": "faq_admission"}
+{"text": "Admission office contact number", "label": "faq_admission"}
+{"text": "كيف أعرف إذا انقبلت في الجامعة؟", "label": "faq_admission"}
+{"text": "شروط التحويل الداخلي بين الكليات", "label": "faq_admission"}
+{"text": "متى بطلع براءة الذمة للخريجين؟", "label": "faq_graduation"}
+{"text": "إجراءات استلام الشهادة الجامعية", "label": "faq_graduation"}
+{"text": "Graduation ceremony dates", "label": "faq_graduation"}
+{"text": "بدي أطلع كشف علامات للخريجين", "label": "faq_graduation"}
+{"text": "How to apply for graduation online?", "label": "faq_graduation"}
+{"text": "متى حفل تخريج الفوج الـ 45؟", "label": "faq_graduation"}
+{"text": "أوراق التخرج اللازمة", "label": "faq_graduation"}
+{"text": " Graduation request status", "label": "faq_graduation"}
+{"text": "شو شروط التخرج بمرتبة الشرف؟", "label": "faq_graduation"}
+{"text": "تصديق الشهادات من وزارة التعليم العالي", "label": "faq_graduation"}
+{"text": "منحة أبناء الشهداء", "label": "faq_scholarships"}
+{"text": "كيف أحصل على منحة صندوق الطالب؟", "label": "faq_scholarships"}
+{"text": "Available scholarships for engineering students", "label": "faq_scholarships"}
+{"text": "قرض التعليم العالي متى بيفتح؟", "label": "faq_scholarships"}
+{"text": "شروط منحة التفوق الرياضي", "label": "faq_scholarships"}
+{"text": "Scholarship application deadline", "label": "faq_scholarships"}
+{"text": "بدي أسأل عن منحة حفظة القرآن الكريم", "label": "faq_scholarships"}
+{"text": "تغطية المنحة الجزئية كم بتشمل؟", "label": "faq_scholarships"}
+{"text": "كيف أجدد القرض تبع الفصل الماضي؟", "label": "faq_scholarships"}
+{"text": "منح الماجستير في الخارج", "label": "faq_scholarships"}
+{"text": "متى بنزل جدول الامتحانات النهائية؟", "label": "schedule_exams"}
+{"text": "قاعة امتحان الحاسوب وين؟", "label": "schedule_exams"}
+{"text": "Midterm exam schedule link", "label": "schedule_exams"}
+{"text": "في تعارض بالامتحانات كيف أعدل؟", "label": "schedule_exams"}
+{"text": "موعد امتحان مستوى اللغة الإنجليزية", "label": "schedule_exams"}
+{"text": "Final exams locations", "label": "schedule_exams"}
+{"text": "بدي أسجل لامتحان غير مكتمل", "label": "schedule_exams"}
+{"text": "متى امتحانات العملي للمختبرات؟", "label": "schedule_exams"}
+{"text": "Exams date for IT department", "label": "schedule_exams"}
+{"text": "توزيع المقاعد للامتحانات", "label": "schedule_exams"}
+{"text": "جدول محاضراتي الفصل الأول", "label": "schedule_classes"}
+{"text": "بدي أشوف الشعب المفتوحة لمساق الكيمياء", "label": "schedule_classes"}
+{"text": "Class times for mechatronics", "label": "schedule_classes"}
+{"text": "أوقات محاضرات يوم الأحد", "label": "schedule_classes"}
+{"text": "وين بقدر أشوف جدولي الدراسي؟", "label": "schedule_classes"}
+{"text": "Class schedule conflict", "label": "schedule_classes"}
+{"text": "متى بتبلش المحاضرات الوجاهية؟", "label": "schedule_classes"}
+{"text": "أوقات محاضرات الماجستير", "label": "schedule_classes"}
+{"text": "Weekly timetable", "label": "schedule_classes"}
+{"text": "في محاضرات بعد الساعة 4؟", "label": "schedule_classes"}
+{"text": "التقويم الأكاديمي لعام 2026", "label": "schedule_academic_calendar"}
+{"text": "متى عطلة نصف العام؟", "label": "schedule_academic_calendar"}
+{"text": "Academic calendar PDF", "label": "schedule_academic_calendar"}
+{"text": "متى آخر يوم للسحب بدون خسارة الرسوم؟", "label": "schedule_academic_calendar"}
+{"text": "مواعيد الامتحانات بالتقويم", "label": "schedule_academic_calendar"}
+{"text": "University holidays 2026", "label": "schedule_academic_calendar"}
+{"text": "بداية الفصل الدراسي الثاني متى؟", "label": "schedule_academic_calendar"}
+{"text": "Calendar for summer session", "label": "schedule_academic_calendar"}
+{"text": "موعد حفل المتفوقين السنوي", "label": "schedule_academic_calendar"}
+{"text": "فترة الامتحانات النصفية بالتقويم", "label": "schedule_academic_calendar"}
+{"text": "إيميل الدكتور خليل من قسم الحاسوب", "label": "staff_info"}
+{"text": "وين مكتب رئيس الجامعة؟", "label": "staff_info"}
+{"text": "Staff contact directory", "label": "staff_info"}
+{"text": "أرقام هواتف موظفي القبول والتسجيل", "label": "staff_info"}
+{"text": "ساعات استقبال الدكتور محمد", "label": "staff_info"}
+{"text": "مين هو عميد شؤون الطلبة؟", "label": "staff_info"}
+{"text": "Professor's office hours", "label": "staff_info"}
+{"text": "بدي أتواصل مع سكرتيرة الهندسة", "label": "staff_info"}
+{"text": "أسماء مدرسين مادة الرياضيات 1", "label": "staff_info"}
+{"text": "Who is the head of the IT department?", "label": "staff_info"}
+{"text": "معلومات عن تخصص هندسة الطاقة المتجددة", "label": "department_info"}
+{"text": "وين دائرة المحاسبة؟", "label": "department_info"}
+{"text": "Engineering department location", "label": "department_info"}
+{"text": "شو التخصصات التقنية الموجودة؟", "label": "department_info"}
+{"text": "Department of applied science office", "label": "department_info"}
+{"text": "كلية الطب في أي مبنى؟", "label": "department_info"}
+{"text": "أقسام كلية الدراسات العليا", "label": "department_info"}
+{"text": "PPU departments list", "label": "department_info"}
+{"text": "بدي معلومات عن دبلوم التصميم الجرافيكي", "label": "department_info"}
+{"text": "وين كلية المهن التطبيقية؟", "label": "department_info"}
+{"text": "شو مساقات الفصل الأول لهندسة البرمجيات؟", "label": "course_info"}
+{"text": "Course outline for Data Science", "label": "course_info"}
+{"text": "المتطلب السابق لمادة الخوارزميات", "label": "course_info"}
+{"text": "وصف مساق مهارات الحاسوب", "label": "course_info"}
+{"text": "Course syllabus link", "label": "course_info"}
+{"text": "المادة هاي حرة ولا اختيارية تخصص؟", "label": "course_info"}
+{"text": "بقدر آخذ المادة هاي بدون متطلب سابق؟", "label": "course_info"}
+{"text": "عدد ساعات مساق الفيزياء الطبية", "label": "course_info"}
+{"text": "Course credits for graduation project", "label": "course_info"}
+{"text": "محتويات مادة الشبكات", "label": "course_info"}
+{"text": "بقدر أستعير لابتوب من المكتبة؟", "label": "library_info"}
+{"text": "Library search portal", "label": "library_info"}
+{"text": "متى بتسكر مكتبة جبل أبو رمان؟", "label": "library_info"}
+{"text": "كيف أستخدم قواعد البيانات العلمية؟", "label": "library_info"}
+{"text": "Where is the main library?", "label": "library_info"}
+{"text": "عقوبة تأخير إرجاع الكتب", "label": "library_info"}
+{"text": "Library membership for alumni", "label": "library_info"}
+{"text": "بدي أحجز غرفة دراسة في المكتبة", "label": "library_info"}
+{"text": "Book reservation policy", "label": "library_info"}
+{"text": "في طابعات بالمكتبة؟", "label": "library_info"}
+{"text": "وين مواقف السيارات للطلاب؟", "label": "campus_services"}
+{"text": "في مسجد قريب من كلية الهندسة؟", "label": "campus_services"}
+{"text": "University shuttle bus times", "label": "campus_services"}
+{"text": "كيف بشبك على نت الجامعة (PPU-WiFi)؟", "label": "campus_services"}
+{"text": "Campus clinic services", "label": "campus_services"}
+{"text": "وين بلاقي الكافتيريا المركزية؟", "label": "campus_services"}
+{"text": "IT support for student accounts", "label": "campus_services"}
+{"text": "بدي حجز القاعة الرياضية", "label": "campus_services"}
+{"text": "Student lounge location", "label": "campus_services"}
+{"text": " وين مركز التدريب المهني بالجامعة؟", "label": "campus_services"}
+{"text": "كيف أطلع هوية جامعية جديدة؟", "label": "student_id_query"}
+{"text": "Student ID card replacement cost", "label": "student_id_query"}
+{"text": "ضاعت بطاقتي شو الإجراءات؟", "label": "student_id_query"}
+{"text": "وين مكتب التصوير تبع الهويات؟", "label": "student_id_query"}
+{"text": "Validate my student ID", "label": "student_id_query"}
+{"text": "بطاقتي الجامعية مكسورة", "label": "student_id_query"}
+{"text": "بقدر أستخدم البطاقة القديمة؟", "label": "student_id_query"}
+{"text": "How long to issue a new ID?", "label": "student_id_query"}
+{"text": "تفعيل البطاقة الجامعية للمواصلات", "label": "student_id_query"}
+{"text": "ID card office working hours", "label": "student_id_query"}
+{"text": "السلام عليكم ورحمة الله", "label": "greeting"}
+{"text": "Good morning", "label": "greeting"}
+{"text": "أهلاً يا بوت", "label": "greeting"}
+{"text": "Hi there!", "label": "greeting"}
+{"text": "مساك سعيد", "label": "greeting"}
+{"text": "صباح الفل", "label": "greeting"}
+{"text": "Yo", "label": "greeting"}
+{"text": "كيف الحال؟", "label": "greeting"}
+{"text": "مرحبا بك", "label": "greeting"}
+{"text": "Greetings", "label": "greeting"}
+{"text": "شكراً إلك", "label": "thanks"}
+{"text": "Thanks a lot", "label": "thanks"}
+{"text": "يسلموا كثير", "label": "thanks"}
+{"text": "You're helpful, thanks", "label": "thanks"}
+{"text": "شكراً جزيلاً غلبتك", "label": "thanks"}
+{"text": "بارك الله فيك", "label": "thanks"}
+{"text": "All good, thanks", "label": "thanks"}
+{"text": "ألف شكر", "label": "thanks"}
+{"text": "Thanks for your assistance", "label": "thanks"}
+{"text": "ممنونك", "label": "thanks"}
+{"text": "بشوفك بعدين", "label": "goodbye"}
+{"text": "See ya", "label": "goodbye"}
+{"text": "في أمان الله ومع السلامة", "label": "goodbye"}
+{"text": "Bye bye", "label": "goodbye"}
+{"text": "تصبحوا على خير", "label": "goodbye"}
+{"text": "سلام", "label": "goodbye"}
+{"text": "Talk to you later", "label": "goodbye"}
+{"text": "خروج", "label": "goodbye"}
+{"text": "I'm done, bye", "label": "goodbye"}
+{"text": "إلى اللقاء", "label": "goodbye"}
+{"text": "شو أخبار غزة اليوم؟", "label": "unknown"}
+{"text": "Who won the World Cup 2022?", "label": "unknown"}
+{"text": "نكتة مضحكة قصيرة", "label": "unknown"}
+{"text": "How to cook pasta?", "label": "unknown"}
+{"text": "شو سعر الدولار مقابل الشيكل؟", "label": "unknown"}
+{"text": "Latest news in Hebron", "label": "unknown"}
+{"text": "أفضل موبايل سامسونج هسا", "label": "unknown"}
+{"text": "Tell me a story", "label": "unknown"}
+{"text": "كيف أعمل فورمات للابتوب؟", "label": "unknown"}
+{"text": "Politics in Palestine", "label": "unknown"}
+{"text": "كم المسافة بين الخليل ورام الله؟", "label": "unknown"}
+{"text": "Best video game 2025", "label": "unknown"}
+{"text": "شو ألبس اليوم الجو برد؟", "label": "unknown"}
+{"text": "I feel bored", "label": "unknown"}
+{"text": "أغاني فيروز", "label": "unknown"}
+{"text": "How to learn coding?", "label": "unknown"}
+{"text": "وين أحسن محل كبدة بالخليل؟", "label": "unknown"}
+{"text": "What is Bitcoin?", "label": "unknown"}
+{"text": "تعبان من الدراسة", "label": "unknown"}
+{"text": "شو نتيجة مباراة برشلونة؟", "label": "unknown"}
+{"text": "fees and exams", "label": "schedule_exams"}
+{"text": "registration and library", "label": "faq_registration"}
+{"text": "scholarship and admission", "label": "faq_scholarships"}
+{"text": "graduation and fees", "label": "faq_graduation"}
+{"text": "Where is the clinic?", "label": "campus_services"}
+{"text": "Professor Sarah email", "label": "staff_info"}
+{"text": "ID card lost fee", "label": "student_id_query"}
+{"text": "When is summer vacation?", "label": "schedule_academic_calendar"}
+{"text": "Is math 1 easy?", "label": "course_info"}
+{"text": "hi thnx bye", "label": "greeting"}
+{"text": "دفعة الرسوم لازم اخلصها قبل الامتحانات؟", "label": "faq_fees"}
+{"text": "كم رسوم اعادة القيد؟", "label": "faq_fees"}
+{"text": "بدي اسجل فصل صيفي كم التكلفة", "label": "faq_fees"}
+{"text": "الرسوم الدراسية لتخصص العمارة غالية؟", "label": "faq_fees"}
+{"text": "في تقسيط للرسوم ولا دفعة وحدة؟", "label": "faq_fees"}
+{"text": "I want to pay fees online, how?", "label": "faq_fees"}
+{"text": "رسوم امتحان المستوى للانجليزي", "label": "faq_fees"}
+{"text": "كم سعر credit hour لتخصص ال IT", "label": "faq_fees"}
+{"text": "لو تأخرت بالدفع في غرامة؟", "label": "faq_fees"}
+{"text": "الايصال حق الدفع وين اوديه", "label": "faq_fees"}
+{"text": "حجز المواد للفصل الجاي", "label": "faq_registration"}
+{"text": "متى يفتح ال add and drop", "label": "faq_registration"}
+{"text": "كيف ألغي تسجيل مادة؟", "label": "faq_registration"}
+{"text": "تم رفض تسجيلي للمادة، ليه؟", "label": "faq_registration"}
+{"text": "شو يعني registration hold", "label": "faq_registration"}
+{"text": "سجلت غلط مادة بدي اغيرها", "label": "faq_registration"}
+{"text": "متى اقدر اسجل مواد الفصل التاني", "label": "faq_registration"}
+{"text": "طريقة التسجيل للطلبة الزائرين", "label": "faq_registration"}
+{"text": "الحد الاعلى للساعات بالتسجيل", "label": "faq_registration"}
+{"text": "ما بقدر اشوف المساقات ع البوابة", "label": "faq_registration"}
+{"text": "how to use the registration portal?", "label": "faq_registration"}
+{"text": "شو نظام القبول الموحد؟", "label": "faq_admission"}
+{"text": "امتحان القبول للهندسة كيف شكله", "label": "faq_admission"}
+{"text": "انا طالب توجيهي بدي اسال عن القبول", "label": "faq_admission"}
+{"text": "طلبات ال admission للفصل الاول خلصت؟", "label": "faq_admission"}
+{"text": "القبول المباشر متى اعلان نتائجه", "label": "faq_admission"}
+{"text": "كم عدد الطلاب المقبولين سنويا", "label": "faq_admission"}
+{"text": "معدلي 90 علمي، بدي طب بشري", "label": "faq_admission"}
+{"text": "وين مقر دائرة القبول", "label": "faq_admission"}
+{"text": "بعد ما انقبلت شو لازم اعمل", "label": "faq_admission"}
+{"text": "تقديم طلب قبول الكتروني", "label": "faq_admission"}
+{"text": "شو اجراءات التقدم للامتحان الشامل؟", "label": "faq_graduation"}
+{"text": "مشروع التخرج متى تسليمه", "label": "faq_graduation"}
+{"text": "انا خريج كيف اطلب كشف علامات", "label": "faq_graduation"}
+{"text": "معدل التخرج كيف بنحسب", "label": "faq_graduation"}
+{"text": "شروط التخرج مع مرتبة الشرف", "label": "faq_graduation"}
+{"text": "graduation requirements check", "label": "faq_graduation"}
+{"text": "متى يعلن اسماء الخريجين", "label": "faq_graduation"}
+{"text": "فش عندي اي مادة، اتخرجت ولا لا", "label": "faq_graduation"}
+{"text": "تأجيل التخرج semester", "label": "faq_graduation"}
+{"text": "تصديق الوثيقة كم يوم؟", "label": "faq_graduation"}
+{"text": "منحة الفصل الثاني متوفر؟", "label": "faq_scholarships"}
+{"text": "الاوراق المطلوبة ل scholarship", "label": "faq_scholarships"}
+{"text": "منح الطلبة الاوائل كيف بتتقدم", "label": "faq_scholarships"}
+{"text": "بدي دعم مالي، في جمعية بتساعد؟", "label": "faq_scholarships"}
+{"text": "متى اخر موعد لتقديم طلب المنحة", "label": "faq_scholarships"}
+{"text": "شروط تجديد المنحة للفصل القادم", "label": "faq_scholarships"}
+{"text": "any scholarships available now?", "label": "faq_scholarships"}
+{"text": "المنحة بتشمل السكن؟", "label": "faq_scholarships"}
+{"text": "عندي منحة من جهة خارجية، بتتعمد للجامعة", "label": "faq_scholarships"}
+{"text": "مشروع مساعدة الطالب المحتاج", "label": "faq_scholarships"}
+{"text": "الامتحان التكميلي متى", "label": "schedule_exams"}
+{"text": "وين الاقي جدول الامتحانات النصفي", "label": "schedule_exams"}
+{"text": "امتحاني جدا متأخر، في حل", "label": "schedule_exams"}
+{"text": "بكرة امتحان اي غرفة", "label": "schedule_exams"}
+{"text": "midterm date for physics 101", "label": "schedule_exams"}
+{"text": "في امتحانات يوم السبت؟", "label": "schedule_exams"}
+{"text": "الامتحان العملي وين مكانه", "label": "schedule_exams"}
+{"text": "عندي امتحانين بنفس اليوم، بتقدموا اعتراض؟", "label": "schedule_exams"}
+{"text": "جدول المراقبات للاساتذة", "label": "schedule_exams"}
+{"text": "تعليمات قاعة الامتحان", "label": "schedule_exams"}
+{"text": "كم مدة امتحان Material science", "label": "schedule_exams"}
+{"text": "شو شعبتي بالمحاضرات؟", "label": "schedule_classes"}
+{"text": "كيف بعرف مكان المحاضرة", "label": "schedule_classes"}
+{"text": "جدول شعبة 101", "label": "schedule_classes"}
+{"text": "محاضرات يوم الخميس فاضية عندي؟", "label": "schedule_classes"}
+{"text": "my class starts at 9, where is it?", "label": "schedule_classes"}
+{"text": "قاعات التدريس وين بتوخذ ارقامها", "label": "schedule_classes"}
+{"text": "دوام المختبر كم ساعة", "label": "schedule_classes"}
+{"text": "محاضرة الاحد اتلغت ولا لا", "label": "schedule_classes"}
+{"text": "استاذ مادة الرياضيات بأي مبنى", "label": "schedule_classes"}
+{"text": "تغيرت شعبتي وما بلغوني", "label": "schedule_classes"}
+{"text": "فترة التسجيل المفتوح", "label": "schedule_academic_calendar"}
+{"text": "العطلة الصيفية بتبلش من اي تاريخ", "label": "schedule_academic_calendar"}
+{"text": "ايام العطل الرسمية للعام 2026", "label": "schedule_academic_calendar"}
+{"text": "متى بنخلص تدريس الفصل الحالي", "label": "schedule_academic_calendar"}
+{"text": "university calendar 2026 pdf", "label": "schedule_academic_calendar"}
+{"text": "فترة الامتحانات النهائية كم يوم", "label": "schedule_academic_calendar"}
+{"text": "الاسبوع الميت dead week اي اسبوع", "label": "schedule_academic_calendar"}
+{"text": "عيد العمال دوام ولا عطلة", "label": "schedule_academic_calendar"}
+{"text": "متى اخر يوم انسحاب من مادة", "label": "schedule_academic_calendar"}
+{"text": "بداية الفصل الصيفي ونهايته", "label": "schedule_academic_calendar"}
+{"text": "مين دكتور مختبر الالكترونيات", "label": "staff_info"}
+{"text": "وين احصل الدكتور احمد بالجامعة", "label": "staff_info"}
+{"text": "الايميل الجامعي لاستاذة مادة العربي", "label": "staff_info"}
+{"text": "رئيس القسم شو اسمه", "label": "staff_info"}
+{"text": "مواعيد ال office hours لدكتور خالد", "label": "staff_info"}
+{"text": "اريد اراجع دكتوري ضروري", "label": "staff_info"}
+{"text": "معلومات التواصل مع عميد القبول", "label": "staff_info"}
+{"text": "مين استاذ مساق project management", "label": "staff_info"}
+{"text": "مشرفة النادي الطلابي اسمها", "label": "staff_info"}
+{"text": "مساعد مختبر الكيمياء", "label": "staff_info"}
+{"text": "قسم الشؤون الادارية وين مكانه", "label": "department_info"}
+{"text": "نبذة عن تخصص هندسة البناء", "label": "department_info"}
+{"text": "الاقسام الادبية بالجامعة", "label": "department_info"}
+{"text": "كلية الهندسة فيها قسم ميكانيك سيارات؟", "label": "department_info"}
+{"text": "اقسام وبرامج الدراسات العليا", "label": "department_info"}
+{"text": "وين عمادة شؤون الطلبة", "label": "department_info"}
+{"text": "شو بندرس بقسم الوسائط المتعددة", "label": "department_info"}
+{"text": "تخصص التمريض لاي كلية يتبع", "label": "department_info"}
+{"text": "اقسام جديدة رح تفتح؟", "label": "department_info"}
+{"text": "الخطة الدراسية لقسم المحاسبة", "label": "department_info"}
+{"text": "تفاصيل مادة introduction to programming", "label": "course_info"}
+{"text": "شو بنغطي مساق digital logic", "label": "course_info"}
+{"text": "هل مادة ethics الزامية؟", "label": "course_info"}
+{"text": "كم ساعة معتمدة التدريب العملي", "label": "course_info"}
+{"text": "متطلب جامعة اختياري شو المتوفر", "label": "course_info"}
+{"text": "نوع الامتحان لمادة الرسم الهندسي", "label": "course_info"}
+{"text": "المادة مفتوحة ولا closed", "label": "course_info"}
+{"text": "شو الكتب المقررة لهادا الكورس", "label": "course_info"}
+{"text": "prerequisite for networking course", "label": "course_info"}
+{"text": "الخطة الاسترشادية لقسم التصميم", "label": "course_info"}
+{"text": "كم عدد الكتب المسموح استعارتها", "label": "library_info"}
+{"text": "رقم تلفون مكتبة الحرم", "label": "library_info"}
+{"text": "كيف اوصل لقواعد البيانات بالمكتبة", "label": "library_info"}
+{"text": "فتح المكتبة ايام الاحد", "label": "library_info"}
+{"text": "في مكتبة رقمية للابحاث", "label": "library_info"}
+{"text": "تجديد الكتاب اونلاين", "label": "library_info"}
+{"text": "library working hours on Friday", "label": "library_info"}
+{"text": "خدمة التصوير بالمكتبة", "label": "library_info"}
+{"text": "غرف النقاش كيف احجز", "label": "library_info"}
+{"text": "المكتبة بتسد بكير اليوم", "label": "library_info"}
+{"text": "كيفية الوصول للجامعة بالمواصلات", "label": "campus_services"}
+{"text": "بدي احجز موقف سيارة", "label": "campus_services"}
+{"text": "العيادة وين موقعها بالضبط", "label": "campus_services"}
+{"text": "مواعيد الكافيتريا بالعيد", "label": "campus_services"}
+{"text": "ارقام مكاتب الخدمات", "label": "campus_services"}
+{"text": "مركز الحاسوب بالجامعة خدماته", "label": "campus_services"}
+{"text": "ايميل ال student affairs", "label": "campus_services"}
+{"text": "في صراف آلي ATM بالحرم", "label": "campus_services"}
+{"text": "اماكن شحن الباصات السريعة", "label": "campus_services"}
+{"text": "شو اسماء المطاعم داخل الجامعة", "label": "campus_services"}
+{"text": "مركز اللغات دورات الانجليزي", "label": "campus_services"}
+{"text": "طلعت بطاقتي الجامعية ومش شغالة", "label": "student_id_query"}
+{"text": "تجديد هوية الطالب", "label": "student_id_query"}
+{"text": "رقم الطالب university id", "label": "student_id_query"}
+{"text": "متى بصدر رقمي الجامعي", "label": "student_id_query"}
+{"text": "نسيت بطاقتي بالبيت بقدر ادخل", "label": "student_id_query"}
+{"text": "صورتي بالبطاقة قديمة بدي اغيرها", "label": "student_id_query"}
+{"text": "تفعيل البطاقة للدخول للمختبرات", "label": "student_id_query"}
+{"text": "البطاقة ما بتشتغل ع البوابات", "label": "student_id_query"}
+{"text": "كم مدة صلاحية بطاقة الطالب", "label": "student_id_query"}
+{"text": "فقدان البطاقة والابلاغ عنها", "label": "student_id_query"}
+{"text": "مراحب", "label": "greeting"}
+{"text": "السلام عليكم ورحمة الله", "label": "greeting"}
+{"text": "اهلين وسهلين", "label": "greeting"}
+{"text": "hey", "label": "greeting"}
+{"text": "good morning", "label": "greeting"}
+{"text": "مرحبتين", "label": "greeting"}
+{"text": "كيف حالك يا بوت", "label": "greeting"}
+{"text": "اهلا بك", "label": "greeting"}
+{"text": "صباحو", "label": "greeting"}
+{"text": "مساء النور", "label": "greeting"}
+{"text": "باي", "label": "goodbye"}
+{"text": "يالله نشوفك بعدين", "label": "goodbye"}
+{"text": "خليني امشي", "label": "goodbye"}
+{"text": "good night", "label": "goodbye"}
+{"text": "سررت بلقائك", "label": "goodbye"}
+{"text": "في حفظ الله", "label": "goodbye"}
+{"text": "أستودعكم الله", "label": "goodbye"}
+{"text": "take care, bye", "label": "goodbye"}
+{"text": "مع الف سلامة", "label": "goodbye"}
+{"text": "شكرا كتير الك", "label": "thanks"}
+{"text": "مشكور ما قصرت", "label": "thanks"}
+{"text": "thank you", "label": "thanks"}
+{"text": "شكرا ع المجهود", "label": "thanks"}
+{"text": "شكرا لالك", "label": "thanks"}
+{"text": "يسلمو ايديك", "label": "thanks"}
+{"text": "appreciate it, thanks", "label": "thanks"}
+{"text": "عطاك العافية", "label": "thanks"}
+{"text": "شكرا ع الرد السريع", "label": "thanks"}
+{"text": "ثانكيو", "label": "thanks"}
+{"text": "الجو ماطر اليوم؟", "label": "unknown"}
+{"text": "بدي وصفة كبة", "label": "unknown"}
+{"text": "اريد اتعلم الماني", "label": "unknown"}
+{"text": "شو رأيك بالوضع الاقتصادي", "label": "unknown"}
+{"text": "مين احسن لاعب بالعالم", "label": "unknown"}
+{"text": "طريقة عمل القهوة العربية", "label": "unknown"}
+{"text": "كيف احمل فيديو من اليوتيوب", "label": "unknown"}
+{"text": "الموبايل حق بطيء", "label": "unknown"}
+{"text": "what's the capital of Palestine?", "label": "unknown"}
+{"text": "بدي احجز طيارة", "label": "unknown"}
+{"text": "شو توقعات مباراة اليوم", "label": "unknown"}
+{"text": "عندي صداع شو العلاج", "label": "unknown"}
+{"text": "اخر اخبار غزة", "label": "unknown"}
+{"text": "what's your favorite color?", "label": "unknown"}
+{"text": "بتحب القطط", "label": "unknown"}
+{"text": "الفيلم الجديد حلو", "label": "unknown"}
+{"text": "كم لازم أدفع عشان أفتح البورتال؟", "label": "faq_fees"}
+{"text": "رسوم الساعة المعتمدة لتخصص الطب", "label": "faq_fees"}
+{"text": "I paid the fees but it's not showing on the portal", "label": "faq_fees"}
+{"text": "وين بقدر ألاقي وصل الدفع؟", "label": "faq_fees"}
+{"text": "قديش قسط الفصل الأول؟", "label": "faq_fees"}
+{"text": "بقدر أقسط الرسوم الدراسية؟", "label": "faq_fees"}
+{"text": "tuition fees for engineering", "label": "faq_fees"}
+{"text": "طريقة دفع الأقساط عن طريق البنك", "label": "faq_fees"}
+{"text": "كم غرامة التأخير في الدفع؟", "label": "faq_fees"}
+{"text": "سعر ساعة الماجستير في إدارة الأعمال", "label": "faq_fees"}
+{"text": "متى بتبلش عملية السحب والإضافة؟", "label": "faq_registration"}
+{"text": "بدي أضيف مادة بس الشعبة مغلقة", "label": "faq_registration"}
+{"text": "How do I register for courses online?", "label": "faq_registration"}
+{"text": "مشكلة في البورتال مش راضي يسجل", "label": "faq_registration"}
+{"text": "خطوات التسجيل للطلاب الجدد", "label": "faq_registration"}
+{"text": "بقدر أسحب مادة هسا؟", "label": "faq_registration"}
+{"text": "registration deadline", "label": "faq_registration"}
+{"text": "موعد تثبيت التسجيل للفصل الصيفي", "label": "faq_registration"}
+{"text": "كيف بقدر أغير تخصصي؟", "label": "faq_registration"}
+{"text": "أقل عدد ساعات ممكن أسجله", "label": "faq_registration"}
+{"text": "شو الأوراق المطلوبة للتقديم للجامعة؟", "label": "faq_admission"}
+{"text": "معدل قبول تخصص تكنولوجيا المعلومات", "label": "faq_admission"}
+{"text": "When do admission applications open?", "label": "faq_admission"}
+{"text": "كيف أقدم طلب التحاق إلكتروني؟", "label": "faq_admission"}
+{"text": "شروط التجسير لطلاب الكلية", "label": "faq_admission"}
+{"text": "بقدر أسجل بالجامعة ومعدلي 70؟", "label": "faq_admission"}
+{"text": "admission requirements", "label": "faq_admission"}
+{"text": "رابط تقديم الطلبات للطلاب الجدد", "label": "faq_admission"}
+{"text": "متى بتطلع نتائج القبول؟", "label": "faq_admission"}
+{"text": "سعر طلب الالتحاق كم؟", "label": "faq_admission"}
+{"text": "إجراءات براءة الذمة للخريجين", "label": "faq_graduation"}
+{"text": "متى موعد حفلة التخرج الجاي؟", "label": "faq_graduation"}
+{"text": "How can I get my graduation certificate?", "label": "faq_graduation"}
+{"text": "شو المتطلبات عشان أتخرج؟", "label": "faq_graduation"}
+{"text": "بدي أسجل في قائمة الخريجين", "label": "faq_graduation"}
+{"text": "متى بستلم كشف العلامات النهائي؟", "label": "faq_graduation"}
+{"text": "graduation ceremony dates 2026", "label": "faq_graduation"}
+{"text": "كيف بطلب وثيقة تخرج؟", "label": "faq_graduation"}
+{"text": "بدي أصدق شهادتي من الجامعة", "label": "faq_graduation"}
+{"text": "رسوم حفل التخرج كم؟", "label": "faq_graduation"}
+{"text": "في منح مقدمة للمتفوقين؟", "label": "faq_scholarships"}
+{"text": "كيف بقدر أقدم على منحة صندوق الطالب؟", "label": "faq_scholarships"}
+{"text": "scholarship opportunities for 2026", "label": "faq_scholarships"}
+{"text": "شروط منحة الإخوة في الجامعة", "label": "faq_scholarships"}
+{"text": "متى بنزل القرض الطلابي؟", "label": "faq_scholarships"}
+{"text": "بدي مساعدة مالية للدراسة", "label": "faq_scholarships"}
+{"text": "financial aid application", "label": "faq_scholarships"}
+{"text": "منحة أبناء العاملين كيف بتشتغل؟", "label": "faq_scholarships"}
+{"text": "رابط طلبات المنح الداخلية", "label": "faq_scholarships"}
+{"text": "أنا معدلي عالي في منحة إلي؟", "label": "faq_scholarships"}
+{"text": "متى موعد امتحانات الميد؟", "label": "schedule_exams"}
+{"text": "وين قاعة امتحاني اليوم؟", "label": "schedule_exams"}
+{"text": "final exams schedule PPU", "label": "schedule_exams"}
+{"text": "عندي تعارض في جدول الامتحانات", "label": "schedule_exams"}
+{"text": "جدول امتحانات الفصل الصيفي", "label": "schedule_exams"}
+{"text": "متى بتبلش الامتحانات النهائية؟", "label": "schedule_exams"}
+{"text": "exam schedule link", "label": "schedule_exams"}
+{"text": "وين بقدر أشوف رقم الجلوس؟", "label": "schedule_exams"}
+{"text": "امتحان المستوى ايمتى موعده؟", "label": "schedule_exams"}
+{"text": "توزيع القاعات للامتحانات المحوسبة", "label": "schedule_exams"}
+{"text": "بدي برنامجي الدراسي لهذا الفصل", "label": "schedule_classes"}
+{"text": "وين محاضراتي اليوم؟", "label": "schedule_classes"}
+{"text": "class schedule for engineering students", "label": "schedule_classes"}
+{"text": "في محاضرات يوم السبت؟", "label": "schedule_classes"}
+{"text": "أوقات دوام تخصص الحاسوب", "label": "schedule_classes"}
+{"text": "متى بتبلش أول محاضرة الصبح؟", "label": "schedule_classes"}
+{"text": "my weekly timetable", "label": "schedule_classes"}
+{"text": "توزيع القاعات والمباني", "label": "schedule_classes"}
+{"text": "جدول محاضرات الفصل الثاني", "label": "schedule_classes"}
+{"text": "في تغيير على مواعيد المحاضرات؟", "label": "schedule_classes"}
+{"text": "متى عطلة الفصل؟", "label": "schedule_academic_calendar"}
+{"text": "التقويم الأكاديمي لسنة 2026", "label": "schedule_academic_calendar"}
+{"text": "academic calendar for the next semester", "label": "schedule_academic_calendar"}
+{"text": "متى آخر يوم دوام قبل العيد؟", "label": "schedule_academic_calendar"}
+{"text": "بداية الفصل الصيفي ايمتى؟", "label": "schedule_academic_calendar"}
+{"text": "مواعيد الإجازات الرسمية بالجامعة", "label": "schedule_academic_calendar"}
+{"text": "calendar 2026", "label": "schedule_academic_calendar"}
+{"text": "متى بخلص الفصل الدراسي الحالي؟", "label": "schedule_academic_calendar"}
+{"text": "موعد بدء الدراسة للطلاب الجدد", "label": "schedule_academic_calendar"}
+{"text": "فترة السحب والإضافة بالتقويم", "label": "schedule_academic_calendar"}
+{"text": "مكتب الدكتور أحمد الرجوب وين؟", "label": "staff_info"}
+{"text": "كيف بقدر أتواصل مع رئيس القسم؟", "label": "staff_info"}
+{"text": "contact info for Dr. Mohammed", "label": "staff_info"}
+{"text": "ساعات استقبال المدرسين", "label": "staff_info"}
+{"text": "مين عميد كلية الهندسة؟", "label": "staff_info"}
+{"text": "إيميل سكرتارية قسم الحاسوب", "label": "staff_info"}
+{"text": "staff directory PPU", "label": "staff_info"}
+{"text": "مين بدرس مادة الجبر الخطي؟", "label": "staff_info"}
+{"text": "بدي رقم تليفون دائرة التسجيل", "label": "staff_info"}
+{"text": "وين مكتب الأستاذ خليل؟", "label": "staff_info"}
+{"text": "وين قسم الهندسة المدنية؟", "label": "department_info"}
+{"text": "شو التخصصات الموجودة في كلية الطب؟", "label": "department_info"}
+{"text": "list of departments in PPU", "label": "department_info"}
+{"text": "معلومات عن تخصص هندسة الطاقة", "label": "department_info"}
+{"text": "وين مبنى واد الهرية؟", "label": "department_info"}
+{"text": "أقسام كلية المهن التطبيقية", "label": "department_info"}
+{"text": "department office location", "label": "department_info"}
+{"text": "شو أحسن تخصص بالجامعة؟", "label": "department_info"}
+{"text": "وين كلية العلوم الإدارية؟", "label": "department_info"}
+{"text": "دائرة شؤون الطلبة وين موقعها؟", "label": "department_info"}
+{"text": "شو المتطلب السابق لمادة تفاضل 2؟", "label": "course_info"}
+{"text": "وصف مساق تحليل النظم", "label": "course_info"}
+{"text": "course description for database", "label": "course_info"}
+{"text": "المادة هاي إجبارية ولا اختيارية؟", "label": "course_info"}
+{"text": "خطة تخصص هندسة البرمجيات", "label": "course_info"}
+{"text": "كم ساعة معتمدة لمادة الفيزياء؟", "label": "course_info"}
+{"text": "course syllabus", "label": "course_info"}
+{"text": "المساقات المطروحة للفصل الصيفي", "label": "course_info"}
+{"text": "بقدر آخذ مادة من تخصص ثاني؟", "label": "course_info"}
+{"text": "شو الكتب المطلوبة لمادة العربي؟", "label": "course_info"}
+{"text": "متى بتفتح المكتبة؟", "label": "library_info"}
+{"text": "كيف بقدر أستعير كتاب؟", "label": "library_info"}
+{"text": "library opening hours", "label": "library_info"}
+{"text": "في كتب برمجة في المكتبة؟", "label": "library_info"}
+{"text": "موقع المكتبة المركزية", "label": "library_info"}
+{"text": "بقدر أدرس في المكتبة هسا؟", "label": "library_info"}
+{"text": "online library catalog", "label": "library_info"}
+{"text": "كيف أجدد استعارة كتاب؟", "label": "library_info"}
+{"text": "في انترنت واي فاي بالمكتبة؟", "label": "library_info"}
+{"text": "غرامة تأخير الكتب كم؟", "label": "library_info"}
+{"text": "وين الكافتيريا؟", "label": "campus_services"}
+{"text": "في واي فاي للطلاب بالجامعة؟", "label": "campus_services"}
+{"text": "campus services list", "label": "campus_services"}
+{"text": "وين العيادة الطبية؟", "label": "campus_services"}
+{"text": "كيف بشحن رصيد طابعة؟", "label": "campus_services"}
+{"text": "في باصات للجامعة من دورا؟", "label": "campus_services"}
+{"text": "parking areas for students", "label": "campus_services"}
+{"text": "وين المصلى في مبنى ج؟", "label": "campus_services"}
+{"text": "خدمات الدعم الفني للطلاب", "label": "campus_services"}
+{"text": "في جيم أو نادي رياضي؟", "label": "campus_services"}
+{"text": "ضاعت بطاقتي الجامعية شو أعمل؟", "label": "student_id_query"}
+{"text": "كيف بطلع هوية جامعية جديدة؟", "label": "student_id_query"}
+{"text": "lost student ID card", "label": "student_id_query"}
+{"text": "رسوم إصدار بطاقة بدل فاقد", "label": "student_id_query"}
+{"text": "وين مكتب الهويات؟", "label": "student_id_query"}
+{"text": "بدي أجدد هويتي الجامعية", "label": "student_id_query"}
+{"text": "student ID activation", "label": "student_id_query"}
+{"text": "متى بستلم هويتي وأنا طالب جديد؟", "label": "student_id_query"}
+{"text": "البطاقة مش راضية تفتح البوابة", "label": "student_id_query"}
+{"text": "تغيير الصورة في الهوية", "label": "student_id_query"}
+{"text": "مرحبا", "label": "greeting"}
+{"text": "السلام عليكم", "label": "greeting"}
+{"text": "Hello", "label": "greeting"}
+{"text": "Hi", "label": "greeting"}
+{"text": "يعطيك العافية", "label": "greeting"}
+{"text": "صباح الخير", "label": "greeting"}
+{"text": "hey bot", "label": "greeting"}
+{"text": "يا هلا", "label": "greeting"}
+{"text": "مسا الخير", "label": "greeting"}
+{"text": "good morning", "label": "greeting"}
+{"text": "شكراً جزيلاً", "label": "thanks"}
+{"text": "تسلم ايدك", "label": "thanks"}
+{"text": "Thank you", "label": "thanks"}
+{"text": "Thanks", "label": "thanks"}
+{"text": "غلبتك معي", "label": "thanks"}
+{"text": "مشكور", "label": "thanks"}
+{"text": "جزاك الله خيراً", "label": "thanks"}
+{"text": "thanks for your help", "label": "thanks"}
+{"text": "ألف شكر", "label": "thanks"}
+{"text": "غلبتك", "label": "thanks"}
+{"text": "مع السلامة", "label": "goodbye"}
+{"text": "باي", "label": "goodbye"}
+{"text": "Goodbye", "label": "goodbye"}
+{"text": "بنشوفك على خير", "label": "goodbye"}
+{"text": "يلا سلام", "label": "goodbye"}
+{"text": "في أمان الله", "label": "goodbye"}
+{"text": "bye bye", "label": "goodbye"}
+{"text": "باي", "label": "goodbye"}
+{"text": "تصبح على خير", "label": "goodbye"}
+{"text": "see you later", "label": "goodbye"}
+{"text": "شو الجو اليوم في الخليل؟", "label": "unknown"}
+{"text": "نكتة حلوة", "label": "unknown"}
+{"text": "What's the weather like?", "label": "unknown"}
+{"text": "مين فاز في المباراة مبارح؟", "label": "unknown"}
+{"text": "tell me a joke", "label": "unknown"}
+{"text": "أخبار السياسة اليوم", "label": "unknown"}
+{"text": "كيف أطبخ مقلوبة؟", "label": "unknown"}
+{"text": "وين أحسن مطعم بالخليل؟", "label": "unknown"}
+{"text": "شو رأيك بالذكاء الاصطناعي؟", "label": "unknown"}
+{"text": "بدي اشتري تلفون شو بتنصحني؟", "label": "unknown"}
+{"text": "politics", "label": "unknown"}
+{"text": "كم الساعة هسا؟", "label": "unknown"}
+{"text": "I'm hungry", "label": "unknown"}
+{"text": "أغاني فيروز", "label": "unknown"}
+{"text": "كيف أسوي إيميل؟", "label": "unknown"}
+{"text": "أنا تعبان وبدي أنام", "label": "unknown"}
+{"text": "شو نتيجة مباراة ريال مدريد؟", "label": "unknown"}
+{"text": "قصيدة شعر", "label": "unknown"}
+{"text": "how are you today?", "label": "unknown"}
+{"text": "زهقان كثير", "label": "unknown"}
+{"text": "أنا طالب جديد وبدي أعرف الرسوم والتسجيل", "label": "faq_fees"}
+{"text": "fees and exams schedule", "label": "schedule_exams"}
+{"text": "registration and scholarships", "label": "faq_registration"}
+{"text": "graduation and library info", "label": "faq_graduation"}
+{"text": "where is the clinic and cafeteria?", "label": "campus_services"}
+{"text": "Dr. Ahmed email and office", "label": "staff_info"}
+{"text": "ID card renewal and fees", "label": "student_id_query"}
+{"text": "academic calendar and holidays", "label": "schedule_academic_calendar"}
+{"text": "course info for math 1", "label": "course_info"}
+{"text": "thnx bye", "label": "goodbye"}
+{"text": "هل لازم أسدد كل الرسوم قبل بداية الامتحانات؟", "label": "faq_fees"}
+{"text": "كم تكلفة الساعة الواحدة في كلية الحقوق؟", "label": "faq_fees"}
+{"text": "رسوم التسجيل المتأخر؟", "label": "faq_fees"}
+{"text": "طريقة حساب القسط بالتفصيل", "label": "faq_fees"}
+{"text": "i can't afford the fees, any help?", "label": "faq_fees"}
+{"text": "هل الرسوم موحدة لكل التخصصات؟", "label": "faq_fees"}
+{"text": "كم تكلفة الفصل كامل مع المختبرات", "label": "faq_fees"}
+{"text": "في تأمين صحي ضمن الرسوم؟", "label": "faq_fees"}
+{"text": "طريقة عرض الايصال ع البوابة", "label": "faq_fees"}
+{"text": "الدفع بالدولار ولا بالشيكل؟", "label": "faq_fees"}
+{"text": "المواد يلي بدي اسجلها مقفلة، شو الحل؟", "label": "faq_registration"}
+{"text": "بدي انسحب من ترم كامل كيف", "label": "faq_registration"}
+{"text": "في زيادة ع الحد الاعلى للساعات؟", "label": "faq_registration"}
+{"text": "نظام الـ waitlist شغال؟", "label": "faq_registration"}
+{"text": "سجليت مادة وبعدين طلع متطلبها مش مخلصه", "label": "faq_registration"}
+{"text": "when can i drop a course?", "label": "faq_registration"}
+{"text": "كيف بتأكد انه تسجيلي تم بنجاح", "label": "faq_registration"}
+{"text": "هل لازم موافقة مرشد ع التسجيل", "label": "faq_registration"}
+{"text": "سجلت مواد وما حضرت اول اسبوع", "label": "faq_registration"}
+{"text": "تعارض بالمحاضرات كيف بتصرف", "label": "faq_registration"}
+{"text": "كم نسبة القبول لتخصص الصيدلة", "label": "faq_admission"}
+{"text": "كيف احصل على قبول مبدئي", "label": "faq_admission"}
+{"text": "انا طالب من خارج البلد، اجراءات القبول", "label": "faq_admission"}
+{"text": "مقابلة القبول شو طبيعتها", "label": "faq_admission"}
+{"text": "بعد ما استلمت القبول وين اروح", "label": "faq_admission"}
+{"text": "application form for admission", "label": "faq_admission"}
+{"text": "معدل التوجيهي مو عالي، في امل؟", "label": "faq_admission"}
+{"text": "هل المعدل التراكمي مهم للقبول", "label": "faq_admission"}
+{"text": "تخصصات مطلوب معدل منخفض", "label": "faq_admission"}
+{"text": "عايز احول من جامعة تانية", "label": "faq_admission"}
+{"text": "كم لازم يكون معدلي التراكمي للتخرج", "label": "faq_graduation"}
+{"text": "مشروع التخرج فردي ولا جماعي", "label": "faq_graduation"}
+{"text": "متى يبدأ تدريب التخرج", "label": "faq_graduation"}
+{"text": "شروط التخرج لطلاب الانتساب", "label": "faq_graduation"}
+{"text": "مصاريف وثيقة التخرج", "label": "faq_graduation"}
+{"text": "can i graduate if i failed one class?", "label": "faq_graduation"}
+{"text": "معادلة مواد من جامعة اخرى للتخرج", "label": "faq_graduation"}
+{"text": "متى اقدر احضر حفل التخرج", "label": "faq_graduation"}
+{"text": "شو اجراءات التخرج للطلاب المتوقع تخرجهم", "label": "faq_graduation"}
+{"text": "التدريب العملي كم ساعة معتمدة", "label": "faq_graduation"}
+{"text": "منح الطلاب المتفوقين رياضيا", "label": "faq_scholarships"}
+{"text": "انا طالب سنة تانية بقدر اقدم ع منحة", "label": "faq_scholarships"}
+{"text": "كم مبلغ المنحة شهريا", "label": "faq_scholarships"}
+{"text": "كيف اعرف اذا انقبلت بالمنحة", "label": "faq_scholarships"}
+{"text": "هل يوجد منح للطلاب الاجانب", "label": "faq_scholarships"}
+{"text": "do you offer partial scholarships?", "label": "faq_scholarships"}
+{"text": "شو منح البنك الاسلامي", "label": "faq_scholarships"}
+{"text": "منحة التفوق كم بتغطي", "label": "faq_scholarships"}
+{"text": "طلب المنحة المحوسب وين الاقيه", "label": "faq_scholarships"}
+{"text": "المنحة بتشمل رسوم المختبرات", "label": "faq_scholarships"}
+{"text": "في امتحانات مسائية؟", "label": "schedule_exams"}
+{"text": "كيف اعرف مكان جلوسي بالقاعة", "label": "schedule_exams"}
+{"text": "بكرة عندي امتحانين ورا بعض", "label": "schedule_exams"}
+{"text": "الامتحان النظري والعملي بنفس اليوم", "label": "schedule_exams"}
+{"text": "when is the make-up exam?", "label": "schedule_exams"}
+{"text": "الامتحانات النهائية لمادة الرياضيات", "label": "schedule_exams"}
+{"text": "الامتحان كم مادته الزمنية", "label": "schedule_exams"}
+{"text": "غرفة الامتحان بعيدة عن باقي القاعات", "label": "schedule_exams"}
+{"text": "لو مرضت يوم الامتحان شو بصير", "label": "schedule_exams"}
+{"text": "الامتحانات بتشمل كل المنهاج", "label": "schedule_exams"}
+{"text": "كم محاضرة بالاسبوع لهاي المادة", "label": "schedule_classes"}
+{"text": "شو رقم شعب مختبر الاحياء", "label": "schedule_classes"}
+{"text": "محاضرة التعويض متى بتكون", "label": "schedule_classes"}
+{"text": "شعبتي كلها بنات ولا مختلطة", "label": "schedule_classes"}
+{"text": "where is my lecture hall?", "label": "schedule_classes"}
+{"text": "ببنا القديم ولا الجديد؟", "label": "schedule_classes"}
+{"text": "المحاضرة الاولى كم ساعة", "label": "schedule_classes"}
+{"text": "دخلت لقاعة ولقيتها فاضية شو القصة", "label": "schedule_classes"}
+{"text": "رقم الشعبة بعرفو من وين", "label": "schedule_classes"}
+{"text": "جدول المحاضرات الاسبوع القادم", "label": "schedule_classes"}
+{"text": "عطلة الفصل بين السبرينغ والصيفي", "label": "schedule_academic_calendar"}
+{"text": "بداية السنة الاكاديمية متى", "label": "schedule_academic_calendar"}
+{"text": "متى بنتهي فصل الخريف", "label": "schedule_academic_calendar"}
+{"text": "شو الايام يلي الجامعة فيها مسكرة", "label": "schedule_academic_calendar"}
+{"text": "term dates for next academic year", "label": "schedule_academic_calendar"}
+{"text": "العطلة النصفية كم يوم", "label": "schedule_academic_calendar"}
+{"text": "فترة التسجيل المبكر محدد الها تواريخ؟", "label": "schedule_academic_calendar"}
+{"text": "متى عيد الاستقلال دوام؟", "label": "schedule_academic_calendar"}
+{"text": "جدول العطل الاسبوع القادم", "label": "schedule_academic_calendar"}
+{"text": "ايام الدراسة الرسمية", "label": "schedule_academic_calendar"}
+{"text": "بريد الاستاذ المساعد وين الاقيه", "label": "staff_info"}
+{"text": "منسق المادة كيف اوصل له", "label": "staff_info"}
+{"text": "رقم جوال الدكتور ... ضروري", "label": "staff_info"}
+{"text": "مين بعطي مختبر البرمجة", "label": "staff_info"}
+{"text": "اسم رئيس الجامعة", "label": "staff_info"}
+{"text": "who is the dean of science faculty?", "label": "staff_info"}
+{"text": "شو اسماء اساتذة قسم العمارة", "label": "staff_info"}
+{"text": "كيف بحجز موعد مع المرشد", "label": "staff_info"}
+{"text": "وين سكرتيرة القسم", "label": "staff_info"}
+{"text": "مين دكتور مادة التفاضل والتكامل", "label": "staff_info"}
+{"text": "تخصص التربية الرياضية في كلية", "label": "department_info"}
+{"text": "عدد طلاب قسم الهندسة", "label": "department_info"}
+{"text": "مختبرات قسم الاحياء وين", "label": "department_info"}
+{"text": "بتقدموا بكالوريوس قانون؟", "label": "department_info"}
+{"text": "وين دائرة المالية", "label": "department_info"}
+{"text": "اقسام العلوم الانسانية", "label": "department_info"}
+{"text": "نبذة عن قسم الاعلام", "label": "department_info"}
+{"text": "تخصص امن المعلومات مفتوح؟", "label": "department_info"}
+{"text": "وين عمادة كلية الهندسة", "label": "department_info"}
+{"text": "شو المختبرات بقسم التصميم", "label": "department_info"}
+{"text": "وزن المادة 3 ساعات شو معناتو", "label": "course_info"}
+{"text": "مادة تاريخ فلسطين الزامية؟", "label": "course_info"}
+{"text": "تفاصيل مساق economics", "label": "course_info"}
+{"text": "كم عدد ساعات calculus 2", "label": "course_info"}
+{"text": "شو اسم كتاب مادة الجبر", "label": "course_info"}
+{"text": "is this course taught in English?", "label": "course_info"}
+{"text": "طبيعة امتحان مادة physiology", "label": "course_info"}
+{"text": "بدي اعرف شو بنغطي بمساق البرمجة 1", "label": "course_info"}
+{"text": "متطلب جامعة حر شو في", "label": "course_info"}
+{"text": "مادة علم الاجتماع اي قسم بتنطرح", "label": "course_info"}
+{"text": "المكتبة بتحتوي ع ارشيف صحف", "label": "library_info"}
+{"text": "مواعيد المكتبة في رمضان", "label": "library_info"}
+{"text": "كيفية البحث في فهرس المكتبة", "label": "library_info"}
+{"text": "عدد الاجهزة بالمكتبة", "label": "library_info"}
+{"text": "اريد كتاب معين مش لاقيه", "label": "library_info"}
+{"text": "library online access off campus", "label": "library_info"}
+{"text": "شروط استعارة المراجع", "label": "library_info"}
+{"text": "خدمة الانترنت مجانية بالمكتبة؟", "label": "library_info"}
+{"text": "هل بقدر اصور صفحات من الكتب", "label": "library_info"}
+{"text": "غرف الدراسة الفردية موجودة", "label": "library_info"}
+{"text": "وين صالة الالعاب الرياضية", "label": "campus_services"}
+{"text": "مواعيد العيادة يوم السبت", "label": "campus_services"}
+{"text": "باص الخليل بيروح الساعة كم", "label": "campus_services"}
+{"text": "اريد استئجار خزانة", "label": "campus_services"}
+{"text": "خدمة الارشاد النفسي مجانية", "label": "campus_services"}
+{"text": "student housing available?", "label": "campus_services"}
+{"text": "مطعم الوجبات السريعة شو عنده", "label": "campus_services"}
+{"text": "شو اسماء الاندية الطلابية", "label": "campus_services"}
+{"text": "تأمين صحي للطلاب", "label": "campus_services"}
+{"text": "في حضانة اطفال بالحرم", "label": "campus_services"}
+{"text": "شو خطة الطوارئ بالجامعة", "label": "campus_services"}
+{"text": "طلبت بطاقة جديدة وما وصلت", "label": "student_id_query"}
+{"text": "كيف اغير الرقم السري للبطاقة", "label": "student_id_query"}
+{"text": "متطلبات استخراج بدل فاقد", "label": "student_id_query"}
+{"text": "البطاقة الجامعية ما بتفتح الباب", "label": "student_id_query"}
+{"text": "رقمي الجامعي 20191234", "label": "student_id_query"}
+{"text": "student ID number where to find", "label": "student_id_query"}
+{"text": "الرقم الجامعي ع شهادة الثانوي", "label": "student_id_query"}
+{"text": "كم تكلفة استخراج بدل تالف", "label": "student_id_query"}
+{"text": "متى بتصدر البطاقة للطلاب الجدد", "label": "student_id_query"}
+{"text": "شو الاسم ع البطاقة مختلف عن الجواز", "label": "student_id_query"}
+{"text": "يا هلا والله", "label": "greeting"}
+{"text": "سلام عليكم ورحمة الله وبركاته", "label": "greeting"}
+{"text": "hi buddy", "label": "greeting"}
+{"text": "مساء الورد", "label": "greeting"}
+{"text": "صباح الفل", "label": "greeting"}
+{"text": "hello sir", "label": "greeting"}
+{"text": "عامل ايه", "label": "greeting"}
+{"text": "كيف الحال", "label": "greeting"}
+{"text": "hello there", "label": "greeting"}
+{"text": "مراحب يا بوت", "label": "greeting"}
+{"text": "دير بالك", "label": "goodbye"}
+{"text": "سلامتك", "label": "goodbye"}
+{"text": "تشاو", "label": "goodbye"}
+{"text": "أشوفك ع خير", "label": "goodbye"}
+{"text": "هاي باي", "label": "goodbye"}
+{"text": "bye for now", "label": "goodbye"}
+{"text": "روح الله يحفظك", "label": "goodbye"}
+{"text": "بالخير", "label": "goodbye"}
+{"text": "يلا بروح", "label": "goodbye"}
+{"text": "اشكرك", "label": "thanks"}
+{"text": "الف شكر", "label": "thanks"}
+{"text": "ممتن كتير", "label": "thanks"}
+{"text": "cheers", "label": "thanks"}
+{"text": "تسلم ايدك", "label": "thanks"}
+{"text": "شكرا لذوقك", "label": "thanks"}
+{"text": "ما قصرت", "label": "thanks"}
+{"text": "gr8 thanks", "label": "thanks"}
+{"text": "شكرا ما تقصر", "label": "thanks"}
+{"text": "ثانكس", "label": "thanks"}
+{"text": "شو اخبار الامطار", "label": "unknown"}
+{"text": "تعلم لغة عربية", "label": "unknown"}
+{"text": "طريقة عمل الكنافة النابلسية", "label": "unknown"}
+{"text": "شو افضل سيارة كهرباء", "label": "unknown"}
+{"text": "كم سعر البنزين اليوم", "label": "unknown"}
+{"text": "عايز اتعلم خياطة", "label": "unknown"}
+{"text": "how to make tea?", "label": "unknown"}
+{"text": "صور مضحكة", "label": "unknown"}
+{"text": "كيف احمل لعبة", "label": "unknown"}
+{"text": "الوضع السياسي الحالي", "label": "unknown"}
+{"text": "الطريقة الصحيحة للزراعة", "label": "unknown"}
+{"text": "شو في افلام جديدة", "label": "unknown"}
+{"text": "ايش رايك بالذكاء الاصطناعي", "label": "unknown"}
+{"text": "بدي اتعلم رقص", "label": "unknown"}
+{"text": "ما هو افضل هاتف", "label": "unknown"}
+{"text": "كم لازم أدفع عشان أنزل مادة زيادة؟", "label": "faq_fees"}
+{"text": "سعر ساعة الدبلوم في كلية المهن", "label": "faq_fees"}
+{"text": "How can I pay my fees using Bank of Palestine app?", "label": "faq_fees"}
+{"text": "بقدر أرجع رسوم مادة سحبتها قبل أسبوع؟", "label": "faq_fees"}
+{"text": "في خصم للمعدلات العالية؟", "label": "faq_fees"}
+{"text": "قديش علي ديون للجامعة؟", "label": "faq_fees"}
+{"text": "tuition payment deadline", "label": "faq_fees"}
+{"text": "البورتال مسكر مالي شو السبب؟", "label": "faq_fees"}
+{"text": "رسوم إعادة الامتحان الغير مكتمل", "label": "faq_fees"}
+{"text": "بدي كشف حساب مالي مفصل", "label": "faq_fees"}
+{"text": "متى ببلش السحب والإضافة للفصل الأول؟", "label": "faq_registration"}
+{"text": "بدي أضيف مادة من خارج الخطة الدراسية", "label": "faq_registration"}
+{"text": "Registration error on the portal", "label": "faq_registration"}
+{"text": "كيف أسوي طلب مادة بديلة؟", "label": "faq_registration"}
+{"text": "بقدر أنزل 20 ساعة هاد الفصل؟", "label": "faq_registration"}
+{"text": "موعد إغلاق التسجيل النهائي", "label": "faq_registration"}
+{"text": "How to register for the summer course?", "label": "faq_registration"}
+{"text": "الشعبة فل شو أعمل عشان أسجل؟", "label": "faq_registration"}
+{"text": "بدي أحول من تخصص لتخصص ثاني", "label": "faq_registration"}
+{"text": "فتح التسجيل للطلاب القدامى متى؟", "label": "faq_registration"}
+{"text": "شو شروط القبول في هندسة الميكاترونكس؟", "label": "faq_admission"}
+{"text": "معدل قبول الطب البشري لهي السنة", "label": "faq_admission"}
+{"text": "I want to apply for a master's program", "label": "faq_admission"}
+{"text": "كيف بقدر أرفع معدلي في التوجيهي عشان أنقبل؟", "label": "faq_admission"}
+{"text": "بقدر أقدم طلب التحاق يدوي في مبنى التسجيل؟", "label": "faq_admission"}
+{"text": "Admission office hours for new students", "label": "faq_admission"}
+{"text": "متى بتطلع قائمة المقبولين بالجامعة؟", "label": "faq_admission"}
+{"text": "شروط التحويل من جامعة ثانية للبوليتكنيك", "label": "faq_admission"}
+{"text": "أوراق التثبيت للطلاب الجدد", "label": "faq_admission"}
+{"text": "admission fee cost", "label": "faq_admission"}
+{"text": "متى بقدر أستلم شهادتي الأصلية؟", "label": "faq_graduation"}
+{"text": "إجراءات التخرج لطلاب الدبلوم", "label": "faq_graduation"}
+{"text": "Graduation requirements for IT major", "label": "faq_graduation"}
+{"text": "كيف بطلع براءة ذمة من المكتبة؟", "label": "faq_graduation"}
+{"text": "بدي أسجل في حفل الخريجين الجاي", "label": "faq_graduation"}
+{"text": "متى موعد تسليم روب التخرج؟", "label": "faq_graduation"}
+{"text": "graduation party ticket price", "label": "faq_graduation"}
+{"text": "شو الأوراق اللازمة لتصديق الشهادة؟", "label": "faq_graduation"}
+{"text": "بدي كشف علامات للخريج مترجم بالانجليزي", "label": "faq_graduation"}
+{"text": "متى حفل تخريج الفوج الجديد؟", "label": "faq_graduation"}
+{"text": "في منح مقدمة من شركة الاتصالات؟", "label": "faq_scholarships"}
+{"text": "كيف أقدم على منحة الإخوة؟", "label": "faq_scholarships"}
+{"text": "Scholarship for high school top students", "label": "faq_scholarships"}
+{"text": "متى بفتح طلب القرض للفصل الجاي؟", "label": "faq_scholarships"}
+{"text": "شروط منحة التفوق الأكاديمي", "label": "faq_scholarships"}
+{"text": "scholarship application form link", "label": "faq_scholarships"}
+{"text": "في مساعدات مالية من صندوق الطالب؟", "label": "faq_scholarships"}
+{"text": "كيف أجدد المنحة تبعتي؟", "label": "faq_scholarships"}
+{"text": "منحة أبناء الشهداء شو أوراقها؟", "label": "faq_scholarships"}
+{"text": "loans for university students", "label": "faq_scholarships"}
+{"text": "برنامج الامتحانات النهائية نزل؟", "label": "schedule_exams"}
+{"text": "وين بقدر أشوف قاعة امتحاني؟", "label": "schedule_exams"}
+{"text": "Final exam schedule 2026", "label": "schedule_exams"}
+{"text": "عندي تعارض في جدول الميد", "label": "schedule_exams"}
+{"text": "متى امتحانات المستوى للطلاب الجدد؟", "label": "schedule_exams"}
+{"text": "exams location and seat numbers", "label": "schedule_exams"}
+{"text": "بدي جدول امتحانات الغير مكتمل", "label": "schedule_exams"}
+{"text": "متى بتبلش امتحانات الفصل الصيفي؟", "label": "schedule_exams"}
+{"text": "توزيع قاعات الامتحان المحوسب", "label": "schedule_exams"}
+{"text": "exams dates", "label": "schedule_exams"}
+{"text": "بدي برنامجي الدراسي لهذا الأسبوع", "label": "schedule_classes"}
+{"text": "وين محاضرات قسم الهندسة اليوم؟", "label": "schedule_classes"}
+{"text": "My weekly class timetable", "label": "schedule_classes"}
+{"text": "في محاضرات يوم السبت لهاد التخصص؟", "label": "schedule_classes"}
+{"text": "أوقات محاضرات مادة الفيزياء 1", "label": "schedule_classes"}
+{"text": "جدول القاعات لمبنى واد الهرية", "label": "schedule_classes"}
+{"text": "What time is my next lecture?", "label": "schedule_classes"}
+{"text": "توزيع المحاضرات والسكاشن", "label": "schedule_classes"}
+{"text": "متى بتبلش المحاضرات الوجاهية؟", "label": "schedule_classes"}
+{"text": "موعد محاضرات الماجستير المسائية", "label": "schedule_classes"}
+{"text": "متى بتبلش عطلة الفصل؟", "label": "schedule_academic_calendar"}
+{"text": "التقويم الأكاديمي للجامعة 2025/2026", "label": "schedule_academic_calendar"}
+{"text": "Academic calendar for spring semester", "label": "schedule_academic_calendar"}
+{"text": "متى آخر يوم للسحب والإضافة بالتقويم؟", "label": "schedule_academic_calendar"}
+{"text": "مواعيد الإجازات الرسمية للسنة الحالية", "label": "schedule_academic_calendar"}
+{"text": "University calendar PDF", "label": "schedule_academic_calendar"}
+{"text": "ايمتى بداية الدوام للفصل الصيفي؟", "label": "schedule_academic_calendar"}
+{"text": "متى موعد الحفل السنوي؟", "label": "schedule_academic_calendar"}
+{"text": "university holiday schedule", "label": "schedule_academic_calendar"}
+{"text": "اخر موعد لدفع الأقساط حسب التقويم", "label": "schedule_academic_calendar"}
+{"text": "إيميل الدكتور إياد من قسم الحاسوب", "label": "staff_info"}
+{"text": "وين مكتب رئيس قسم الميكانيك؟", "label": "staff_info"}
+{"text": "Contact info for Professor Ahmed", "label": "staff_info"}
+{"text": "متى ساعات استقبال الدكتور محمد؟", "label": "staff_info"}
+{"text": "بدي رقم تليفون سكرتيرة الكلية", "label": "staff_info"}
+{"text": "مين هو عميد شؤون الطلبة هسا؟", "label": "staff_info"}
+{"text": "Professor office hours today", "label": "staff_info"}
+{"text": "أسماء دكاترة تخصص المحاسبة", "label": "staff_info"}
+{"text": "كيف أتواصل مع دائرة القبول والتسجيل؟", "label": "staff_info"}
+{"text": "Where is the dean's office?", "label": "staff_info"}
+{"text": "وين مبنى كلية المهن التطبيقية؟", "label": "department_info"}
+{"text": "شو التخصصات الموجودة في كلية الهندسة؟", "label": "department_info"}
+{"text": "List of engineering departments in PPU", "label": "department_info"}
+{"text": "بدي معلومات عن تخصص تكنولوجيا المعلومات", "label": "department_info"}
+{"text": "وين موقع دائرة المحاسبة بالجامعة؟", "label": "department_info"}
+{"text": "أقسام كلية العلوم الإدارية", "label": "department_info"}
+{"text": "Department of computer engineering location", "label": "department_info"}
+{"text": "شو أحسن تخصص دبلوم عندكم؟", "label": "department_info"}
+{"text": "موقع مبنى الدراسات العليا", "label": "department_info"}
+{"text": "أقسام كلية الطب الجديدة", "label": "department_info"}
+{"text": "شو المتطلب السابق لمادة هيكلية البيانات؟", "label": "course_info"}
+{"text": "توصيف مساق الثقافة الإسلامية", "label": "course_info"}
+{"text": "Course syllabus for calculus 1", "label": "course_info"}
+{"text": "المادة هاي حرة ولا إجبارية؟", "label": "course_info"}
+{"text": "بدي الخطة الدراسية لهندسة البرمجيات", "label": "course_info"}
+{"text": "كم ساعة معتمدة لمساق العربي؟", "label": "course_info"}
+{"text": "Course description PDF", "label": "course_info"}
+{"text": "بقدر أسجل مادة بدون متطلبها؟", "label": "course_info"}
+{"text": "المواد المطروحة للفصل الجاي", "label": "course_info"}
+{"text": "شو بدرسوا في مادة أخلاقيات المهنة؟", "label": "course_info"}
+{"text": "متى بتسكر المكتبة المركزية؟", "label": "library_info"}
+{"text": "كيف بقدر أستعير كتاب من المكتبة؟", "label": "library_info"}
+{"text": "Library opening hours", "label": "library_info"}
+{"text": "في كتب عن البرمجة بلغة C++؟", "label": "library_info"}
+{"text": "library online catalog search", "label": "library_info"}
+{"text": "بقدر أدرس بالمكتبة يوم السبت؟", "label": "library_info"}
+{"text": "وين موقع مكتبة جبل أبو رمان؟", "label": "library_info"}
+{"text": "كيف أجدد استعارة الكتاب أونلاين؟", "label": "library_info"}
+{"text": "غرامة تأخير إرجاع الكتب كم؟", "label": "library_info"}
+{"text": "Is the library open during exams?", "label": "library_info"}
+{"text": "وين الكافتيريا في مبنى واد الهرية؟", "label": "campus_services"}
+{"text": "كيف بشبك على نت الجامعة؟", "label": "campus_services"}
+{"text": "Campus facilities list", "label": "campus_services"}
+{"text": "في عيادة طبية بالجامعة؟", "label": "campus_services"}
+{"text": "وين بلاقي مركز خدمات الطلاب؟", "label": "campus_services"}
+{"text": "parking areas in the campus", "label": "campus_services"}
+{"text": "كيف أشحن رصيد للطابعات؟", "label": "campus_services"}
+{"text": "باصات الجامعة متى بتتحرك؟", "label": "campus_services"}
+{"text": "وين المصلى في مبنى كلية الطب؟", "label": "campus_services"}
+{"text": "University IT support contact", "label": "campus_services"}
+{"text": "ضاعت هويتي الجامعية شو أسوي؟", "label": "student_id_query"}
+{"text": "كيف أجدد البطاقة الجامعية؟", "label": "student_id_query"}
+{"text": "Lost my student ID card", "label": "student_id_query"}
+{"text": "رسوم إصدار بطاقة بدل فاقد", "label": "student_id_query"}
+{"text": "وين مكتب تصوير الهويات؟", "label": "student_id_query"}
+{"text": "بدي بطاقة جامعية جديدة", "label": "student_id_query"}
+{"text": "student ID activation for gates", "label": "student_id_query"}
+{"text": "متى بستلم هويتي وأنا طالب سنة أولى؟", "label": "student_id_query"}
+{"text": "تغيير الصورة في الهوية الجامعية", "label": "student_id_query"}
+{"text": "ID card office working hours", "label": "student_id_query"}
+{"text": "مرحبا", "label": "greeting"}
+{"text": "السلام عليكم", "label": "greeting"}
+{"text": "Hello", "label": "greeting"}
+{"text": "Hi", "label": "greeting"}
+{"text": "يعطيك العافية", "label": "greeting"}
+{"text": "صباح الخير يا بوت", "label": "greeting"}
+{"text": "Good morning", "label": "greeting"}
+{"text": "يا هلا والله", "label": "greeting"}
+{"text": "مسا الخير", "label": "greeting"}
+{"text": "Hey there", "label": "greeting"}
+{"text": "شكراً جزيلاً", "label": "thanks"}
+{"text": "تسلم ايدك", "label": "thanks"}
+{"text": "Thank you for the information", "label": "thanks"}
+{"text": "Thanks bot", "label": "thanks"}
+{"text": "غلبتك معي اليوم", "label": "thanks"}
+{"text": "مشكور يا طيب", "label": "thanks"}
+{"text": "جزاك الله خير", "label": "thanks"}
+{"text": "Appreciate your help", "label": "thanks"}
+{"text": "تمام شكراً كثير", "label": "thanks"}
+{"text": "thanks", "label": "thanks"}
+{"text": "مع السلامة", "label": "goodbye"}
+{"text": "باي", "label": "goodbye"}
+{"text": "Goodbye", "label": "goodbye"}
+{"text": "بنشوفك على خير", "label": "goodbye"}
+{"text": "يلا سلام", "label": "goodbye"}
+{"text": "في أمان الله", "label": "goodbye"}
+{"text": "Bye bye", "label": "goodbye"}
+{"text": "تصبح على خير", "label": "goodbye"}
+{"text": "I'm leaving now", "label": "goodbye"}
+{"text": "See you soon", "label": "goodbye"}
+{"text": "كيف الجو في الخليل اليوم؟", "label": "unknown"}
+{"text": "نكتة حلوة", "label": "unknown"}
+{"text": "What is the capital of Palestine?", "label": "unknown"}
+{"text": "مين فاز في مباراة برشلونة؟", "label": "unknown"}
+{"text": "Tell me a joke", "label": "unknown"}
+{"text": "أخبار السياسة في غزة", "label": "unknown"}
+{"text": "كيف أعمل قهوة؟", "label": "unknown"}
+{"text": "Weather in Hebron", "label": "unknown"}
+{"text": "شو رأيك بالذكاء الاصطناعي؟", "label": "unknown"}
+{"text": "بدي اشتري لابتوب جديد شو بتنصحني؟", "label": "unknown"}
+{"text": "كم الساعة هسا؟", "label": "unknown"}
+{"text": "I'm hungry what should I eat?", "label": "unknown"}
+{"text": "نكتة مضحكة", "label": "unknown"}
+{"text": "أخبار الرياضة العالمية", "label": "unknown"}
+{"text": "politics", "label": "unknown"}
+{"text": "أغاني فيروز", "label": "unknown"}
+{"text": "شو ألبس اليوم برد؟", "label": "unknown"}
+{"text": "I feel bored", "label": "unknown"}
+{"text": "كيف أطبخ مقلوبة؟", "label": "unknown"}
+{"text": "Best movie in 2026", "label": "unknown"}
+{"text": "رسوم السكن وموعد التسجيل", "label": "faq_registration"}
+{"text": "exams and fees", "label": "schedule_exams"}
+{"text": "graduation date and certification", "label": "faq_graduation"}
+{"text": "how to apply for a scholarship?", "label": "faq_scholarships"}
+{"text": "Where is the library and its hours?", "label": "library_info"}
+{"text": "staff email address", "label": "staff_info"}
+{"text": "student id lost", "label": "student_id_query"}
+{"text": "academic calendar holidays", "label": "schedule_academic_calendar"}
+{"text": "course prerequisites", "label": "course_info"}
+{"text": "hi thnx bye", "label": "goodbye"}
+{"text": "كم رسوم التسجيل للفصل الصيفي؟", "label": "faq_fees"}
+{"text": "الاقساط الدراسية كيف طريقة دفعها؟", "label": "faq_fees"}
+{"text": "خصم الاخوة كم نسبته؟", "label": "faq_fees"}
+{"text": "طلبت فاتورة الكترونية وما وصلتني", "label": "faq_fees"}
+{"text": "are there any hidden fees?", "label": "faq_fees"}
+{"text": "رسوم المواد المعادة كم؟", "label": "faq_fees"}
+{"text": "بدي احول من تخصص لتاني، علي رسوم؟", "label": "faq_fees"}
+{"text": "متى أخر يوم لدفع القسط التاني", "label": "faq_fees"}
+{"text": "كم التامين الصحي للطلاب", "label": "faq_fees"}
+{"text": "الرسوم شاملة الكتب ولا لحالها", "label": "faq_fees"}
+{"text": "انا طالب مستجد ما بعرف اسجل", "label": "faq_registration"}
+{"text": "كيف اختار شعبة بالبوابة", "label": "faq_registration"}
+{"text": "نظام الساعات المعتمدة كيف بشتغل", "label": "faq_registration"}
+{"text": "المادة يلي بدي اياها full", "label": "faq_registration"}
+{"text": "registration steps for first year", "label": "faq_registration"}
+{"text": "بدي انسحب من مادة قبل ما تثبت", "label": "faq_registration"}
+{"text": "التسجيل للفصل الثاني مفتوح ولا لسه", "label": "faq_registration"}
+{"text": "مش عارف اسجل ع البوابة ميتة", "label": "faq_registration"}
+{"text": "سجلت مادة غلط بدي ابدلها", "label": "faq_registration"}
+{"text": "اخر موعد للسحب والاضافة", "label": "faq_registration"}
+{"text": "شو هو المعدل التنافسي للقبول؟", "label": "faq_admission"}
+{"text": "اسئلة امتحان القبول شو طبيعتها", "label": "faq_admission"}
+{"text": "كيف اعمل متابعة لطلب القبول", "label": "faq_admission"}
+{"text": "انا حامل شهادة دبلوم، بقدر اكمل؟", "label": "faq_admission"}
+{"text": "الجامعة بتعتمد نظام القبول الموازي", "label": "faq_admission"}
+{"text": "when will i receive my acceptance letter?", "label": "faq_admission"}
+{"text": "القبول الالكتروني كيف", "label": "faq_admission"}
+{"text": "تخصصات جامعة بوليتكنك فلسطين", "label": "faq_admission"}
+{"text": "سجليت طلب قبول ولسه ما ردوا", "label": "faq_admission"}
+{"text": "بعد القبول وين احصل مواد التخصص", "label": "faq_admission"}
+{"text": "كم معدل مرتبة الشرف", "label": "faq_graduation"}
+{"text": "اجراءات ما قبل التخرج", "label": "faq_graduation"}
+{"text": "التدريب الميداني متى يكون", "label": "faq_graduation"}
+{"text": "athar al graduate application", "label": "faq_graduation"}
+{"text": "شروط مناقشة مشروع التخرج", "label": "faq_graduation"}
+{"text": "بدي استفسر عن كشف الدرجات النهائي", "label": "faq_graduation"}
+{"text": "معدل التخرج 2.5 هل هو مقبول", "label": "faq_graduation"}
+{"text": "كيف بطلب شهادة تخرج بالانجليزي", "label": "faq_graduation"}
+{"text": "التخرج بعد كم سنة", "label": "faq_graduation"}
+{"text": "رسوم حفل التخرج", "label": "faq_graduation"}
+{"text": "طلبات منحة صندوق الطالب وين", "label": "faq_scholarships"}
+{"text": "منحة البحث العلمي شروطها", "label": "faq_scholarships"}
+{"text": "بدي اقدم منحة وما عندي شهادة ضريبة", "label": "faq_scholarships"}
+{"text": "مين بستفيد من منحة المكرمة", "label": "faq_scholarships"}
+{"text": "list of available scholarships", "label": "faq_scholarships"}
+{"text": "المنح بتشمل المصاريف الشخصية", "label": "faq_scholarships"}
+{"text": "انا متفوق بس وضعي المادي صعب", "label": "faq_scholarships"}
+{"text": "أخر اخبار المنح", "label": "faq_scholarships"}
+{"text": "هل في منح خاصة بالاناث", "label": "faq_scholarships"}
+{"text": "كيف تجديد المنحة كل سنة", "label": "faq_scholarships"}
+{"text": "الامتحان النهائي كم سؤال", "label": "schedule_exams"}
+{"text": "وين القى جدول المراقبات", "label": "schedule_exams"}
+{"text": "الامتحان بيخلص الساعه كم", "label": "schedule_exams"}
+{"text": "عندي تعارض امتحانين بنفس الوقت", "label": "schedule_exams"}
+{"text": "exam rules and regulations", "label": "schedule_exams"}
+{"text": "الامتحانات العملية وين جدولها", "label": "schedule_exams"}
+{"text": "بعد العيد في امتحانات؟", "label": "schedule_exams"}
+{"text": "رقم القاعة بالامتحان مختلف عن المكتوب", "label": "schedule_exams"}
+{"text": "الامتحان ورقي ولا محوسب", "label": "schedule_exams"}
+{"text": "امتحان الاعادة لمادة اللغة العربية", "label": "schedule_exams"}
+{"text": "دوام المختبرات ايام السبت", "label": "schedule_classes"}
+{"text": "شو شعبة محاضرة الانجليزي", "label": "schedule_classes"}
+{"text": "استاذ المادة غاب اليوم، في تعويض", "label": "schedule_classes"}
+{"text": "شو توزيعي الاسبوعي", "label": "schedule_classes"}
+{"text": "what time is my next class?", "label": "schedule_classes"}
+{"text": "دوام يوم الخميس لنص ولا full", "label": "schedule_classes"}
+{"text": "فترة الاستراحة بين المحاضرات", "label": "schedule_classes"}
+{"text": "محاضرة مسجلة ولا مباشر", "label": "schedule_classes"}
+{"text": "وين غرفة lab 203", "label": "schedule_classes"}
+{"text": "شعبة الذكور لمادة الرياضيات", "label": "schedule_classes"}
+{"text": "متى تنتهي السنة الدراسية", "label": "schedule_academic_calendar"}
+{"text": "موعد الـ orientation للطلاب الجدد", "label": "schedule_academic_calendar"}
+{"text": "جدول الاسبوع الميت", "label": "schedule_academic_calendar"}
+{"text": "فترة تقديم طلبات الاعتذار", "label": "schedule_academic_calendar"}
+{"text": "important dates for this semester", "label": "schedule_academic_calendar"}
+{"text": "عطلة الكريسماس للمسيحيين", "label": "schedule_academic_calendar"}
+{"text": "دوام رمضان كيف", "label": "schedule_academic_calendar"}
+{"text": "تقويم السنة الدراسية 2026-2027", "label": "schedule_academic_calendar"}
+{"text": "متى نهاية الفصل الدراسي الصيفي", "label": "schedule_academic_calendar"}
+{"text": "الاسبوع الاخير من الفصل", "label": "schedule_academic_calendar"}
+{"text": "مين استاذ مادة Embedded Systems", "label": "staff_info"}
+{"text": "رئيس قسم الهندسة الميكانيكية", "label": "staff_info"}
+{"text": "رقم مكتب الاستاذ خالد", "label": "staff_info"}
+{"text": "بريد المعيد حق المختبر", "label": "staff_info"}
+{"text": "عميدة كلية التمريض اسمها", "label": "staff_info"}
+{"text": "contact details for registrar office", "label": "staff_info"}
+{"text": "مين المشرف على مشروع التخرج", "label": "staff_info"}
+{"text": "وين الاقي الدكتور النفسي للطلاب", "label": "staff_info"}
+{"text": "مساعد التدريس لمادة الكيمياء", "label": "staff_info"}
+{"text": "متى اخر مرة شفت فيها استاذ المادة", "label": "staff_info"}
+{"text": "شو تخصصات كلية الهندسة الكهربائية", "label": "department_info"}
+{"text": "الجامعة فيها تخصص علاج طبيعي", "label": "department_info"}
+{"text": "وين قسم شؤون الطلبة", "label": "department_info"}
+{"text": "الخدمات الطلابية بقسم ايه", "label": "department_info"}
+{"text": "عدد كليات الجامعة", "label": "department_info"}
+{"text": "where is the IT help desk?", "label": "department_info"}
+{"text": "الاقسام الجديدة بالجامعة", "label": "department_info"}
+{"text": "تخصص الهندسة المعمارية لاي كلية", "label": "department_info"}
+{"text": "شو مميزات قسم ادارة الاعمال", "label": "department_info"}
+{"text": "مكاتب اعضاء هيئة التدريس باي مبنى", "label": "department_info"}
+{"text": "كم ساعة امتحان مادة البرمجة", "label": "course_info"}
+{"text": "تفاصيل ال syllabus حق الكورس", "label": "course_info"}
+{"text": "هل المادة فيها جانب عملي", "label": "course_info"}
+{"text": "عدد الساعات المعتمدة للتخصص", "label": "course_info"}
+{"text": "مادة الالكترونيات التماثلية صعبة؟", "label": "course_info"}
+{"text": "which textbook for digital design?", "label": "course_info"}
+{"text": "مين بعطي مادة الريادة", "label": "course_info"}
+{"text": "متطلب سابق لمادة databases", "label": "course_info"}
+{"text": "موضوعات مساق الاقتصاد الكلي", "label": "course_info"}
+{"text": "المواد الاختيارية المتاحة هاد الفصل", "label": "course_info"}
+{"text": "هل مسموح ادخال اكل للمكتبة", "label": "library_info"}
+{"text": "الكتب الالكترونية كيف اوصلها", "label": "library_info"}
+{"text": "في مكان للشحن جوا المكتبة", "label": "library_info"}
+{"text": "حجز قاعة الاجتماعات بالمكتبة", "label": "library_info"}
+{"text": "مكتبة كلية الهندسة منفصلة", "label": "library_info"}
+{"text": "library rules for borrowing", "label": "library_info"}
+{"text": "فهرس المكتبة عالنت", "label": "library_info"}
+{"text": "ارقام التواصل مع امين المكتبة", "label": "library_info"}
+{"text": "خدمة المسح الضوئي متوفرة", "label": "library_info"}
+{"text": "قواعد بيانات عالمية بتوفرها المكتبة", "label": "library_info"}
+{"text": "بدي اصلح كمبيوتري بالجامعة وين", "label": "campus_services"}
+{"text": "خريطة الحرم مقسمة ازاي", "label": "campus_services"}
+{"text": "خدمة البريد والطرود", "label": "campus_services"}
+{"text": "في بنك داخل الجامعة", "label": "campus_services"}
+{"text": "مواقف ذوي الاحتياجات الخاصة", "label": "campus_services"}
+{"text": "gym opening hours", "label": "campus_services"}
+{"text": "سكن الطلاب وين موقعه", "label": "campus_services"}
+{"text": "اماكن الاستراحة بين المحاضرات", "label": "campus_services"}
+{"text": "امن الجامعة كيف اتواصل معهم", "label": "campus_services"}
+{"text": "صيانة التكييف بالقاعات", "label": "campus_services"}
+{"text": "تجديد البطاقة اونلاين", "label": "student_id_query"}
+{"text": "كيف احفظ رقمي الجامعي عالموبايل", "label": "student_id_query"}
+{"text": "البطاقة صغيرة بدي وحدة جديدة", "label": "student_id_query"}
+{"text": "الرقم الجامعي مش شغال ع البوابة", "label": "student_id_query"}
+{"text": "متى يسلموا بطاقات الدفعة الجديدة", "label": "student_id_query"}
+{"text": "activate my student card", "label": "student_id_query"}
+{"text": "طبع البطاقة بروح ع اي مكتب", "label": "student_id_query"}
+{"text": "البطاقة خربانة وما بتقرأ", "label": "student_id_query"}
+{"text": "الرقم الجامعي والرقم السري", "label": "student_id_query"}
+{"text": "معلوماتي بالبطاقة غلط", "label": "student_id_query"}
+{"text": "مرحبا كيفك", "label": "greeting"}
+{"text": "السلام عليكم يا رب", "label": "greeting"}
+{"text": "هلا والله", "label": "greeting"}
+{"text": "good evening", "label": "greeting"}
+{"text": "صباح النور", "label": "greeting"}
+{"text": "hey there, how are you?", "label": "greeting"}
+{"text": "يا مية مرحبا", "label": "greeting"}
+{"text": "مساكم الله بالخير", "label": "greeting"}
+{"text": "اهلين", "label": "greeting"}
+{"text": "سلمت", "label": "greeting"}
+{"text": "تصبح ع خير", "label": "goodbye"}
+{"text": "سلام يا غالي", "label": "goodbye"}
+{"text": "مع الف تحية", "label": "goodbye"}
+{"text": "see ya", "label": "goodbye"}
+{"text": "ليلة سعيدة", "label": "goodbye"}
+{"text": "وداعا", "label": "goodbye"}
+{"text": "تقبل الله", "label": "goodbye"}
+{"text": "نشوفك على خير", "label": "goodbye"}
+{"text": "خليك معاي شوي", "label": "goodbye"}
+{"text": "شكرا لتعاونك", "label": "thanks"}
+{"text": "شكرا يا ولف", "label": "thanks"}
+{"text": "الف شكر الك", "label": "thanks"}
+{"text": "many thanks", "label": "thanks"}
+{"text": "تعبتك معي شكرا", "label": "thanks"}
+{"text": "يسلمو هالايدين", "label": "thanks"}
+{"text": "شكرا كتير ع الرد", "label": "thanks"}
+{"text": "لك جزيل الشكر", "label": "thanks"}
+{"text": "تستاهل كل خير", "label": "thanks"}
+{"text": "thx a lot", "label": "thanks"}
+{"text": "احسن فيلم رعب", "label": "unknown"}
+{"text": "شو افضل مطعم بالمدينة", "label": "unknown"}
+{"text": "وين اقدر العب كرة قدم", "label": "unknown"}
+{"text": "كيف ممكن انحف بسرعة", "label": "unknown"}
+{"text": "تفسير حلم الثعبان", "label": "unknown"}
+{"text": "songs for studying", "label": "unknown"}
+{"text": "الطريق للمستشفى من الجامعة", "label": "unknown"}
+{"text": "معادلة الشهادة الثانوية من برة", "label": "unknown"}
+{"text": "شو طبيعة عمل مهندس البترول", "label": "unknown"}
+{"text": "اخبار الثلوج", "label": "unknown"}
+{"text": "ايجارات الشقق قريبة من الجامعة", "label": "unknown"}
+{"text": "سعر صرف اليورو مقابل الشيكل", "label": "unknown"}
+{"text": "انقطاع الكهرباء اليوم", "label": "unknown"}
+{"text": "سبب توقف التطبيق", "label": "unknown"}
+{"text": "بدي موعد سفارة", "label": "unknown"}

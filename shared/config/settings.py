@@ -30,6 +30,11 @@ class Settings(BaseSettings):
     # Confidence threshold — below this, bot admits uncertainty
     CONFIDENCE_THRESHOLD: float = 0.55
 
+    # Hybrid retrieval (BM25 + embeddings)
+    BM25_TOP_K: int = 25
+    EMBED_TOP_K: int = 25
+    BM25_WEIGHT: float = 0.6
+
     class Config:
         env_file = ".env"
 

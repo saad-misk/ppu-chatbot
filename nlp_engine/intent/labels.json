@@ -1,0 +1,20 @@
+[
+  "faq_fees",
+  "faq_registration",
+  "faq_admission",
+  "faq_graduation",
+  "faq_scholarships",
+  "schedule_exams",
+  "schedule_classes",
+  "schedule_academic_calendar",
+  "staff_info",
+  "department_info",
+  "course_info",
+  "library_info",
+  "campus_services",
+  "student_id_query",
+  "greeting",
+  "goodbye",
+  "thanks",
+  "unknown"
+]

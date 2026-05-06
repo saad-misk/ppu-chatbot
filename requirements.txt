@@ -1,0 +1,45 @@
+# --- Web Framework ---
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# --- Pydantic / Settings ---
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# --- NLP / Preprocessing ---
+spacy==3.7.4
+nltk==3.8.1
+langdetect==1.0.9
+
+# --- Transformers / BERT ---
+transformers==4.41.0
+torch==2.3.0
+datasets==2.19.1
+accelerate==0.30.1
+scikit-learn==1.4.2
+
+# --- Embeddings (multilingual for Arabic + English) ---
+sentence-transformers==3.0.0
+
+# --- Vector DB ---
+chromadb==0.5.0
+
+# --- PDF ingestion ---
+pypdf==4.2.0
+
+# --- HTTP client (gateway → NLP engine) ---
+httpx==0.27.0
+
+# --- Auth / security ---
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# --- Database (gateway) ---
+sqlalchemy==2.0.30
+aiosqlite==0.20.0
+
+# --- Testing ---
+pytest==8.2.0
+pytest-asyncio==0.23.6
+httpx==0.27.0
