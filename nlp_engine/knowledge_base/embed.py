@@ -78,3 +78,41 @@ def get_embedder(model_name: str = _DEFAULT_MODEL) -> Embedder:
     if _embedder is None:
         _embedder = Embedder(model_name)
     return _embedder
+
+def embed_with_cache(self, texts: List[str]) -> List[List[float]]:
+    """
+    Embed texts with caching for repeated queries.
+    
+    Args:
+        texts: List of texts to embed
+        
+    Returns:
+        List of embedding vectors
+    """
+    from nlp_engine.knowledge_base.cache import get_cache
+    
+    cache = get_cache()
+    vectors = []
+    texts_to_embed = []
+    cache_indices = []
+    
+    # Check cache first
+    for i, text in enumerate(texts):
+        cached = cache.get(text) if len(text) < 200 else None  # Only cache short texts
+        if cached is not None:
+            vectors.append(cached)
+        else:
+            vectors.append(None)  # Placeholder
+            texts_to_embed.append(text)
+            cache_indices.append(i)
+    
+    # Embed uncached texts
+    if texts_to_embed:
+        new_vectors = self.embed(texts_to_embed)
+        
+        for idx, vector in zip(cache_indices, new_vectors):
+            vectors[idx] = vector
+            # Cache the result
+            cache.set(texts[idx], vector)
+    
+    return vectors

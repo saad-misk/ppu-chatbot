@@ -1,250 +1,488 @@
-"""
-RAG Generator — bilingual Arabic/English reply generation via HuggingFace Inference API.
-
-The system prompt is in Arabic (the primary language).
-The model detects the user's language and replies in the same language.
-
-Model: mistralai/Mistral-7B-Instruct-v0.2
-  • Strong Arabic support with Mistral instruction format
-  • Alternatively use: google/gemma-2-9b-it or CohereForAI/aya-23-8B
-    (Aya is specifically optimized for Arabic and multilingual tasks)
-"""
 from __future__ import annotations
 
-import asyncio
 import logging
-import re
 from typing import List, Dict
 
-import httpx
+import requests
+from openai import OpenAI
 
 from shared.config.settings import settings
 from shared.utils.lang import is_arabic as _is_arabic
 
 logger = logging.getLogger(__name__)
 
-_HF_API_URL       = "https://api-inference.huggingface.co/models/{model}"
-_GENERATION_MODEL = "mistralai/Mistral-7B-Instruct-v0.2"
-
 # ---------------------------------------------------------------------------
-# System prompts — one per language so scaffolding stays consistent
+# Provider model registry
 # ---------------------------------------------------------------------------
 
-_SYSTEM_PROMPT_AR = (
-    "أنت مساعد ذكي لجامعة بوليتكنك فلسطين (PPU).\n"
-    "مهمتك هي الإجابة على أسئلة الطلاب بشكل دقيق ومفيد.\n"
-    "أجب دائماً بنفس لغة السؤال: إذا كان السؤال بالعربية أجب بالعربية، "
-    "وإذا كان بالإنجليزية أجب بالإنجليزية.\n"
-    "استخدم فقط المعلومات الواردة في السياق المقدم أدناه. لا تخترع أو تخمن أي معلومات.\n"
-    "إذا لم تجد الإجابة في السياق قل: "
-    "\"لا تتوفر لديّ هذه المعلومات في قاعدة البيانات، يرجى التواصل مع القسم المعني.\"\n"
-    "كن موجزاً ودقيقاً في إجاباتك."
-)
+_PROVIDER_MODELS = {
 
-_SYSTEM_PROMPT_EN = (
-    "You are an AI assistant for Palestine Polytechnic University (PPU).\n"
-    "Answer student questions accurately and helpfully.\n"
-    "Always respond in the same language as the question (Arabic or English).\n"
-    "Use ONLY the provided context. Do not hallucinate or invent information.\n"
-    "If the answer is not in the context, say so politely and suggest "
-    "contacting the relevant department."
-)
+    # -------------------------------------------------------
+    # OpenRouter models
+    # -------------------------------------------------------
+
+    "openrouter": [
+        "meta-llama/llama-3.3-70b-instruct:free",
+        "openai/gpt-oss-20b:free",
+        "qwen/qwen3-next-80b-a3b-instruct:free",
+    ],
+
+    # -------------------------------------------------------
+    # NVIDIA models
+    # -------------------------------------------------------
+
+    "nvidia": [
+        "qwen/qwen3.5-122b-a10b",
+        "meta/llama-3.1-70b-instruct",
+    ],
+}
+
+# ---------------------------------------------------------------------------
+# System prompts
+# ---------------------------------------------------------------------------
+
+_SYSTEM_PROMPT_AR = """\
+أنت مساعد أكاديمي لجامعة بوليتكنك فلسطين.
+
+ستتلقى:
+- سياق مستخرج من ملفات الجامعة
+- سؤال الطالب
+
+التعليمات:
+1. ابحث داخل السياق عن الإجابة بشكل مباشر.
+2. إذا وُجدت المعلومة بشكل جزئي، استخرج أفضل إجابة ممكنة.
+3. لا تقل "لا تتوفر لديّ هذه المعلومات" إلا إذا كانت المعلومة غير موجودة فعلاً.
+4. أجب بنفس لغة السؤال.
+5. لا تخترع معلومات غير موجودة في السياق.
+6. كن مختصراً وواضحاً.
+"""
+
+_SYSTEM_PROMPT_EN = """\
+You are an academic assistant for Palestine Polytechnic University (PPU).
+
+You will receive:
+- Context extracted from university documents
+- A student question
+
+Instructions:
+1. Search the context carefully for the answer.
+2. If the information exists partially, provide the best possible answer from the context.
+3. Only say the information is unavailable if it truly does not exist in the context.
+4. Reply in the same language as the question.
+5. Never invent information.
+6. Be concise and clear.
+"""
+
+# ---------------------------------------------------------------------------
+# Fallback responses
+# ---------------------------------------------------------------------------
 
 _FALLBACK_AR = (
-    "عذراً، لم أتمكن من إيجاد إجابة دقيقة لسؤالك في قاعدة المعرفة. "
-    "يُرجى التواصل مع القسم المعني أو زيارة الموقع الرسمي لجامعة بوليتكنك فلسطين."
+    "عذراً، حدث خطأ أثناء توليد الإجابة. "
+    "يرجى التواصل مع القسم المعني مباشرةً."
 )
 
 _FALLBACK_EN = (
-    "I'm sorry, I couldn't find a confident answer to your question in the knowledge base. "
-    "Please contact the relevant department or visit the PPU official website."
+    "Sorry, an error occurred while generating the answer. "
+    "Please contact the relevant department directly."
 )
 
 # ---------------------------------------------------------------------------
-# Module-level httpx client — reused across requests (connection pooling)
+# OpenRouter client cache
 # ---------------------------------------------------------------------------
 
-_HTTP_CLIENT: httpx.AsyncClient | None = None
+_openrouter_client: OpenAI | None = None
 
 
-async def _get_http_client() -> httpx.AsyncClient:
-    global _HTTP_CLIENT
-    if _HTTP_CLIENT is None or _HTTP_CLIENT.is_closed:
-        _HTTP_CLIENT = httpx.AsyncClient(timeout=60.0)
-    return _HTTP_CLIENT
+def _get_openrouter_client() -> OpenAI:
+    global _openrouter_client
 
+    if _openrouter_client is None:
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
+        api_key = getattr(settings, "OPENROUTER_API_KEY", None)
 
+        if not api_key:
+            raise ValueError(
+                "OPENROUTER_API_KEY is not configured."
+            )
 
-# ---------------------------------------------------------------------------
-# Prompt builder
-# ---------------------------------------------------------------------------
-
-def _build_prompt(query: str, context_chunks: List[Dict], history: List[Dict]) -> str:
-    """
-    Build a Mistral-format [INST] prompt with bilingual context.
-
-    Mistral-7B-Instruct-v0.2 uses:
-        <s>[INST] {system + user message} [/INST]
-
-    It does NOT use <<SYS>> / <</SYS>> tags — those belong to Llama-2.
-    Language-aware section headers keep the model's in-context reasoning
-    aligned with the query language.
-    """
-    arabic = _is_arabic(query)
-
-    if arabic:
-        system_prompt = _SYSTEM_PROMPT_AR
-        ctx_header    = "### السياق"
-        hist_header   = "### سجل المحادثة"
-        q_header      = "### السؤال"
-        user_label    = "الطالب"
-        bot_label     = "المساعد"
-        no_ctx_msg    = "لا يوجد سياق متاح."
-    else:
-        system_prompt = _SYSTEM_PROMPT_EN
-        ctx_header    = "### Context"
-        hist_header   = "### Conversation History"
-        q_header      = "### Question"
-        user_label    = "Student"
-        bot_label     = "Assistant"
-        no_ctx_msg    = "No context available."
-
-    # Build context block
-    context_parts = []
-    for i, chunk in enumerate(context_chunks, 1):
-        meta      = chunk.get("metadata", {})
-        doc       = meta.get("doc_name", "unknown")
-        page      = meta.get("page", "?")
-        score     = chunk.get("score", "")
-        score_str = f" ({score:.0%})" if score else ""
-        context_parts.append(
-            f"[{i} — {doc}, p.{page}{score_str}]\n{chunk['document']}"
+        _openrouter_client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+            max_retries=0,
+            timeout=20.0,
         )
 
-    context_text = "\n\n".join(context_parts) if context_parts else no_ctx_msg
+        logger.info("Initialized OpenRouter client")
 
-    # Build history block (last 4 turns only)
-    history_text = ""
+    return _openrouter_client
+
+
+# ---------------------------------------------------------------------------
+# NVIDIA request helper
+# ---------------------------------------------------------------------------
+
+def _call_nvidia(
+    model: str,
+    messages: list,
+    temperature: float,
+    max_tokens: int,
+) -> str:
+
+    api_key = getattr(settings, "NVIDIA_API_KEY", None)
+
+    if not api_key:
+        raise ValueError("NVIDIA_API_KEY is not configured.")
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Accept": "application/json",
+    }
+
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+        "top_p": 0.95,
+        "stream": False,
+    }
+
+    response = requests.post(
+        "https://integrate.api.nvidia.com/v1/chat/completions",
+        headers=headers,
+        json=payload,
+        timeout=25,
+    )
+
+    response.raise_for_status()
+
+    data = response.json()
+
+    return data["choices"][0]["message"]["content"].strip()
+
+
+# ---------------------------------------------------------------------------
+# Message builder
+# ---------------------------------------------------------------------------
+
+def _build_user_message(
+    query: str,
+    context_chunks: List[Dict],
+    history: List[Dict],
+    arabic: bool,
+) -> str:
+
+    if arabic:
+        ctx_header = "السياق"
+        hist_header = "سجل المحادثة السابق"
+        q_header = "السؤال"
+        user_label = "الطالب"
+        bot_label = "المساعد"
+        no_ctx_msg = "لا يوجد سياق متاح."
+    else:
+        ctx_header = "Context"
+        hist_header = "Previous conversation"
+        q_header = "Question"
+        user_label = "Student"
+        bot_label = "Assistant"
+        no_ctx_msg = "No context available."
+
+    # -------------------------------------------------------
+    # Context
+    # -------------------------------------------------------
+
+    context_parts = []
+
+    for i, chunk in enumerate(context_chunks, 1):
+
+        meta = chunk.get("metadata", {})
+
+        doc = meta.get("doc_name", "unknown")
+        page = meta.get("page", "?")
+
+        context_parts.append(
+            f"[{i} — {doc}, p.{page}]\n{chunk['document']}"
+        )
+
+    context_text = (
+        "\n\n".join(context_parts)
+        if context_parts
+        else no_ctx_msg
+    )
+
+    # -------------------------------------------------------
+    # History
+    # -------------------------------------------------------
+
+    history_lines = []
+
     for turn in history[-4:]:
-        role    = turn.get("role", "user")
-        content = turn.get("content", "")
-        prefix  = user_label if role == "user" else bot_label
-        history_text += f"{prefix}: {content}\n"
 
-    # Mistral [INST] format — no <<SYS>> wrapper needed
-    prompt = f"<s>[INST] {system_prompt}\n\n{ctx_header}:\n{context_text}\n\n"
+        role = turn.get("role", "user")
+        content = turn.get("content", "").strip()
+
+        prefix = (
+            user_label
+            if role == "user"
+            else bot_label
+        )
+
+        history_lines.append(
+            f"{prefix}: {content}"
+        )
+
+    history_text = "\n".join(history_lines)
+
+    # -------------------------------------------------------
+    # Final message
+    # -------------------------------------------------------
+
+    msg = f"### {ctx_header}\n{context_text}\n"
+
     if history_text:
-        prompt += f"{hist_header}:\n{history_text}\n"
-    prompt += f"{q_header}:\n{query} [/INST]"
-    return prompt
+        msg += (
+            f"\n### {hist_header}\n"
+            f"{history_text}\n"
+        )
+
+    msg += f"\n### {q_header}\n{query}"
+    print("Generated user message:\n", msg)
+    return msg
 
 
 # ---------------------------------------------------------------------------
-# Response post-processing
+# Main generation function
 # ---------------------------------------------------------------------------
 
-_PROMPT_ARTIFACTS = (
-    "[INST]", "[/INST]", "<<SYS>>", "<</SYS>>", "<s>", "</s>",
-    "### السياق", "### Context",
-    "### السؤال", "### Question",
-    "### سجل المحادثة", "### Conversation History",
-)
-
-
-def _clean_response(text: str, fallback: str) -> str:
-    """Strip prompt artifacts, trim whitespace, enforce a 2 000-char max."""
-    for artifact in _PROMPT_ARTIFACTS:
-        text = text.replace(artifact, "")
-    text = text.strip()
-    if not text:
-        return fallback
-    if len(text) > 2000:
-        cutoff = text.rfind(".", 0, 2000)
-        text = text[: cutoff + 1] if cutoff > 1500 else text[:2000] + "…"
-    return text
-
-
-# ---------------------------------------------------------------------------
-# Main generation coroutine
-# ---------------------------------------------------------------------------
-
-async def generate(
+def generate(
     query: str,
     context_chunks: List[Dict],
     history: List[Dict] | None = None,
     max_new_tokens: int = 512,
     temperature: float = 0.3,
 ) -> str:
-    """
-    Generate a bilingual grounded reply via the HuggingFace Inference API.
 
-    Returns Arabic reply by default; English if the query is in English.
-    Falls back gracefully on any API error.
-    Retries once on HTTP 503 (model still loading on HF side).
-    """
-    fallback = _FALLBACK_AR if _is_arabic(query) else _FALLBACK_EN
+    arabic = _is_arabic(query)
 
-    if not settings.HF_INFERENCE_API_KEY:
-        logger.error("HF_INFERENCE_API_KEY is not set — cannot call Inference API.")
-        return fallback
-
-    # Use generation model, not the BERT classifier model name from settings
-    model_name = (
-        settings.HF_MODEL_NAME
-        if settings.HF_MODEL_NAME not in ("bert-base-uncased",)
-        else _GENERATION_MODEL
+    fallback = (
+        _FALLBACK_AR
+        if arabic
+        else _FALLBACK_EN
     )
 
-    url     = _HF_API_URL.format(model=model_name)
-    prompt  = _build_prompt(query, context_chunks, history or [])
-    headers = {
-        "Authorization": f"Bearer {settings.HF_INFERENCE_API_KEY}",
-        "Content-Type":  "application/json",
-    }
-    payload = {
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens":   max_new_tokens,
-            "temperature":      temperature,
-            "return_full_text": False,
-            "do_sample":        temperature > 0,
+    system_prompt = (
+        _SYSTEM_PROMPT_AR
+        if arabic
+        else _SYSTEM_PROMPT_EN
+    )
+
+    provider = (
+        getattr(settings, "LLM_PROVIDER", "openrouter")
+        .lower()
+        .strip()
+    )
+
+    models = _PROVIDER_MODELS.get(provider)
+
+    if not models:
+        raise ValueError(
+            f"Unsupported provider: {provider}"
+        )
+
+    # Optional single-model override
+    custom_model = getattr(settings, "LLM_MODEL", None)
+
+    if custom_model:
+        models = [custom_model]
+
+    user_message = _build_user_message(
+        query=query,
+        context_chunks=context_chunks,
+        history=history or [],
+        arabic=arabic,
+    )
+
+    messages = [
+        {
+            "role": "system",
+            "content": system_prompt,
         },
-    }
+        {
+            "role": "user",
+            "content": user_message,
+        },
+    ]
 
-    client = await _get_http_client()
+    last_error = None
 
-    for attempt in range(2):   # retry once on transient 503
+    # -----------------------------------------------------------------------
+    # Try models in fallback order
+    # -----------------------------------------------------------------------
+
+    for model_name in models:
+
         try:
-            response = await client.post(url, headers=headers, json=payload)
 
-            if response.status_code == 503 and attempt == 0:
-                logger.warning("HF API 503 (model loading) — retrying in 3 s…")
-                await asyncio.sleep(3)
+            logger.info(
+                "Trying provider=%s model=%s query='%s'",
+                provider,
+                model_name,
+                query[:60],
+            )
+
+            # ---------------------------------------------------------------
+            # OpenRouter
+            # ---------------------------------------------------------------
+
+            if provider == "openrouter":
+
+                client = _get_openrouter_client()
+
+                response = client.chat.completions.create(
+                    model=model_name,
+                    temperature=temperature,
+                    max_tokens=max_new_tokens,
+                    messages=messages,
+                )
+
+                raw = (
+                    response
+                    .choices[0]
+                    .message.content
+                    .strip()
+                )
+
+            # ---------------------------------------------------------------
+            # NVIDIA
+            # ---------------------------------------------------------------
+
+            elif provider == "nvidia":
+
+                raw = _call_nvidia(
+                    model=model_name,
+                    messages=messages,
+                    temperature=temperature,
+                    max_tokens=max_new_tokens,
+                )
+
+            else:
+                raise ValueError(
+                    f"Unsupported provider: {provider}"
+                )
+
+            # ---------------------------------------------------------------
+            # Empty response protection
+            # ---------------------------------------------------------------
+
+            if not raw:
+
+                logger.warning(
+                    "Empty response from model=%s",
+                    model_name,
+                )
+
                 continue
 
-            response.raise_for_status()
-            data = response.json()
+            # ---------------------------------------------------------------
+            # Limit response length
+            # ---------------------------------------------------------------
 
-            if isinstance(data, list) and data:
-                raw = data[0].get("generated_text", "")
-                return _clean_response(raw, fallback)
+            if len(raw) > 2000:
 
-            logger.warning("Unexpected HF API response format: %s", str(data)[:200])
-            return fallback
+                cutoff = raw.rfind(".", 0, 2000)
 
-        except httpx.HTTPStatusError as e:
-            logger.error(
-                "HF API HTTP %d: %s",
-                e.response.status_code,
-                e.response.text[:200],
+                raw = (
+                    raw[: cutoff + 1]
+                    if cutoff > 1500
+                    else raw[:2000] + "…"
+                )
+
+            logger.info(
+                "Successful response from provider=%s model=%s",
+                provider,
+                model_name,
             )
-            return fallback
+
+            return raw
+
         except Exception as e:
-            logger.error("Generation error: %s", e)
-            return fallback
+
+            last_error = e
+
+            logger.warning(
+                "Model failed | provider=%s | model=%s | error=%s",
+                provider,
+                model_name,
+                e,
+            )
+
+            continue
+
+    # -----------------------------------------------------------------------
+    # All models failed
+    # -----------------------------------------------------------------------
+
+    logger.error(
+        "All models failed | provider=%s | last_error=%s",
+        provider,
+        last_error,
+    )
 
     return fallback
+
+def _truncate_context_for_prompt(
+    context_chunks: List[Dict],
+    max_chars: int = 4000,
+) -> List[Dict]:
+    """Ensure context fits in model window."""
+    total = 0
+    truncated = []
+    
+    for chunk in sorted(
+        context_chunks,
+        key=lambda x: x.get("score", x.get("hybrid_score", 0)),
+        reverse=True,
+    ):
+        doc_len = len(chunk["document"])
+        if total + doc_len > max_chars:
+            remaining = max_chars - total
+            if remaining > 200:
+                truncated.append({
+                    **chunk,
+                    "document": chunk["document"][:remaining] + "..."
+                })
+            break
+        total += doc_len
+        truncated.append(chunk)
+        if len(truncated) >= 8:  # Max chunks
+            break
+    
+    return truncated
+
+
+# Add validation function:
+def _validate_response(response: str, arabic: bool, context: List[Dict]) -> bool:
+    """Check if response is valid."""
+    if not response or len(response) < 10:
+        return False
+    
+    # Check for common LLM refusal patterns
+    arabic_refusals = [
+        "لا يمكنني", "لا استطيع", "ليس لدي", "غير متوفر",
+        "غير متاحة", "لا أملك", "لا تتوفر",
+    ]
+    english_refusals = [
+        "i cannot", "i can't", "i am not able", "not available",
+        "i don't have", "no information", "cannot provide",
+    ]
+    
+    refusals = arabic_refusals if arabic else english_refusals
+    for pattern in refusals:
+        if pattern in response.lower():
+            # Only flag if context was actually provided
+            if context and len(context) > 0:
+                logger.warning(f"Refusal pattern '{pattern}' in response despite context")
+                return False
+    
+    return True

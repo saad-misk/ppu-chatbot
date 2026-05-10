@@ -28,8 +28,10 @@ async def upload_pdf(
             )
             response.raise_for_status()
             return {"message": f"{file.filename} uploaded and indexed successfully"}
-    except Exception:
-        return {"message": f"{file.filename} received (NLP engine not connected yet)"}
+    except httpx.HTTPStatusError as e:
+        raise HTTPException(status_code=500, detail=f"NLP engine error: {e.response.text}")
+    except httpx.RequestError as e:
+        raise HTTPException(status_code=503, detail=f"Error connecting to NLP engine: {e}")
 
 
 @router.get("/documents")
@@ -39,8 +41,10 @@ async def list_documents(_token: dict = Depends(verify_token)):
             response = await client.get(f"{settings.NLP_SERVER_URL}/documents")
             response.raise_for_status()
             return response.json()
-    except Exception:
-        return {"documents": [], "message": "NLP engine not connected yet"}
+    except httpx.HTTPStatusError as e:
+        raise HTTPException(status_code=500, detail=f"NLP engine error: {e.response.text}")
+    except httpx.RequestError as e:
+        raise HTTPException(status_code=503, detail=f"Error connecting to NLP engine: {e}")
 
 
 @router.get("/stats")

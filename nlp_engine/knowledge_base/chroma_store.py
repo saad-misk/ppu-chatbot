@@ -35,7 +35,7 @@ class ChromaStore:
         logger.info("Initialising ChromaDB at: %s", _dir)
         self._client = chromadb.PersistentClient(
             path=_dir,
-            settings=ChromaSettings(anonymized_telemetry=False),
+            settings=ChromaSettings(anonymized_telemetry=False)
         )
         self._collection = self._client.get_or_create_collection(
             name=_COLLECTION_NAME,

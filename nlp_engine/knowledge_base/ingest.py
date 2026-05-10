@@ -12,6 +12,15 @@ Usage
 """
 from __future__ import annotations
 
+from nlp_engine.knowledge_base.es_store import (
+    create_index,
+    add_documents,
+    delete_by_doc as es_delete_by_doc,
+)
+
+from nlp_engine.knowledge_base.chunker import chunk_document
+
+
 import hashlib
 import logging
 import re
@@ -30,8 +39,8 @@ logger = logging.getLogger(__name__)
 # Chunking configuration
 # ---------------------------------------------------------------------------
 
-CHUNK_SIZE    = 400   # characters per chunk
-CHUNK_OVERLAP = 80    # overlapping characters between adjacent chunks
+CHUNK_SIZE    = 700   # characters per chunk
+CHUNK_OVERLAP = 120    # overlapping characters between adjacent chunks
 
 # Sentence boundary punctuation (English + Arabic)
 _SENTENCE_BOUNDARY_RE = re.compile(r"[\.\!\?؟؛]")
@@ -64,31 +73,27 @@ def _extract_pages(pdf_bytes: bytes) -> List[Dict]:
 # Chunking
 # ---------------------------------------------------------------------------
 
-def _chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP) -> List[str]:
+def _chunk_text(
+    text: str,
+    chunk_size: int = CHUNK_SIZE,
+    overlap: int = CHUNK_OVERLAP,
+    strategy: str = "semantic",
+) -> List[str]:
     """
-    Split *text* into overlapping character-level chunks.
-    Tries to break at sentence boundaries ('. ') when possible.
+    Split text into chunks using specified strategy.
+    
+    Args:
+        text: Input text
+        chunk_size: Target chunk size
+        overlap: Overlap between chunks (char strategy only)
+        strategy: 'char', 'sentence', or 'semantic'
+        
+    Returns:
+        List of text chunks
     """
-    chunks = []
-    start = 0
-    while start < len(text):
-        end = start + chunk_size
-        chunk = text[start:end]
+    return chunk_document(text, strategy=strategy, chunk_size=chunk_size, overlap=overlap)
 
-        # Try to break at a sentence boundary within the last 20% of the chunk
-        if end < len(text):
-            window_start = int(chunk_size * 0.8)
-            window = chunk[window_start:]
-            matches = list(_SENTENCE_BOUNDARY_RE.finditer(window))
-            if matches:
-                last = matches[-1].start() + window_start
-                end = start + last + 1  # include the boundary punctuation
-                chunk = text[start:end]
 
-        chunks.append(chunk.strip())
-        start = end - overlap
-
-    return [c for c in chunks if c]
 
 
 # ---------------------------------------------------------------------------
@@ -100,22 +105,24 @@ def ingest_pdf(
     doc_name: str,
     chunk_size: int = CHUNK_SIZE,
     overlap: int = CHUNK_OVERLAP,
+    chunking_strategy: str = "semantic",
 ) -> Dict:
     """
     Full ingestion pipeline: PDF bytes → chunks → embeddings → ChromaDB.
 
-    Parameters
-    ----------
-    file_bytes  : raw PDF bytes
-    doc_name    : logical document name (used in metadata and for deletion)
-    chunk_size  : characters per chunk
-    overlap     : overlap between chunks
+    Args:
+        file_bytes: Raw PDF bytes
+        doc_name: Document name
+        chunk_size: Characters per chunk
+        overlap: Overlap between chunks
+        chunking_strategy: 'char', 'sentence', or 'semantic'
 
     Returns
-    -------
     dict with keys: doc_name, pages, chunks, status
     """
     logger.info("Starting ingestion for: %s (%d bytes)", doc_name, len(file_bytes))
+
+    create_index()
 
     # 1. Extract pages
     pages = _extract_pages(file_bytes)
@@ -126,6 +133,7 @@ def ingest_pdf(
     # 2. Remove old chunks for this document
     store = get_store()
     store.delete_by_doc(doc_name)
+    es_delete_by_doc(doc_name)
 
     # 3. Build chunks with metadata
     embedder = get_embedder()
@@ -135,7 +143,12 @@ def ingest_pdf(
     for page_info in pages:
         page_num = page_info["page"]
         page_text = page_info["text"]
-        chunks = _chunk_text(page_text, chunk_size, overlap)
+        chunks = _chunk_text(
+            page_text,
+            chunk_size=chunk_size,
+            overlap=overlap,
+            strategy=chunking_strategy,
+        )
 
         for chunk_idx, chunk in enumerate(chunks):
             # Deterministic ID: hash of (doc_name + page + chunk_idx)
@@ -159,6 +172,12 @@ def ingest_pdf(
     store.add(
         ids=all_ids,
         embeddings=all_embeddings,
+        documents=all_documents,
+        metadatas=all_metadatas,
+    )
+
+    add_documents(
+        ids=all_ids,
         documents=all_documents,
         metadatas=all_metadatas,
     )
