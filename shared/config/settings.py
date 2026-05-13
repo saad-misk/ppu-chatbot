@@ -19,20 +19,21 @@ class Settings(BaseSettings):
     # ChromaDB
     CHROMA_PERSIST_DIR: str = "./data/chroma"
 
-    # openrouter
-    OPENROUTER_API_KEY: str = ""
+    # LLM provider
     LLM_PROVIDER: str = "openrouter"
-
-    OPENROUTER_API_KEY: str | None = None
-    NVIDIA_API_KEY: str | None = None
-
     LLM_MODEL: str | None = None
+
+    # OpenRouter
+    OPENROUTER_API_KEY: str | None = None
+
+    # NVIDIA
+    NVIDIA_API_KEY: str | None = None
     # HuggingFace
     HF_MODEL_NAME: str = "bert-base-uncased"
     HF_INFERENCE_API_KEY: str = ""
 
-    # Gemini    
-    GEMINI_API_KEY: str = ""
+    # Gemini
+    GEMINI_API_KEY: str | None = None
 
     # JWT
     JWT_SECRET: str = "change-me-in-production"
