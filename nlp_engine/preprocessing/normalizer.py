@@ -6,9 +6,8 @@ Arabic normalization steps:
     2. Remove tatweel (kashida — elongation character ـ)
     3. Normalize alef variants (أ إ آ ا → ا)
     4. Normalize teh marbuta (ة → ه)
-    5. Normalize waw (ؤ → و) and yeh (ئ → ي / ى → ي)
-    6. Normalize Arabic-Indic digits (٠١٢٣٤٥٦٧٨٩ → 0123456789)
-    7. Collapse repeated Arabic letters (e.g., مررررحبا → مرحبا)
+    5. Normalize Arabic-Indic digits (٠١٢٣٤٥٦٧٨٩ → 0123456789)
+    6. Collapse repeated Arabic letters (e.g., مررررحبا → مرحبا)
 
 English normalization steps:
     1. Unicode NFC normalization
@@ -45,15 +44,6 @@ _ALEF_VARIANTS = str.maketrans({
 
 # Teh marbuta → heh (optional, helps recall)
 _TEH_MARBUTA = str.maketrans({'\u0629': '\u0647'})   # ة → ه
-
-# Waw with hamza → waw
-_WAW_HAMZA = str.maketrans({'\u0624': '\u0648'})     # ؤ → و
-
-# Yeh variants → yeh
-_YEH_VARIANTS = str.maketrans({
-    '\u0626': '\u064A',   # ئ → ي
-    '\u0649': '\u064A',   # ى → ي
-})
 
 # Arabic-Indic and Eastern Arabic-Indic digits → Western
 _ARABIC_DIGITS = str.maketrans({
@@ -95,8 +85,6 @@ def normalize_arabic(text: str) -> str:
     # Normalize character variants
     text = text.translate(_ALEF_VARIANTS)
     text = text.translate(_TEH_MARBUTA)
-    text = text.translate(_WAW_HAMZA)
-    text = text.translate(_YEH_VARIANTS)
     # Collapse whitespace
     text = re.sub(r'\s+', ' ', text).strip()
     return text
@@ -116,7 +104,7 @@ def normalize(
 
     Steps applied to all text:
       1. Unicode NFC
-      2. Arabic normalization (diacritics, tatweel, alef/teh/yeh variants)
+      2. Arabic normalization (diacritics, tatweel, alef/teh variants)
       3. Collapse whitespace
       4. Lowercase (affects only Latin characters)
       5. Optional: remove punctuation

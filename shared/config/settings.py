@@ -18,24 +18,35 @@ class Settings(BaseSettings):
     # ====================== Chroma ======================
     CHROMA_PERSIST_DIR: str = "./data/chroma"
 
-    # ====================== LLM Providers ======================
-    LLM_PROVIDER: str = "nvidia"
-    OPENROUTER_API_KEY: str | None = None
-    NVIDIA_API_KEY: str | None = None
-    GEMINI_API_KEY: str = ""
-    LLM_MODEL: str | None = None
-    GEMINI_MODEL: str | None = None          # ← Added
 
-    # ====================== HuggingFace ======================
+    # openrouter
+    OPENROUTER_API_KEY: str = ""
+    LLM_PROVIDER: str = "openrouter"
+    LLM_MODEL: str | None = None
+    OPENROUTER_API_KEY: str | None = None
+
+    # NVIDIA
+    NVIDIA_API_KEY: str | None = None
+
+    # HuggingFace
     HF_MODEL_NAME: str = "bert-base-uncased"
     HF_INFERENCE_API_KEY: str = ""
 
-    # ====================== Auth & Security ======================
+    # Gemini    
+    GEMINI_API_KEY: str = ""
+
+    # JWT
     JWT_SECRET: str = "change-me-in-production"
     JWT_EXPIRE_MINUTES: int = 1440
 
     # ====================== Application ======================
     CONFIDENCE_THRESHOLD: float = 0.55
+
+    # Hybrid retrieval (BM25 + embeddings)
+    BM25_TOP_K: int = 25
+    EMBED_TOP_K: int = 25
+    BM25_WEIGHT: float = 0.6
+
 
     # ====================== Email Verification ======================
     GMAIL_SENDER: str = ""
@@ -53,7 +64,7 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "utf-8"
         case_sensitive = True
-        extra = "ignore"          # ← Very Important
+        extra = "ignore"
 
 
 settings = Settings()
