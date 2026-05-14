@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     HF_INFERENCE_API_KEY: str = ""
 
     # Gemini    
-    GEMINI_API_KEY: str = ""
+    GEMINI_API_KEY: str | None = None
 
     # JWT
     JWT_SECRET: str = "change-me-in-production"
