@@ -1,17 +1,20 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.orm import sessionmaker
+from shared.config.settings import settings
 
-# Temporarily hardcode for testing
-DATABASE_URL = "sqlite:///./ppu_chatbot.db"
-
+# Create engine (Neon PostgreSQL)
 engine = create_engine(
-    DATABASE_URL, 
-    connect_args={"check_same_thread": False}
+    settings.DATABASE_URL,
+    echo=False,           # Change to True if you want to see SQL queries
+    pool_pre_ping=True,   # Good for Neon
 )
 
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
-Base = declarative_base()
+# Session factory
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
+# Base class for models
+from sqlalchemy.orm import declarative_base
+Base = declarative_base()
 
 def get_db():
     db = SessionLocal()

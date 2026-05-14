@@ -36,23 +36,34 @@
           <div id="sessions-list"></div>
         </div>
 
+        <!-- FIXED SIDEBAR FOOTER -->
         <div class="sidebar-footer">
-          <div class="lang-toggle">
-            <button
-              class="lang-btn active"
-              data-lang="en"
-              onclick="setLang('en')"
-            >
-              EN
-            </button>
-            <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">
-              ع
-            </button>
+          <div class="user-profile" id="user-profile">
+            <div class="user-avatar" id="user-avatar">👤</div>
+            <div class="user-info">
+              <div class="user-name" id="user-name">Loading...</div>
+              <div class="user-role" id="user-role">Student</div>
+            </div>
           </div>
-          <span class="ppu-badge" id="ppu-badge">PPU © 2026</span>
+          <button
+            class="icon-btn admin-btn"
+            id="admin-btn"
+            onclick="goToAdminDashboard()"
+            style="display: none"
+            title="Admin Dashboard"
+          >
+            🛠️
+          </button>
         </div>
+        <button
+          class="icon-btn sidebar-toggle-btn"
+          id="sidebar-toggle"
+          onclick="toggleSidebar()"
+          title="Toggle Sidebar"
+        >
+          ◀
+        </button>
       </aside>
-
       <div id="main">
         <div id="topbar">
           <div class="topbar-left">
@@ -66,12 +77,32 @@
             </div>
           </div>
           <div class="topbar-right">
+            <div class="lang-toggle" aria-label="Language">
+              <button
+                class="lang-btn active"
+                data-lang="ar"
+                onclick="setLang('ar')"
+              >
+                AR
+              </button>
+              <button class="lang-btn" data-lang="en" onclick="setLang('en')">
+                EN
+              </button>
+            </div>
             <button
               class="icon-btn"
               title="Clear chat"
               onclick="startNewSession()"
             >
               🗑️
+            </button>
+            <button
+              class="icon-btn logout-btn"
+              id="logout-btn"
+              onclick="logout()"
+              title="تسجيل الخروج / Logout"
+            >
+              Logout
             </button>
           </div>
         </div>

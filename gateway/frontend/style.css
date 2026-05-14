@@ -13,7 +13,7 @@
   --text-muted: #6b7a99;
   --border: #dce3f0;
   --bot-bubble: #1b3a6b;
-  --user-bubble: #7b1e3b;
+  --user-bubble: var(--navy);
   --warning: #c8820a;
   --warning-bg: #fff8ec;
   --shadow: 0 4px 24px rgba(27, 58, 107, 0.12);
@@ -54,6 +54,14 @@ body.rtl {
   flex-direction: column;
   padding: 0;
   position: relative;
+  overflow: hidden;
+  transition: width 0.3s ease, min-width 0.3s ease, padding 0.3s ease;
+}
+
+#sidebar.collapsed {
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
   overflow: hidden;
 }
 
@@ -153,9 +161,14 @@ body.rtl {
 }
 
 .session-item {
+  display: block;
+  width: 100%;
   padding: 9px 10px;
+  border: none;
   border-radius: 7px;
+  background: transparent;
   cursor: pointer;
+  text-align: left;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.65);
   white-space: nowrap;
@@ -181,9 +194,9 @@ body.rtl {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
 }
-
 .lang-toggle {
   display: flex;
   gap: 4px;
@@ -295,6 +308,19 @@ body.rtl {
   gap: 8px;
 }
 
+.topbar-right .lang-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.topbar-right .lang-btn {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.topbar-right .lang-btn.active {
+  color: white;
+}
+
 .icon-btn {
   width: 34px;
   height: 34px;
@@ -400,10 +426,9 @@ body.rtl {
   border-top-left-radius: 4px;
   border: 1px solid var(--border);
 }
-
 .message-row.user .msg-bubble {
-  background: var(--user-bubble);
-  color: white;
+  background: #1b3a6b !important;
+  color: white !important;
   border-top-right-radius: 4px;
 }
 
@@ -655,6 +680,85 @@ body.rtl {
   animation: typingBounce 1.2s infinite;
 }
 
+.logout-btn {
+  background: white !important;
+  color: blue !important;
+  width: fit-content;
+  min-width: 72px;
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 6px 12px;
+}
+
+.topbar-right .logout-btn {
+  height: 34px;
+  margin-left: 0;
+}
+
+.logout-btn:hover {
+  background: #ff4d4d !important;
+  color: white !important;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+#sidebar.collapsed {
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.user-info {
+  line-height: 1.3;
+}
+
+.user-name {
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+}
+
+.user-role {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.admin-btn,
+.logout-btn {
+  width: fit-content;
+  height: 42px;
+}
+
+.admin-btn:hover {
+  color: #1b3a6b !important;
+  transform-box: view-box;
+}
+
 .typing-dot:nth-child(2) {
   animation-delay: 0.2s;
 }
@@ -706,4 +810,89 @@ body.rtl .session-item.active {
 .sidebar-sessions::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+}
+
+.sidebar-toggle-btn {
+  position: fixed;
+  left: 280px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 48px;
+  background: var(--navy);
+  color: white;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  font-size: 11px;
+  z-index: 100;
+  transition: left 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sidebar.collapsed ~ .sidebar-toggle-btn {
+  left: 0;
+}
+.session-item-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.session-item-wrap .session-item {
+  flex: 1;
+  margin-bottom: 0;
+  padding-right: 28px;
+}
+
+.session-delete-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.session-rename-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 7px 10px;
+  outline: none;
+  width: 100%;
+}
+
+.session-rename-input:focus {
+  border-color: var(--maroon);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.session-item-wrap:hover .session-delete-btn {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.session-delete-btn:hover {
+  background: rgba(220, 38, 38, 0.3) !important;
+  color: #fca5a5 !important;
 }

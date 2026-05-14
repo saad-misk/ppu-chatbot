@@ -6,15 +6,31 @@ import httpx
 from shared.config.settings import settings
 from gateway.storage.db import get_db
 from gateway.storage.models import Turn, Feedback
+from gateway.storage.user_repo import get_user_by_email
 from gateway.api.auth.jwt_handler import verify_token
 
 router = APIRouter(prefix="/admin")
 
+
+def require_admin(token: dict, db: DBSession):
+    email = token.get("sub")
+    if not email:
+        raise HTTPException(status_code=401, detail="Invalid token")
+
+    user = get_user_by_email(db, email)
+    if not user or user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+    return user
+
 @router.post("/upload")
 async def upload_pdf(
     file: UploadFile = File(...),
-    _token: dict = Depends(verify_token),
+    token: dict = Depends(verify_token),
+    db: DBSession = Depends(get_db),
 ):
+    require_admin(token, db)
+
     if not file.filename.endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Only PDF files are allowed")
 
@@ -35,7 +51,12 @@ async def upload_pdf(
 
 
 @router.get("/documents")
-async def list_documents(_token: dict = Depends(verify_token)):
+async def list_documents(
+    token: dict = Depends(verify_token),
+    db: DBSession = Depends(get_db),
+):
+    require_admin(token, db)
+
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
             response = await client.get(f"{settings.NLP_SERVER_URL}/documents")
@@ -50,8 +71,10 @@ async def list_documents(_token: dict = Depends(verify_token)):
 @router.get("/stats")
 def get_stats(
     db: DBSession = Depends(get_db),
-    _token: dict = Depends(verify_token),
+    token: dict = Depends(verify_token),
 ):
+    require_admin(token, db)
+
     total_queries = db.query(Turn).filter(Turn.role == "user").count()
 
     intent_breakdown = (
