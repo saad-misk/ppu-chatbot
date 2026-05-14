@@ -1,46 +1,62 @@
+"""
+Gateway application entry-point.
+"""
+import uuid
+import logging
+
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-import uuid
 from sqlalchemy import inspect, text
+
 from gateway.storage.db import Base, engine, SessionLocal
 from gateway.storage.models import User
 
-from gateway.storage.db import Base, engine, SessionLocal
-from gateway.storage.models import User 
-from passlib.hash import bcrypt
+logger = logging.getLogger(__name__)
 
-# Create tables
+# ---------------------------------------------------------------------------
+# Create / migrate tables
+# ---------------------------------------------------------------------------
 Base.metadata.create_all(bind=engine)
 
 
 def ensure_schema_updates():
+    """
+    Apply lightweight schema migrations that SQLAlchemy's create_all misses
+    (e.g. adding columns to existing tables).
+    """
     inspector = inspect(engine)
-    if "sessions" not in inspector.get_table_names():
-        return
+    existing_tables = inspector.get_table_names()
 
-    session_columns = {col["name"] for col in inspector.get_columns("sessions")}
-    if "user_id" in session_columns:
-        return
+    # --- sessions.preview column ---
+    if "sessions" in existing_tables:
+        session_cols = {col["name"] for col in inspector.get_columns("sessions")}
 
-    dialect = engine.dialect.name
-    column_type = "VARCHAR" if dialect == "postgresql" else "VARCHAR"
-    with engine.begin() as conn:
-        conn.execute(text(f"ALTER TABLE sessions ADD COLUMN user_id {column_type}"))
-        if dialect == "postgresql":
-            conn.execute(text("CREATE INDEX IF NOT EXISTS ix_sessions_user_id ON sessions (user_id)"))
-        else:
-            conn.execute(text("CREATE INDEX IF NOT EXISTS ix_sessions_user_id ON sessions (user_id)"))
+        if "preview" not in session_cols:
+            with engine.begin() as conn:
+                conn.execute(text("ALTER TABLE sessions ADD COLUMN preview VARCHAR"))
+            logger.info("✅ sessions.preview column added")
+
+        if "user_id" not in session_cols:
+            with engine.begin() as conn:
+                conn.execute(text("ALTER TABLE sessions ADD COLUMN user_id VARCHAR"))
+            logger.info("✅ sessions.user_id column added")
 
 
-ensure_schema_updates()
+try:
+    ensure_schema_updates()
+except Exception as exc:
+    logger.warning("Schema migration warning (non-fatal): %s", exc)
 
+
+# ---------------------------------------------------------------------------
+# Seed default admin
+# ---------------------------------------------------------------------------
 def seed_default_admin():
     db = SessionLocal()
     try:
         admin_email = "admin@ppu.edu.ps"
-        
         existing = db.query(User).filter(User.email == admin_email).first()
         if existing:
             changed = False
@@ -52,37 +68,34 @@ def seed_default_admin():
                 changed = True
             if changed:
                 db.commit()
-                print("✅ Default admin role/verification corrected")
-            print("✅ Default admin already exists")
+                logger.info("✅ Default admin role/verification corrected")
             return
 
         from gateway.storage.user_repo import hash_password
-
-        hashed_pw = hash_password("admin123")
-
         admin = User(
-            id=str(uuid.uuid4()),         
+            id=str(uuid.uuid4()),
             email=admin_email,
-            hashed_password=hashed_pw,
+            hashed_password=hash_password("admin123"),
             full_name="System Administrator",
-            is_verified="true",          
-            role="admin"
+            is_verified="true",
+            role="admin",
         )
         db.add(admin)
         db.commit()
-        print("✅ Default admin created successfully!")
-        print("   Email    : admin@ppu.edu.ps")
-        print("   Password : admin123")
-        
-    except Exception as e:
-        print(f"❌ Seeding error: {e}")
-        import traceback
-        traceback.print_exc()
+        logger.info("✅ Default admin created: %s / admin123", admin_email)
+
+    except Exception as exc:
+        logger.error("❌ Admin seed error: %s", exc)
+        db.rollback()
     finally:
         db.close()
 
+
 seed_default_admin()
 
+# ---------------------------------------------------------------------------
+# FastAPI app
+# ---------------------------------------------------------------------------
 app = FastAPI(title="PPU Chatbot Gateway", version="1.0.0")
 
 app.add_middleware(
@@ -93,30 +106,35 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Routers
 from gateway.api.routes.auth import router as auth_router
 from gateway.api.routes.chat import router as chat_router
 from gateway.api.routes.admin import router as admin_router
 from gateway.api.routes.health import router as health_router
 
-app.include_router(auth_router, prefix="/api")
-app.include_router(chat_router, prefix="/api")
-app.include_router(admin_router, prefix="/api")
+app.include_router(auth_router,   prefix="/api")
+app.include_router(chat_router,   prefix="/api")
+app.include_router(admin_router,  prefix="/api")
 app.include_router(health_router, prefix="/api")
 
+# Static files
 app.mount("/static", StaticFiles(directory="gateway/frontend/static", check_dir=False), name="static")
 
-# Routes...
+# ---------------------------------------------------------------------------
+# Frontend routes
+# ---------------------------------------------------------------------------
 @app.get("/")
-async def serve_login():
-    return FileResponse("gateway/frontend/login.html")
+async def serve_index():
+    """Chat page — open to everyone, no auth redirect."""
+    return FileResponse("gateway/frontend/index.html")
 
 @app.get("/chat")
 async def serve_chat():
     return FileResponse("gateway/frontend/index.html")
 
-@app.get("/index.html")
-async def serve_index():
-    return FileResponse("gateway/frontend/index.html")
+@app.get("/login")
+async def serve_login():
+    return FileResponse("gateway/frontend/login.html")
 
 @app.get("/style.css")
 async def serve_css():

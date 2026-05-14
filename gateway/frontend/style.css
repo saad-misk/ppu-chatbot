@@ -896,3 +896,73 @@ body.rtl .session-item.active {
   background: rgba(220, 38, 38, 0.3) !important;
   color: #fca5a5 !important;
 }
+
+/* ── Login prompt banner (guest users) ─────────────────────────── */
+.login-prompt-area {
+  margin: 0 12px 8px;
+  padding: 12px 14px;
+  background: rgba(123, 30, 59, 0.25);
+  border: 1px solid rgba(123, 30, 59, 0.4);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.login-prompt-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+}
+
+.sidebar-login-btn {
+  width: 100%;
+  padding: 8px 14px;
+  background: var(--maroon);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar-login-btn:hover {
+  background: var(--maroon-light);
+  transform: translateY(-1px);
+}
+
+/* ── Sidebar footer action buttons row ─────────────────────────── */
+.sidebar-footer {
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.sidebar-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Sidebar logout button — small icon style */
+.sidebar-footer .logout-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  width: 34px !important;
+  min-width: unset !important;
+  height: 34px !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+}
+
+.sidebar-footer .logout-btn:hover {
+  background: rgba(220, 38, 38, 0.3) !important;
+  color: #fca5a5 !important;
+}

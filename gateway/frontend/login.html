@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,6 +33,10 @@
         justify-content: center;
         position: relative;
         overflow: hidden;
+      }
+      body {
+        font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
+        direction: rtl;
       }
       body.rtl {
         font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
@@ -412,10 +416,10 @@
         </div>
       </div>
       <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">
           EN
         </button>
-        <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">
+        <button class="lang-btn active" data-lang="ar" onclick="setLang('ar')">
           ع
         </button>
       </div>
@@ -599,7 +603,7 @@
 
     <script>
       let pendingEmail = "";
-      let currentLang = "en";
+      let currentLang = "ar";
 
       const T = {
         en: {
@@ -749,6 +753,13 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
+        // Apply Arabic as default
+        setLang("ar");
+        // If already logged in, go straight to chat
+        if (localStorage.getItem("token")) {
+          window.location.href = "/";
+          return;
+        }
         const slots = document.querySelectorAll(".code-slot");
         slots.forEach((slot, i) => {
           slot.addEventListener("input", () => {
@@ -813,7 +824,7 @@
           if (res.ok) {
             localStorage.setItem("token", data.token);
             showMsg("login-msg", t("loginOk"), "success");
-            setTimeout(() => (window.location.href = "/chat"), 800);
+            setTimeout(() => (window.location.href = "/"), 800);
           } else {
             showMsg("login-msg", data.detail || "Login failed", "error");
           }

@@ -1,69 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PPU Assistant</title>
+    <title>مساعد PPU — Palestine Polytechnic University</title>
+    <meta name="description" content="المساعد الذكي لجامعة بوليتكنك فلسطين" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="rtl">
     <div id="app">
+      <!-- ── Sidebar ───────────────────────────────────────────── -->
       <aside id="sidebar">
         <div class="sidebar-header">
           <div class="logo-area">
             <img
               src="static/images/ppu-logo.png"
               alt="PPU Logo"
-              style="
-                width: 60px;
-                height: 60px;
-                object-fit: contain;
-                background: white;
-                border-radius: 8px;
-                padding: 4px;
-              "
+              style="width:60px;height:60px;object-fit:contain;background:white;border-radius:8px;padding:4px;"
             />
             <div class="logo-text">
               <span class="brand">PPU Assistant</span>
               <span class="sub">Palestine Polytechnic University</span>
             </div>
           </div>
-          <button id="new-chat-btn">+ New Chat</button>
+          <button id="new-chat-btn">+ محادثة جديدة</button>
         </div>
 
         <div class="sidebar-sessions">
-          <div class="sessions-label" id="sessions-label">Recent Chats</div>
+          <div class="sessions-label" id="sessions-label">المحادثات الأخيرة</div>
           <div id="sessions-list"></div>
         </div>
 
-        <!-- FIXED SIDEBAR FOOTER -->
+        <!-- Login prompt (shown only to guests) -->
+        <div id="login-prompt-area" class="login-prompt-area" style="display:none;">
+          <span id="login-prompt-text" class="login-prompt-text">سجّل الدخول لحفظ محادثاتك</span>
+          <button id="sidebar-login-btn" class="sidebar-login-btn">تسجيل الدخول</button>
+        </div>
+
+        <!-- Sidebar footer (user info) -->
         <div class="sidebar-footer">
           <div class="user-profile" id="user-profile">
             <div class="user-avatar" id="user-avatar">👤</div>
             <div class="user-info">
-              <div class="user-name" id="user-name">Loading...</div>
-              <div class="user-role" id="user-role">Student</div>
+              <div class="user-name" id="user-name">زائر</div>
+              <div class="user-role" id="user-role">غير مسجّل</div>
             </div>
           </div>
-          <button
-            class="icon-btn admin-btn"
-            id="admin-btn"
-            onclick="goToAdminDashboard()"
-            style="display: none"
-            title="Admin Dashboard"
-          >
-            🛠️
-          </button>
+          <div class="sidebar-footer-actions">
+            <button
+              class="icon-btn admin-btn"
+              id="admin-btn"
+              onclick="goToAdminDashboard()"
+              style="display:none"
+              title="لوحة الإدارة"
+            >🛠️</button>
+            <button
+              class="icon-btn logout-btn"
+              id="logout-btn"
+              style="display:none"
+              title="تسجيل الخروج"
+            >⬆️</button>
+          </div>
         </div>
+
         <button
           class="icon-btn sidebar-toggle-btn"
           id="sidebar-toggle"
           onclick="toggleSidebar()"
           title="Toggle Sidebar"
-        >
-          ◀
-        </button>
+        >◀</button>
       </aside>
+
+      <!-- ── Main chat area ────────────────────────────────────── -->
       <div id="main">
         <div id="topbar">
           <div class="topbar-left">
@@ -72,38 +80,16 @@
               <span class="name">PPU Smart Assistant</span>
               <span class="status">
                 <span class="status-dot"></span>
-                <span id="bot-status">Online</span>
+                <span id="bot-status">متصل</span>
               </span>
             </div>
           </div>
           <div class="topbar-right">
             <div class="lang-toggle" aria-label="Language">
-              <button
-                class="lang-btn active"
-                data-lang="ar"
-                onclick="setLang('ar')"
-              >
-                AR
-              </button>
-              <button class="lang-btn" data-lang="en" onclick="setLang('en')">
-                EN
-              </button>
+              <button class="lang-btn active" data-lang="ar" onclick="setLang('ar')">ع</button>
+              <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
             </div>
-            <button
-              class="icon-btn"
-              title="Clear chat"
-              onclick="startNewSession()"
-            >
-              🗑️
-            </button>
-            <button
-              class="icon-btn logout-btn"
-              id="logout-btn"
-              onclick="logout()"
-              title="تسجيل الخروج / Logout"
-            >
-              Logout
-            </button>
+            <button class="icon-btn" title="محادثة جديدة" onclick="startNewSession()">🗑️</button>
           </div>
         </div>
 
@@ -114,13 +100,13 @@
             <textarea
               id="msg-input"
               rows="1"
-              placeholder="Ask about fees, schedules, registration…"
+              placeholder="اسأل عن الرسوم، الجداول، التسجيل..."
             ></textarea>
             <button id="send-btn" disabled>➤</button>
           </div>
           <div class="input-footer">
             <span class="input-hint" id="input-hint"
-              >Press Enter to send · Shift+Enter for new line</span
+              >اضغط Enter للإرسال · Shift+Enter لسطر جديد</span
             >
           </div>
         </div>
