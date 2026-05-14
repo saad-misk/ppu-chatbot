@@ -6,12 +6,30 @@ from shared.config.settings import settings
 from shared.schemas.message import ProcessRequest, ProcessResponse, FeedbackRequest
 from gateway.storage.db import get_db
 from gateway.storage import chat_repo
+from gateway.storage.user_repo import get_user_by_email
 from gateway.api.auth.jwt_handler import verify_token
 from gateway.api.middleware.rate_limiter import check_rate_limit
 from gateway.api.middleware.session import get_valid_session
 from gateway.api.middleware.validator import validate_message
 
 router = APIRouter()
+
+
+def get_user_id_from_token(db: DBSession, token: dict) -> str:
+    email = token.get("sub")
+    if not email:
+        raise HTTPException(status_code=401, detail="Invalid token")
+
+    user = get_user_by_email(db, email)
+    if not user:
+        raise HTTPException(status_code=401, detail="User not found")
+
+    return user.id
+
+
+def require_session_owner(session, user_id: str):
+    if session.user_id and session.user_id != user_id:
+        raise HTTPException(status_code=403, detail="Session does not belong to this user")
 
 
 async def call_nlp_engine(request: ProcessRequest) -> ProcessResponse:
@@ -54,8 +72,13 @@ async def call_nlp_engine(request: ProcessRequest) -> ProcessResponse:
 
 
 @router.post("/sessions/new")
-def new_session(channel: str = "web", db: DBSession = Depends(get_db)):
-    session = chat_repo.create_session(db, channel=channel)
+def new_session(
+    channel: str = "web",
+    db: DBSession = Depends(get_db),
+    token: dict = Depends(verify_token),
+):
+    user_id = get_user_id_from_token(db, token)
+    session = chat_repo.create_session(db, channel=channel, user_id=user_id)
 
     return {
         "session_id": session.id,
@@ -63,13 +86,44 @@ def new_session(channel: str = "web", db: DBSession = Depends(get_db)):
     }
 
 
+@router.get("/sessions")
+def list_sessions(
+    db: DBSession = Depends(get_db),
+    token: dict = Depends(verify_token),
+):
+    user_id = get_user_id_from_token(db, token)
+    sessions = chat_repo.get_sessions_for_user(db, user_id)
+
+    result = []
+    for session in sessions:
+        turns = chat_repo.get_history(db, session.id)
+        first_user_turn = next((t for t in turns if t.role == "user"), None)
+        preview = first_user_turn.content[:36] if first_user_turn else "New Chat"
+        result.append(
+            {
+                "session_id": session.id,
+                "channel": session.channel,
+                "created_at": session.created_at,
+                "preview": preview,
+            }
+        )
+
+    return {"sessions": result}
+
+
 @router.delete("/sessions/{session_id}")
-def delete_session(session_id: str, db: DBSession = Depends(get_db)):
+def delete_session(
+    session_id: str,
+    db: DBSession = Depends(get_db),
+    token: dict = Depends(verify_token),
+):
+    user_id = get_user_id_from_token(db, token)
     session = chat_repo.get_session(db, session_id)
 
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
+    require_session_owner(session, user_id)
     chat_repo.delete_session(db, session_id)
 
     return {"message": "Session deleted"}
@@ -82,14 +136,16 @@ async def send_message(
     db: DBSession = Depends(get_db),
     _rate: None = Depends(check_rate_limit),
     _session=Depends(get_valid_session),
-    _token: dict = Depends(verify_token),
+    token: dict = Depends(verify_token),
 ):
     message = validate_message(message)
+    user_id = get_user_id_from_token(db, token)
 
     session = chat_repo.get_session(db, session_id)
 
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
+    require_session_owner(session, user_id)
 
     history_turns = chat_repo.get_history(db, session_id)
 
@@ -101,7 +157,6 @@ async def send_message(
         for t in history_turns
     ]
 
-    # Save user message
     chat_repo.save_turn(
         db,
         session_id=session_id,
@@ -116,10 +171,8 @@ async def send_message(
         channel=session.channel,
     )
 
-    # Call NLP engine
     nlp_response = await call_nlp_engine(nlp_request)
 
-    # Save assistant response
     assistant_turn = chat_repo.save_turn(
         db,
         session_id=session_id,
@@ -142,11 +195,17 @@ async def send_message(
 
 
 @router.get("/chat/history/{session_id}")
-def get_history(session_id: str, db: DBSession = Depends(get_db)):
+def get_history(
+    session_id: str,
+    db: DBSession = Depends(get_db),
+    token: dict = Depends(verify_token),
+):
+    user_id = get_user_id_from_token(db, token)
     session = chat_repo.get_session(db, session_id)
 
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
+    require_session_owner(session, user_id)
 
     turns = chat_repo.get_history(db, session_id)
 
@@ -182,3 +241,28 @@ def submit_feedback(
         "feedback_id": fb.id,
         "status": "saved",
     }
+
+from pydantic import BaseModel as PydanticBase
+
+class RenameRequest(PydanticBase):
+    preview: str
+
+@router.patch("/sessions/{session_id}/rename")
+def rename_session(
+    session_id: str,
+    payload: RenameRequest = Body(...),
+    db: DBSession = Depends(get_db),
+    token: dict = Depends(verify_token),
+):
+    user_id = get_user_id_from_token(db, token)
+    session = chat_repo.get_session(db, session_id)
+
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    require_session_owner(session, user_id)
+
+    session.preview = payload.preview[:120]
+    db.commit()
+
+    return {"session_id": session_id, "preview": session.preview}

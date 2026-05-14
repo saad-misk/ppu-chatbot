@@ -16,9 +16,7 @@ const PAGE_META = {
 // ── Auth ──────────────────────────────────────────────────────────────────────
 
 async function getToken() {
-  const res = await fetch("/api/auth/token?username=admin", { method: "POST" });
-  const data = await res.json();
-  return data.token;
+  return localStorage.getItem("token");
 }
 
 function authHeaders() {
@@ -300,6 +298,24 @@ function escapeHtml(str) {
 async function init() {
   try {
     adminState.token = await getToken();
+    if (!adminState.token) {
+      window.location.href = "/";
+      return;
+    }
+
+    const me = await fetch("/api/auth/me", { headers: authHeaders() });
+    if (!me.ok) {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+      return;
+    }
+
+    const user = await me.json();
+    if (!user.is_admin) {
+      window.location.href = "/chat";
+      return;
+    }
+
     setupUpload();
     loadStats();
   } catch (e) {

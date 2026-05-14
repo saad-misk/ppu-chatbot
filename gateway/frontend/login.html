@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPU Assistant — Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #1b3a6b;
+        --navy-dark: #112548;
+        --navy-light: #2a4f8f;
+        --maroon: #7b1e3b;
+        --white: #ffffff;
+        --surface: #f4f6f9;
+        --border: #dce3f0;
+        --text: #1a1a2e;
+        --text-muted: #6b7a99;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        font-family: "IBM Plex Sans", "IBM Plex Sans Arabic", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      body.rtl {
+        font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
+        direction: rtl;
+      }
+
+      .bg {
+        position: fixed;
+        inset: 0;
+        background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Palestine_Polytechnic_University_%28PPU%29_-_panoramio.jpg/1280px-Palestine_Polytechnic_University_%28PPU%29_-_panoramio.jpg")
+          center/cover no-repeat;
+        z-index: 0;
+      }
+      .bg-overlay {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(17, 37, 72, 0.88) 0%,
+          rgba(17, 37, 72, 0.72) 50%,
+          rgba(123, 30, 59, 0.45) 100%
+        );
+        z-index: 1;
+      }
+
+      .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 16px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 10;
+      }
+      .top-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .top-brand img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        background: white;
+        border-radius: 8px;
+        padding: 4px;
+      }
+      .top-brand .brand-name {
+        font-family: "Playfair Display", serif;
+        font-size: 15px;
+        color: white;
+        font-weight: 700;
+      }
+      .top-brand .brand-sub {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+        display: block;
+      }
+
+      .lang-toggle {
+        display: flex;
+        gap: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 3px;
+        backdrop-filter: blur(8px);
+      }
+      .lang-btn {
+        padding: 5px 14px;
+        border-radius: 5px;
+        border: none;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.6);
+        font-family: inherit;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .lang-btn.active {
+        background: var(--maroon);
+        color: white;
+      }
+
+      .card {
+        position: relative;
+        z-index: 5;
+        background: white;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 420px;
+        padding: 32px 38px 28px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35),
+          0 0 0 1px rgba(255, 255, 255, 0.08);
+        animation: cardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      @keyframes cardIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .card-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--border);
+      }
+      .card-logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        background: var(--surface);
+        border-radius: 10px;
+        padding: 4px;
+      }
+      .card-logo .brand {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        color: var(--navy);
+        font-weight: 700;
+        display: block;
+        line-height: 1.2;
+      }
+      .card-logo .sub {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .tabs {
+        display: flex;
+        border-bottom: 2px solid var(--border);
+        margin-bottom: 22px;
+      }
+      .tab {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-muted);
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        transition: all 0.2s;
+      }
+      .tab.active {
+        color: var(--navy);
+        border-bottom-color: var(--maroon);
+        font-weight: 600;
+      }
+
+      .form-title {
+        font-family: "Playfair Display", serif;
+        font-size: 19px;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .form-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 20px;
+      }
+
+      .field {
+        margin-bottom: 13px;
+      }
+      .field label {
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 5px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      .field input {
+        width: 100%;
+        padding: 11px 14px;
+        border: 1.5px solid var(--border);
+        border-radius: 9px;
+        font-family: inherit;
+        font-size: 13px;
+        color: var(--text);
+        background: var(--surface);
+        transition: all 0.2s;
+        outline: none;
+      }
+      .field input:focus {
+        border-color: var(--navy);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(27, 58, 107, 0.08);
+      }
+      .field input::placeholder {
+        color: #b0bcc8;
+        font-size: 13px;
+      }
+      .password-wrap {
+        position: relative;
+      }
+      .password-wrap input {
+        padding-right: 48px;
+      }
+      body.rtl .password-wrap input {
+        padding-right: 14px;
+        padding-left: 48px;
+      }
+      .password-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        color: var(--text-muted);
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 4px 6px;
+      }
+      body.rtl .password-toggle {
+        right: auto;
+        left: 10px;
+      }
+      .domain-hint {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: var(--navy);
+        color: white;
+        border: none;
+        border-radius: 9px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 6px;
+        transition: all 0.2s;
+      }
+      .submit-btn:hover:not(:disabled) {
+        background: var(--navy-light);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(27, 58, 107, 0.28);
+      }
+      .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .msg {
+        margin-top: 12px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 12px;
+        text-align: center;
+        display: none;
+      }
+      .msg.error {
+        background: #fee2e2;
+        color: #dc2626;
+        border: 1px solid #fecaca;
+        display: block;
+      }
+      .msg.success {
+        background: #dcfce7;
+        color: #16a34a;
+        border: 1px solid #bbf7d0;
+        display: block;
+      }
+      .msg.info {
+        background: #eff6ff;
+        color: var(--navy);
+        border: 1px solid #bfdbfe;
+        display: block;
+      }
+
+      .form-panel {
+        display: none;
+      }
+      .form-panel.active {
+        display: block;
+      }
+
+      .card-footer {
+        margin-top: 18px;
+        text-align: center;
+        font-size: 11px;
+        color: var(--text-muted);
+        border-top: 1px solid var(--border);
+        padding-top: 14px;
+      }
+
+      .code-slots {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin: 22px 0;
+      }
+      .code-slot {
+        width: 46px;
+        height: 54px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        border: 2px solid var(--border);
+        border-radius: 10px;
+        background: var(--surface);
+        color: var(--navy);
+        padding: 0;
+        transition: all 0.2s;
+        outline: none;
+        font-family: inherit;
+      }
+      .code-slot:focus {
+        border-color: var(--navy);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(27, 58, 107, 0.1);
+      }
+      .code-slot.filled {
+        border-color: var(--maroon);
+        background: white;
+      }
+
+      .resend-btn {
+        background: none;
+        border: none;
+        color: var(--navy);
+        font-size: 12px;
+        cursor: pointer;
+        text-decoration: underline;
+        font-family: inherit;
+        margin-top: 12px;
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .bottom-text {
+        position: fixed;
+        bottom: 24px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 3;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="top-bar">
+      <div class="top-brand">
+        <img src="/static/images/ppu-logo.png" alt="PPU" />
+        <div>
+          <span class="brand-name">PPU Assistant</span>
+          <span class="brand-sub" id="brand-sub"
+            >Palestine Polytechnic University</span
+          >
+        </div>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">
+          EN
+        </button>
+        <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">
+          ع
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-logo">
+        <img src="/static/images/ppu-logo.png" alt="PPU" />
+        <div>
+          <span class="brand">PPU Assistant</span>
+          <span class="sub" id="card-sub"
+            >Palestine Polytechnic University</span
+          >
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" id="tab-login" onclick="showTab('login')">
+          Sign In
+        </div>
+        <div class="tab" id="tab-register" onclick="showTab('register')">
+          Create Account
+        </div>
+      </div>
+
+      <!-- Login -->
+      <div class="form-panel active" id="panel-login">
+        <div class="form-title" id="login-title">Welcome back</div>
+        <div class="form-sub" id="login-sub">Sign in with your PPU email</div>
+        <div class="field">
+          <label id="lbl-email-l">Email</label>
+          <input
+            type="email"
+            id="login-email"
+            placeholder="yourname@ppu.edu.ps"
+          />
+        </div>
+        <div class="field">
+          <label id="lbl-pass-l">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="login-password" placeholder="••••••••" />
+            <button
+              class="password-toggle"
+              type="button"
+              onclick="togglePassword('login-password', this)"
+            >
+              Show
+            </button>
+          </div>
+        </div>
+        <button class="submit-btn" id="login-btn" onclick="doLogin()">
+          Sign In
+        </button>
+        <div class="msg" id="login-msg"></div>
+      </div>
+
+      <!-- Register -->
+      <!-- Register -->
+      <div class="form-panel" id="panel-register">
+        <div class="form-title" id="register-title">Create Account</div>
+        <div class="form-sub" id="register-sub">
+          Use your official PPU email
+        </div>
+        <div class="field">
+          <label id="lbl-name">Full Name</label>
+          <input type="text" id="full-name" placeholder="Mohammed Shareef" />
+        </div>
+        <div class="field">
+          <label id="lbl-email-r">PPU Email</label>
+          <input
+            type="email"
+            id="register-email"
+            placeholder="yourname@ppu.edu.ps"
+          />
+          <div class="domain-hint" id="domain-hint">
+            ✉️ Accepted: @ppu.edu.ps or @ppu.edu
+          </div>
+        </div>
+        <div class="field">
+          <label id="lbl-pass-r">Password</label>
+          <div class="password-wrap">
+            <input
+              type="password"
+              id="register-password"
+              placeholder="••••••••"
+            />
+            <button
+              class="password-toggle"
+              type="button"
+              onclick="togglePassword('register-password', this)"
+            >
+              Show
+            </button>
+          </div>
+        </div>
+        <!-- New Confirm Password Field -->
+        <div class="field">
+          <label id="lbl-confirm-pass">Confirm Password</label>
+          <div class="password-wrap">
+            <input
+              type="password"
+              id="register-confirm-password"
+              placeholder="••••••••"
+            />
+            <button
+              class="password-toggle"
+              type="button"
+              onclick="togglePassword('register-confirm-password', this)"
+            >
+              Show
+            </button>
+          </div>
+        </div>
+        <button class="submit-btn" id="register-btn" onclick="doRegister()">
+          Create Account
+        </button>
+        <div class="msg" id="register-msg"></div>
+      </div>
+      <!-- Verify -->
+      <div class="form-panel" id="panel-verify">
+        <div class="form-title" id="verify-title">Verify Your Email</div>
+        <div class="form-sub" id="verify-sub">
+          Enter the 6-digit code sent to your PPU email
+        </div>
+        <div class="domain-hint" id="verify-email-hint"></div>
+        <div class="code-slots">
+          <input
+            class="code-slot"
+            type="text"
+            maxlength="1"
+            inputmode="numeric"
+          />
+          <input
+            class="code-slot"
+            type="text"
+            maxlength="1"
+            inputmode="numeric"
+          />
+          <input
+            class="code-slot"
+            type="text"
+            maxlength="1"
+            inputmode="numeric"
+          />
+          <input
+            class="code-slot"
+            type="text"
+            maxlength="1"
+            inputmode="numeric"
+          />
+          <input
+            class="code-slot"
+            type="text"
+            maxlength="1"
+            inputmode="numeric"
+          />
+          <input
+            class="code-slot"
+            type="text"
+            maxlength="1"
+            inputmode="numeric"
+          />
+        </div>
+        <button class="submit-btn" id="verify-btn" onclick="doVerify()">
+          Verify & Continue
+        </button>
+        <div class="msg" id="verify-msg"></div>
+        <button class="resend-btn" id="resend-btn" onclick="doResend()">
+          Resend Code
+        </button>
+      </div>
+
+      <div class="card-footer" id="card-footer">
+        PPU Assistant © 2026 — Palestine Polytechnic University
+      </div>
+    </div>
+
+    <div class="bottom-text" id="bottom-text">
+      © 2026 Palestine Polytechnic University — All rights reserved
+    </div>
+
+    <script>
+      let pendingEmail = "";
+      let currentLang = "en";
+
+      const T = {
+        en: {
+          brandSub: "Palestine Polytechnic University",
+          cardSub: "Palestine Polytechnic University",
+          tabLogin: "Sign In",
+          tabRegister: "Create Account",
+          loginTitle: "Welcome back",
+          loginSub: "Sign in with your PPU email",
+          lblEmailL: "Email",
+          lblPassL: "Password",
+          loginBtn: "Sign In",
+          registerTitle: "Create Account",
+          registerSub: "Use your official PPU email",
+          lblName: "Full Name",
+          lblEmailR: "PPU Email",
+          domainHint: "✉️ Accepted: @ppu.edu.ps or @ppu.edu",
+          lblPassR: "Password",
+          registerBtn: "Create Account",
+          verifyTitle: "Verify Your Email",
+          verifySub: "Enter the 6-digit code sent to your PPU email",
+          verifyBtn: "Verify & Continue",
+          resendBtn: "Resend Code",
+          footer: "PPU Assistant © 2026 — Palestine Polytechnic University",
+          bottom:
+            "© 2026 Palestine Polytechnic University — All rights reserved",
+          signingIn: "Signing in...",
+          creating: "Creating account...",
+          loginOk: "✅ Logged in!",
+          registerOk: "✅ Account created! Check your email.",
+          verifyOk: "✅ Verified! You can now sign in.",
+          resendOk: "✅ Code resent.",
+          fillAll: "Please fill all fields",
+          fullCode: "Enter the full 6-digit code",
+          connErr: "Connection error",
+          lblConfirmPass: "Confirm Password",
+          passwordMismatch: "Passwords do not match",
+          passwordTooShort: "Password must be at least 6 characters",
+          registerFailed: "Registration failed",
+          creating: "Creating account...",
+        },
+        ar: {
+          brandSub: "جامعة بوليتكنك فلسطين",
+          cardSub: "جامعة بوليتكنك فلسطين",
+          tabLogin: "تسجيل الدخول",
+          tabRegister: "إنشاء حساب",
+          loginTitle: "مرحباً بعودتك",
+          loginSub: "سجّل الدخول ببريدك الجامعي",
+          lblEmailL: "البريد الإلكتروني",
+          lblPassL: "كلمة المرور",
+          loginBtn: "تسجيل الدخول",
+          registerTitle: "إنشاء حساب جديد",
+          registerSub: "استخدم بريدك الجامعي الرسمي",
+          lblName: "الاسم الكامل",
+          lblEmailR: "البريد الجامعي",
+          domainHint: "✉️ المقبول: @ppu.edu.ps أو @ppu.edu",
+          lblPassR: "كلمة المرور",
+          registerBtn: "إنشاء الحساب",
+          verifyTitle: "تحقق من بريدك",
+          verifySub: "أدخل الرمز المكوّن من 6 أرقام",
+          verifyBtn: "تحقق والمتابعة",
+          resendBtn: "إعادة إرسال الرمز",
+          footer: "مساعد PPU © 2026 — جامعة بوليتكنك فلسطين",
+          bottom: "© 2026 جامعة بوليتكنك فلسطين — جميع الحقوق محفوظة",
+          signingIn: "جاري التحقق...",
+          creating: "جاري الإنشاء...",
+          loginOk: "✅ تم تسجيل الدخول!",
+          registerOk: "✅ تم إنشاء الحساب! تحقق من بريدك.",
+          verifyOk: "✅ تم التحقق! يمكنك الآن تسجيل الدخول.",
+          resendOk: "✅ تم إعادة الإرسال.",
+          fillAll: "يرجى ملء جميع الحقول",
+          fullCode: "أدخل الرمز كاملاً",
+          connErr: "خطأ في الاتصال",
+          lblConfirmPass: "تأكيد كلمة المرور",
+          passwordMismatch: "كلمات المرور غير متطابقة",
+          passwordTooShort: "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+          registerFailed: "فشل التسجيل",
+          creating: "جاري الإنشاء...",
+        },
+      };
+
+      function t(k) {
+        return T[currentLang][k] || k;
+      }
+
+      function setLang(lang) {
+        currentLang = lang;
+        document.body.classList.toggle("rtl", lang === "ar");
+        document
+          .querySelectorAll(".lang-btn")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.lang === lang)
+          );
+        const s = T[lang];
+        document.getElementById("brand-sub").textContent = s.brandSub;
+        document.getElementById("card-sub").textContent = s.cardSub;
+        document.getElementById("tab-login").textContent = s.tabLogin;
+        document.getElementById("tab-register").textContent = s.tabRegister;
+        document.getElementById("login-title").textContent = s.loginTitle;
+        document.getElementById("login-sub").textContent = s.loginSub;
+        document.getElementById("lbl-email-l").textContent = s.lblEmailL;
+        document.getElementById("lbl-pass-l").textContent = s.lblPassL;
+        document.getElementById("login-btn").textContent = s.loginBtn;
+        document.getElementById("register-title").textContent = s.registerTitle;
+        document.getElementById("register-sub").textContent = s.registerSub;
+        document.getElementById("lbl-name").textContent = s.lblName;
+        document.getElementById("lbl-email-r").textContent = s.lblEmailR;
+        document.getElementById("domain-hint").textContent = s.domainHint;
+        document.getElementById("lbl-pass-r").textContent = s.lblPassR;
+        document.getElementById("lbl-confirm-pass").textContent =
+          s.lblConfirmPass;
+        document.getElementById("register-btn").textContent = s.registerBtn;
+        document.getElementById("verify-title").textContent = s.verifyTitle;
+        document.getElementById("verify-sub").textContent = s.verifySub;
+        document.getElementById("verify-btn").textContent = s.verifyBtn;
+        document.getElementById("resend-btn").textContent = s.resendBtn;
+        document.getElementById("card-footer").textContent = s.footer;
+        document.getElementById("bottom-text").textContent = s.bottom;
+      }
+
+      function showTab(tab) {
+        document
+          .querySelectorAll(".tab")
+          .forEach((el) => el.classList.remove("active"));
+        document
+          .querySelectorAll(".form-panel")
+          .forEach((el) => el.classList.remove("active"));
+
+        const tabEl = document.getElementById(`tab-${tab}`);
+        const panelEl = document.getElementById(`panel-${tab}`);
+
+        if (tabEl) tabEl.classList.add("active");
+        if (panelEl) panelEl.classList.add("active");
+      }
+
+      function showMsg(id, text, type) {
+        const el = document.getElementById(id);
+        el.textContent = text;
+        el.className = `msg ${type}`;
+      }
+
+      function togglePassword(inputId, button) {
+        const input = document.getElementById(inputId);
+        const isHidden = input.type === "password";
+        input.type = isHidden ? "text" : "password";
+        button.textContent = isHidden ? "Hide" : "Show";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const slots = document.querySelectorAll(".code-slot");
+        slots.forEach((slot, i) => {
+          slot.addEventListener("input", () => {
+            slot.value = slot.value.replace(/\D/g, "");
+            slot.classList.toggle("filled", slot.value !== "");
+            if (slot.value && i < slots.length - 1) slots[i + 1].focus();
+          });
+          slot.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" && !slot.value && i > 0)
+              slots[i - 1].focus();
+          });
+          slot.addEventListener("paste", (e) => {
+            e.preventDefault();
+            const pasted = e.clipboardData
+              .getData("text")
+              .replace(/\D/g, "")
+              .slice(0, 6);
+            pasted.split("").forEach((ch, j) => {
+              if (slots[j]) {
+                slots[j].value = ch;
+                slots[j].classList.add("filled");
+              }
+            });
+            if (slots[Math.min(pasted.length, 5)])
+              slots[Math.min(pasted.length, 5)].focus();
+          });
+        });
+      });
+
+      function getCode() {
+        return Array.from(document.querySelectorAll(".code-slot"))
+          .map((s) => s.value)
+          .join("");
+      }
+
+      function openVerifyPanel(email) {
+        pendingEmail = email;
+        document.getElementById("verify-email-hint").textContent = email;
+        document.querySelectorAll(".code-slot").forEach((slot) => {
+          slot.value = "";
+          slot.classList.remove("filled");
+        });
+        showTab("verify");
+        document.querySelector(".code-slot").focus();
+      }
+
+      async function doLogin() {
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("login-password").value.trim();
+        if (!email || !password)
+          return showMsg("login-msg", t("fillAll"), "error");
+        const btn = document.getElementById("login-btn");
+        btn.disabled = true;
+        btn.textContent = t("signingIn");
+        try {
+          const res = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            localStorage.setItem("token", data.token);
+            showMsg("login-msg", t("loginOk"), "success");
+            setTimeout(() => (window.location.href = "/chat"), 800);
+          } else {
+            showMsg("login-msg", data.detail || "Login failed", "error");
+          }
+        } catch {
+          showMsg("login-msg", t("connErr"), "error");
+        }
+        btn.disabled = false;
+        btn.textContent = t("loginBtn");
+      }
+
+      async function doRegister() {
+        const fullName = document.getElementById("full-name").value.trim();
+        const email = document.getElementById("register-email").value.trim();
+        const password = document.getElementById("register-password").value;
+        const confirmPassword = document.getElementById(
+          "register-confirm-password"
+        ).value;
+
+        const msgEl = document.getElementById("register-msg");
+        msgEl.className = "msg";
+        msgEl.textContent = "";
+
+        if (!fullName || !email || !password || !confirmPassword) {
+          showMsg("register-msg", t("fillAll"), "error");
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          showMsg("register-msg", t("passwordMismatch"), "error");
+          return;
+        }
+
+        if (password.length < 6) {
+          showMsg("register-msg", t("passwordTooShort"), "error");
+          return;
+        }
+
+        const btn = document.getElementById("register-btn");
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = t("creating");
+
+        try {
+          const response = await fetch("/api/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ full_name: fullName, email, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            showMsg("register-msg", t("registerOk"), "success");
+            setTimeout(() => openVerifyPanel(email), 600);
+          } else {
+            showMsg(
+              "register-msg",
+              data.detail || t("registerFailed"),
+              "error"
+            );
+          }
+        } catch (err) {
+          showMsg("register-msg", t("connErr"), "error");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalText || t("registerBtn");
+        }
+      }
+      async function doVerify() {
+        if (!pendingEmail) {
+          showTab("register");
+          return;
+        }
+        const code = getCode();
+        if (code.length !== 6)
+          return showMsg("verify-msg", t("fullCode"), "error");
+        const btn = document.getElementById("verify-btn");
+        btn.disabled = true;
+        try {
+          const res = await fetch("/api/auth/verify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: pendingEmail, code }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            showMsg("verify-msg", t("verifyOk"), "success");
+            setTimeout(() => showTab("login"), 1500);
+          } else {
+            showMsg("verify-msg", data.detail || "Invalid code", "error");
+          }
+        } catch {
+          showMsg("verify-msg", t("connErr"), "error");
+        }
+        btn.disabled = false;
+      }
+
+      async function doResend() {
+        if (!pendingEmail) return;
+        try {
+          await fetch(
+            `/api/auth/resend-code?email=${encodeURIComponent(pendingEmail)}`,
+            { method: "POST" }
+          );
+          showMsg("verify-msg", t("resendOk"), "info");
+        } catch {
+          showMsg("verify-msg", "Failed to resend", "error");
+        }
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return;
+        if (document.getElementById("panel-login").classList.contains("active"))
+          doLogin();
+        else if (
+          document.getElementById("panel-register").classList.contains("active")
+        )
+          doRegister();
+        else if (
+          document.getElementById("panel-verify").classList.contains("active")
+        )
+          doVerify();
+      });
+    </script>
+  </body>
+</html>
