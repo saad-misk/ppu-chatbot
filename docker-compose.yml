@@ -1,0 +1,78 @@
+version: "3.9"
+
+services:
+  # ---------------------------------------------------------
+  # 1. NLP Engine (Port 8001)
+  # ---------------------------------------------------------
+  nlp_engine:
+    build:
+      context: .
+      dockerfile: nlp_engine/Dockerfile
+    ports:
+      - "8001:8001"
+    env_file: .env
+    environment:
+      # Tell NLP Engine where to find Elasticsearch
+      - ES_HOST=http://elasticsearch:9200
+    volumes:
+      - ./data:/app/data          # persist ChromaDB + model weights
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ---------------------------------------------------------
+  # 2. Gateway API & Frontend (Port 8000)
+  # ---------------------------------------------------------
+  gateway:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      # Connect gateway to NLP Engine via docker internal network
+      - NLP_SERVER_URL=http://nlp_engine:8001
+    depends_on:
+      - nlp_engine
+    restart: unless-stopped
+
+  # ---------------------------------------------------------
+  # 3. Telegram Bot Adapter (Background Polling worker)
+  # ---------------------------------------------------------
+  telegram_bot:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    command: ["python", "-m", "gateway.channels.telegram_adapter"]
+    env_file: .env
+    environment:
+      - NLP_SERVER_URL=http://nlp_engine:8001
+    depends_on:
+      - nlp_engine
+      - gateway
+    restart: unless-stopped
+
+  # ---------------------------------------------------------
+  # 4. Elasticsearch (Vector & Keyword Search)
+  # ---------------------------------------------------------
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200 >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  es_data:

@@ -18,6 +18,9 @@ class Settings(BaseSettings):
     # ====================== Chroma ======================
     CHROMA_PERSIST_DIR: str = "./data/chroma"
 
+    # ====================== Elasticsearch ======================
+    ES_HOST: str = "http://localhost:9200"
+
 
     # openrouter
     OPENROUTER_API_KEY: str = ""

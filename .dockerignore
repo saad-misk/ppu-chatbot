@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Environments
+.env
+.venv
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Docker
+docker-compose.yml
+.dockerignore
+Dockerfile
+
+# Data and Models (Mounted via volumes instead)
+data/
+*.db
+*.sqlite3
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store

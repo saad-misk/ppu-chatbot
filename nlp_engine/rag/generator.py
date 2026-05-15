@@ -39,9 +39,10 @@ logger = logging.getLogger(__name__)
 # ── Provider model registry ───────────────────────────────────────────────────
 _PROVIDER_MODELS = {
     "openrouter": [
-        "meta-llama/llama-3.3-70b-instruct:free",
-        "google/gemma-3-27b-it:free",          # good Arabic support
-        "openai/gpt-oss-20b:free",             # moved to 3rd — least reliable
+        "nvidia/nemotron-3-super-120b-a12b:free",
+        "meta-llama/llama-3.2-3b-instruct:free",
+        "google/gemma-2-9b-it:free",
+        "openrouter/free"       # moved to 3rd — least reliable
     ],
     "nvidia": [
         "qwen/qwen3.5-122b-a10b",

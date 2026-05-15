@@ -154,9 +154,8 @@ class RAGPipeline:
         if self.use_hybrid:
             return hybrid_retrieve(
                 query=query,
-                n_results=self.top_k,
-                metadata_filter=metadata_filter,
-            )
+                n_results=self.top_k
+                )
         else:
             return embed_retrieve(
                 query=query,
