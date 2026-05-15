@@ -20,27 +20,38 @@ def send_welcome(message):
     )
 
 
+import asyncio
+
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
     user_text = message.text
     chat_id = message.chat.id
 
-    bot.reply_to(message, "🤔 Thinking...")
+    bot.send_chat_action(chat_id, 'typing')
 
     try:
-        # Use real AI
-        response = process_chat_message(
-            session_id=f"tg_{chat_id}",
-            message=user_text,
-            channel="telegram"
+        response = asyncio.run(
+            process_chat_message(
+                session_id=f"tg_{chat_id}",
+                message=user_text,
+                channel="telegram"
+            )
         )
 
-        reply_text = response.get("reply", "Sorry, I couldn't process that.")
+        reply_text = response.get(
+            "reply",
+            "Sorry, I couldn't process that."
+        )
+
         bot.reply_to(message, reply_text)
 
     except Exception as e:
         logger.error(f"Telegram error: {e}")
-        bot.reply_to(message, "⚠️ Sorry, something went wrong. Please try again.")
+
+        bot.reply_to(
+            message,
+            "⚠️ Sorry, something went wrong. Please try again."
+        )
 
 
 if __name__ == "__main__":
