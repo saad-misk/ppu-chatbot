@@ -119,6 +119,8 @@ app.include_router(health_router, prefix="/api")
 
 # Static files
 app.mount("/static", StaticFiles(directory="gateway/frontend/static", check_dir=False), name="static")
+app.mount("/css", StaticFiles(directory="gateway/frontend/css", check_dir=False), name="css")
+app.mount("/js", StaticFiles(directory="gateway/frontend/js", check_dir=False), name="js")
 
 # ---------------------------------------------------------------------------
 # Frontend routes
@@ -136,22 +138,26 @@ async def serve_chat():
 async def serve_login():
     return FileResponse("gateway/frontend/login.html")
 
+@app.get("/admin")
+async def serve_admin():
+    return FileResponse("gateway/frontend/admin.html")
+
 @app.get("/style.css")
 async def serve_css():
     return FileResponse("gateway/frontend/style.css", media_type="text/css")
 
 @app.get("/chat.js")
 async def serve_chat_js():
-    return FileResponse("gateway/frontend/chat.js", media_type="application/javascript")
+    return FileResponse("gateway/frontend/js/chat.js", media_type="application/javascript")
 
 @app.get("/embed.js")
 async def serve_embed_js():
-    return FileResponse("gateway/frontend/embed.js", media_type="application/javascript")
+    return FileResponse("gateway/frontend/js/embed.js", media_type="application/javascript")
 
 @app.get("/admin.html")
-async def serve_admin():
+async def serve_admin_html():
     return FileResponse("gateway/frontend/admin.html")
 
 @app.get("/admin.js")
 async def serve_admin_js():
-    return FileResponse("gateway/frontend/admin.js", media_type="application/javascript")
+    return FileResponse("gateway/frontend/js/admin.js", media_type="application/javascript")

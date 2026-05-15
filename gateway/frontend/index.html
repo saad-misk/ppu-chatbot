@@ -1,118 +1,99 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مساعد PPU — Palestine Polytechnic University</title>
-    <meta name="description" content="المساعد الذكي لجامعة بوليتكنك فلسطين" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="rtl">
-    <div id="app">
-      <!-- ── Sidebar ───────────────────────────────────────────── -->
-      <aside id="sidebar">
-        <div class="sidebar-header">
-          <div class="logo-area">
-            <img
-              src="static/images/ppu-logo.png"
-              alt="PPU Logo"
-              style="width:60px;height:60px;object-fit:contain;background:white;border-radius:8px;padding:4px;"
-            />
-            <div class="logo-text">
-              <span class="brand">PPU Assistant</span>
-              <span class="sub">Palestine Polytechnic University</span>
-            </div>
-          </div>
-          <button id="new-chat-btn">+ محادثة جديدة</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مساعد PPU — Palestine Polytechnic University</title>
+  <meta name="description" content="المساعد الذكي لجامعة بوليتكنك فلسطين" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+</head>
+<body class="rtl">
+
+<div id="app">
+
+  <!-- ── Sidebar ──────────────────────────────────────────────── -->
+  <aside id="sidebar">
+
+    <div class="sidebar-header">
+      <div class="logo-area">
+        <img src="static/images/ppu-logo.png" alt="PPU Logo" />
+        <div class="logo-text">
+          <span class="brand">PPU Assistant</span>
+          <span class="sub">Palestine Polytechnic University</span>
         </div>
+      </div>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle" type="button" title="Toggle Sidebar">◀</button>
+      <button id="new-chat-btn" type="button">+ محادثة جديدة</button>
+    </div>
 
-        <div class="sidebar-sessions">
-          <div class="sessions-label" id="sessions-label">المحادثات الأخيرة</div>
-          <div id="sessions-list"></div>
+    <div class="sidebar-sessions">
+      <div class="sessions-label" id="sessions-label">المحادثات الأخيرة</div>
+      <div id="sessions-list"></div>
+    </div>
+
+    <!-- Login prompt (guests only) -->
+    <div id="login-prompt-area" class="login-prompt-area hidden">
+      <span id="login-prompt-text" class="login-prompt-text">سجّل الدخول لحفظ محادثاتك</span>
+      <button id="sidebar-login-btn" class="sidebar-login-btn" type="button">تسجيل الدخول</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="user-avatar" id="user-avatar">👤</div>
+        <div class="user-info">
+          <div class="user-name" id="user-name">زائر</div>
+          <div class="user-role" id="user-role">غير مسجّل</div>
         </div>
+      </div>
+      <div class="sidebar-footer-actions">
+        <button class="icon-btn hidden" id="admin-btn"  type="button" title="لوحة الإدارة">🛠️</button>
+        <button class="icon-btn hidden" id="logout-btn" type="button" title="تسجيل الخروج">⬆️</button>
+      </div>
+    </div>
 
-        <!-- Login prompt (shown only to guests) -->
-        <div id="login-prompt-area" class="login-prompt-area" style="display:none;">
-          <span id="login-prompt-text" class="login-prompt-text">سجّل الدخول لحفظ محادثاتك</span>
-          <button id="sidebar-login-btn" class="sidebar-login-btn">تسجيل الدخول</button>
+  </aside>
+
+  <!-- ── Main ─────────────────────────────────────────────────── -->
+  <div id="main">
+
+    <div id="topbar">
+      <div class="topbar-left">
+        <div class="bot-avatar">🤖</div>
+        <div class="topbar-title">
+          <span class="name">PPU Smart Assistant</span>
+          <span class="status">
+            <span class="status-dot"></span>
+            <span id="bot-status">متصل</span>
+          </span>
         </div>
-
-        <!-- Sidebar footer (user info) -->
-        <div class="sidebar-footer">
-          <div class="user-profile" id="user-profile">
-            <div class="user-avatar" id="user-avatar">👤</div>
-            <div class="user-info">
-              <div class="user-name" id="user-name">زائر</div>
-              <div class="user-role" id="user-role">غير مسجّل</div>
-            </div>
-          </div>
-          <div class="sidebar-footer-actions">
-            <button
-              class="icon-btn admin-btn"
-              id="admin-btn"
-              onclick="goToAdminDashboard()"
-              style="display:none"
-              title="لوحة الإدارة"
-            >🛠️</button>
-            <button
-              class="icon-btn logout-btn"
-              id="logout-btn"
-              style="display:none"
-              title="تسجيل الخروج"
-            >⬆️</button>
-          </div>
-        </div>
-
-        <button
-          class="icon-btn sidebar-toggle-btn"
-          id="sidebar-toggle"
-          onclick="toggleSidebar()"
-          title="Toggle Sidebar"
-        >◀</button>
-      </aside>
-
-      <!-- ── Main chat area ────────────────────────────────────── -->
-      <div id="main">
-        <div id="topbar">
-          <div class="topbar-left">
-            <div class="bot-avatar">🤖</div>
-            <div class="topbar-title">
-              <span class="name">PPU Smart Assistant</span>
-              <span class="status">
-                <span class="status-dot"></span>
-                <span id="bot-status">متصل</span>
-              </span>
-            </div>
-          </div>
-          <div class="topbar-right">
-            <div class="lang-toggle" aria-label="Language">
-              <button class="lang-btn active" data-lang="ar" onclick="setLang('ar')">ع</button>
-              <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-            </div>
-            <button class="icon-btn" title="محادثة جديدة" onclick="startNewSession()">🗑️</button>
-          </div>
-        </div>
-
-        <div id="messages"></div>
-
-        <div id="input-area">
-          <div class="input-box">
-            <textarea
-              id="msg-input"
-              rows="1"
-              placeholder="اسأل عن الرسوم، الجداول، التسجيل..."
-            ></textarea>
-            <button id="send-btn" disabled>➤</button>
-          </div>
-          <div class="input-footer">
-            <span class="input-hint" id="input-hint"
-              >اضغط Enter للإرسال · Shift+Enter لسطر جديد</span
-            >
-          </div>
+      </div>
+      <div class="topbar-right">
+        <div class="lang-toggle" aria-label="Language">
+          <button class="lang-btn active" data-lang="ar" type="button">ع</button>
+          <button class="lang-btn"        data-lang="en" type="button">EN</button>
         </div>
       </div>
     </div>
 
-    <script src="chat.js"></script>
-  </body>
+    <div id="messages"></div>
+
+    <div id="input-area">
+      <div class="input-box">
+        <textarea
+          id="msg-input"
+          rows="1"
+          placeholder="اسأل عن الرسوم، الجداول، التسجيل..."
+        ></textarea>
+        <button id="send-btn" type="button" disabled>➤</button>
+      </div>
+      <span class="input-hint" id="input-hint">اضغط Enter للإرسال · Shift+Enter لسطر جديد</span>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<script type="module" src="js/chat.js"></script>
+</body>
 </html>
